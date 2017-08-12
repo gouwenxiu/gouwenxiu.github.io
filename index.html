@@ -180,8 +180,7 @@
 <p>$ node  即可进入 node 环境, 在 &gt; 后面书写命令与浏览器的控制台一样,这个用法常常用在一些测试环境, 或演示环境, 再或一些远程配置环境.</p>
 <p><strong>编写 js 文件, 用 node 运行( 主流 )</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1) 编写 js 文件( 需要符合 commondjs 规范 )</div><div class="line">2) 使用命令 `$ node 文件名`</div></pre></td></tr></table></figure></p>
 <h4 id="CommondJS-规范最主要的就是模块化"><a href="#CommondJS-规范最主要的就是模块化" class="headerlink" title="CommondJS 规范最主要的就是模块化"></a>CommondJS 规范最主要的就是模块化</h4><p>也就是将每一个 js 作为一个模块来使用. 如果要在一个 js 文件中使用另一个 js 文件中的代码( 使用其他模块 )就需要导入这个js代码,只有导入了才能使用,代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var res = require( &apos;模块名&apos; );</div><div class="line">这里 这个 require 好比 在 html 中 &lt;script src=&quot;....&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>举例演示:</strong></p>
-<p>要读取文件, 需要引入 FileSystem 这个包.</p>
+<p><strong>举例演示:</strong><br>要读取文件, 需要引入 FileSystem 这个包.</p>
 <p>该包是 node js 平台提供的. 类似于浏览器原生 api.<br>1&gt; 新建一个 app.js 文件<br>2&gt; 首先写上:fs是filesystem的简写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> var fs = require( &apos;fs&apos; );</div><div class="line">来导入 File System 模块. 导入了该模块才可以使用该模块中的方法</div></pre></td></tr></table></figure></p>
 <p>3&gt; 读取文件使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fs.readFile( &apos;文件名&apos;, function ( err, data ) &#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p><strong>注意:</strong><br>读取文件是硬盘操作. 机械操作会影响到代码运行的性能. 因此对于消耗想能的操作,<br>node 中都采用回调函数的形式来触发. </p>
@@ -618,11 +617,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
