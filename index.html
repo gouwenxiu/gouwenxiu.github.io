@@ -183,8 +183,8 @@
 <p><strong>举例演示:</strong><br>要读取文件, 需要引入 FileSystem 这个包.</p>
 <p>该包是 node js 平台提供的. 类似于浏览器原生 api.<br>1&gt; 新建一个 app.js 文件<br>2&gt; 首先写上:fs是filesystem的简写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> var fs = require( &apos;fs&apos; );</div><div class="line">来导入 File System 模块. 导入了该模块才可以使用该模块中的方法</div></pre></td></tr></table></figure></p>
 <p>3&gt; 读取文件使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fs.readFile( &apos;文件名&apos;, function ( err, data ) &#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><strong>注意:</strong><br>读取文件是硬盘操作. 机械操作会影响到代码运行的性能. 因此对于消耗想能的操作,<br>node 中都采用回调函数的形式来触发. </p>
-<p>该代码的含义是 读取某一个文件, 并提供一个回调函数, 然后 js 代码就继续向下运行.<br>待文件读取结束后, 回调函数会触发.</p>
+<p><strong>注意:</strong><br>读取文件是硬盘操作. 机械操作会影响到代码运行的性能. 因此对于消耗想能的操作, node 中都采用回调函数的形式来触发. </p>
+<p>该代码的含义是 读取某一个文件, 并提供一个回调函数, 然后 js 代码就继续向下运行.待文件读取结束后, 回调函数会触发.</p>
 <p>4&gt; 回调函数的参数 err 表示在在读取文件的时候是否会报错.参数 data 是读取到的数据, 是一个数组( 字节数组: node 平台给出的一个 buffer 类型 )</p>
 <h2 id="使用第三方的模块"><a href="#使用第三方的模块" class="headerlink" title="使用第三方的模块"></a>使用第三方的模块</h2><pre><code>下载完成以后按照文档的要求编写代码, gulp 等就是如此.
 </code></pre><h3 id="gulp-的使用步骤"><a href="#gulp-的使用步骤" class="headerlink" title="gulp 的使用步骤"></a>gulp 的使用步骤</h3><p>1.先下载全局的 gulp 包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g gulp --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
@@ -617,15 +617,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
             
             <div class="clearfix"></div>
