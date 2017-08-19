@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="//gouwenxiu.me">
   <title>requirejs 的使用 | gouwenxiu之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题( 作业 ): 如果后台设置的是 jsonp 的跨域规则, 我们的反向带有有问题么? 前端模块化前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的">
+  <meta name="description" content="前端模块化前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的过程中就在浏览器之外运行过js,但是这和当时的开发初衷不一样,也就不再使用了. js本身是不支">
 <meta name="keywords" content="tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="requirejs 的使用">
 <meta property="og:url" content="//gouwenxiu.me/2017/08/19/requirejs/index.html">
 <meta property="og:site_name" content="gouwenxiu之家">
-<meta property="og:description" content="问题( 作业 ): 如果后台设置的是 jsonp 的跨域规则, 我们的反向带有有问题么? 前端模块化前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的">
-<meta property="og:updated_time" content="2017-08-19T00:23:34.938Z">
+<meta property="og:description" content="前端模块化前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的过程中就在浏览器之外运行过js,但是这和当时的开发初衷不一样,也就不再使用了. js本身是不支">
+<meta property="og:updated_time" content="2017-08-19T00:25:14.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="requirejs 的使用">
-<meta name="twitter:description" content="问题( 作业 ): 如果后台设置的是 jsonp 的跨域规则, 我们的反向带有有问题么? 前端模块化前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的">
+<meta name="twitter:description" content="前端模块化前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的过程中就在浏览器之外运行过js,但是这和当时的开发初衷不一样,也就不再使用了. js本身是不支">
   
     <link rel="alternative" href="/atom.xml" title="gouwenxiu之家" type="application/atom+xml">
   
@@ -174,12 +174,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  问题( 作业 ): 如果后台设置的是 jsonp 的跨域规则, 我们的反向带有有问题么?</p>
-<h3 id="前端模块化"><a href="#前端模块化" class="headerlink" title="前端模块化"></a>前端模块化</h3><p>前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的过程中就在浏览器之外运行过js,但是这和当时的开发初衷不一样,也就不再使用了.</p>
+        <h3 id="前端模块化"><a href="#前端模块化" class="headerlink" title="前端模块化"></a>前端模块化</h3><p>前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的过程中就在浏览器之外运行过js,但是这和当时的开发初衷不一样,也就不再使用了.</p>
 <p>js本身是不支持模块化的.模块化是指在多个文件中编写js,然后将js合到一起使用,每一个文件是独立的,与其他文件呢互不影响的单独结构,合到一起又可以相互协作.</p>
 <h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><p>所谓的模块化是将我们的代码按照<strong>特定的逻辑</strong>组合到一起, 这个整体称为一个模块.</p>
 <h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>所谓的组件化, 是按照<strong>功能</strong>对代码进行组合, 得到一个独立的允许复用的完整结构, 称其为一个组件.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">组件也可以组合成模块: </div><div class="line">模块也可以组合成组件:</div><div class="line">```   </div><div class="line">     </div><div class="line"><span class="comment">### 前端模块化的发展历程</span></div><div class="line"><span class="comment">#### 简单发展历程</span></div><div class="line"></div><div class="line">**node 前期**</div><div class="line"></div><div class="line">      js 的发明就是一个拙劣的, 简单的, 为了让不懂代码的人写点页面交互,所以 js 根本没有模块的概念.所以有各种程序员用各种技巧模拟模块化( 沙箱模式 )</div><div class="line"></div><div class="line">**node 期**</div><div class="line"></div><div class="line">      node 将 js 从浏览器中剥离出来. 带来了 CommonJS 规则. 其实就是一个模块的加载规则.在 node 中将 每一个 js 库都看成一个模块. 使用 **先下载, 然后利用 require 将其导入**到代码中, 从而实现代码的使用.</div><div class="line"></div><div class="line">**浏览器的模块化时代**</div><div class="line"></div><div class="line">      有人说 浏览器也需要模块化, 因此借用 node 的思路, 打算在浏览器中创建模块化.</div><div class="line">      考虑:</div><div class="line">```bash</div><div class="line">var fs = require( <span class="string">'fs'</span> );</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">组件也可以组合成模块: </div><div class="line">模块也可以组合成组件:</div><div class="line">```   </div><div class="line"></div><div class="line"><span class="comment">### 前端模块化的发展历程</span></div><div class="line"><span class="comment">#### 简单发展历程</span></div><div class="line"></div><div class="line">**node 前期**</div><div class="line"></div><div class="line">      js 的发明就是一个拙劣的, 简单的, 为了让不懂代码的人写点页面交互,所以 js 根本没有模块的概念.所以有各种程序员用各种技巧模拟模块化( 沙箱模式 )</div><div class="line"></div><div class="line">**node 期**</div><div class="line"></div><div class="line">      node 将 js 从浏览器中剥离出来. 带来了 CommonJS 规则. 其实就是一个模块的加载规则.在 node 中将 每一个 js 库都看成一个模块. 使用 **先下载, 然后利用 require 将其导入**到代码中, 从而实现代码的使用.</div><div class="line"></div><div class="line">**浏览器的模块化时代**</div><div class="line"></div><div class="line">      有人说 浏览器也需要模块化, 因此借用 node 的思路, 打算在浏览器中创建模块化.</div><div class="line">      考虑:</div><div class="line">```bash</div><div class="line">var fs = require( <span class="string">'fs'</span> );</div></pre></td></tr></table></figure>
 <p>requare 函数是同步执行的还是异步执行的? 这个函数等待导入 fs 模块的 返回值, 所以一定是同步函数. 因此浏览器一定不能采用这个模型. 因此就有人提出借助这个 node 模型, 采用异步加载的形式作用到 浏览器上. 就发明了 AMD 的概念.<strong>AMD 是说 异步模块定义规则</strong>( ansy module definition ). 其代表就是 require.js</p>
 <p>阿里的玉伯, 认为这个异步加载比较麻烦. require.js 采用的 全部需要的库先<strong>加载再执行代码</strong>. 将其称之为 提前加载( 预加载 ). 他提出应该<strong>按需加载</strong>. 即用的时候在加载. 因此提出了 <strong>CMD 的概念即 CommonJS Module Definition</strong>. 其代表就是 sea.js</p>
 <p><strong>现在( webpack 的时代 )</strong></p>
@@ -484,7 +483,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,7 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
+                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
               </li>
             
             <div class="clearfix"></div>
