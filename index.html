@@ -155,6 +155,402 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-H5flex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/29/H5flex/">HTML5和CSS3(五)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/29/H5flex/" class="archive-article-date">
+  	<time datetime="2017-04-29T15:55:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用H5和CSS3来设置布局和H5CSS3的兼容处理</p>
+<h3 id="伸缩布局"><a href="#伸缩布局" class="headerlink" title="伸缩布局"></a>伸缩布局</h3><p>设置盒子为伸缩盒子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">display:flex;设置父盒子是伸缩盒子</div></pre></td></tr></table></figure>
+<p>伸缩盒子的特点:</p>
+<ul>
+<li><p>主轴:默认水平从左到右;</p>
+</li>
+<li><p>侧轴:始终垂直主轴从上到下;</p>
+</li>
+<li><p>在伸缩盒子中,子元素是按照主轴方向显示.</p>
+</li>
+</ul>
+<p>子元素在主轴方向的对齐方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">flex-start</td>
+<td style="text-align:center">主轴开始</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">flex-end</td>
+<td style="text-align:center">主轴结束</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">center</td>
+<td style="text-align:center">居中</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">space-between</td>
+<td style="text-align:center">之间有举例</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">space-around</td>
+<td style="text-align:center">环绕</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">strench</td>
+<td style="text-align:center">拉伸(默认值)</td>
+</tr>
+</tbody>
+</table>
+<p>子元素在侧轴方向上的对齐方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">align-itemst</td>
+<td style="text-align:center">flex-start</td>
+<td style="text-align:center">侧轴开始</td>
+</tr>
+<tr>
+<td style="text-align:center">align-itemst</td>
+<td style="text-align:center">flex-end</td>
+<td style="text-align:center">侧轴结束</td>
+</tr>
+<tr>
+<td style="text-align:center">align-itemst</td>
+<td style="text-align:center">center</td>
+<td style="text-align:center">居中始</td>
+</tr>
+</tbody>
+</table>
+<p>调整主轴的方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-direction:row(默认)\|cloumn\|row-reverse\|column-reverse</div></pre></td></tr></table></figure>
+<p>设置盒子是否换行显示</p>
+<ul>
+<li>默认盒子是不会换行显示的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">flex-wrap:nowrap;不换行显示</div><div class="line">flex-wrap:wrap;换行显示</div></pre></td></tr></table></figure>
+<p>盒子换行后对齐方式发生了变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">align-content:flex-start;</div><div class="line">align-content:flex-end;</div><div class="line">align-content:center;</div><div class="line">align-content:space-between;</div><div class="line">align-content:space-around;</div><div class="line">align-content:stretch;</div></pre></td></tr></table></figure>
+<p>设置伸缩盒子中子元素的属性</p>
+<p>flex:数值,代表子元素在父元素中所占的比例</p>
+<h3 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">column-count:2</td>
+<td style="text-align:center">设置列数</td>
+</tr>
+<tr>
+<td style="text-align:center">column:200px;</td>
+<td style="text-align:center">设置列宽</td>
+</tr>
+<tr>
+<td style="text-align:center">column-gap:50px</td>
+<td style="text-align:center">设置列间距</td>
+</tr>
+<tr>
+<td style="text-align:center">column-rule:1px solid #ccc</td>
+<td style="text-align:center">设置边线</td>
+</tr>
+<tr>
+<td style="text-align:center">column-span:all</td>
+<td style="text-align:center">设置标题跨列显示</td>
+</tr>
+</tbody>
+</table>
+<h3 id="C3兼容属性的处理"><a href="#C3兼容属性的处理" class="headerlink" title="C3兼容属性的处理"></a>C3兼容属性的处理</h3><p>一般兼容性的处理是在属性前面加浏览器的私有前缀,不能解决的时候应该避免使用,无需刻意去处理css3的兼容性问题</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/29/H5flex/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-H5animation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/25/H5animation/">HTML5和CSS3(四)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/25/H5animation/" class="archive-article-date">
+  	<time datetime="2017-04-25T14:18:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在html5和css3中有添加了很多css和html,js的新的特性,其中我最喜欢的就是这些动画了.太过瘾了,总结一下</p>
+<h4 id="过渡-补间动画"><a href="#过渡-补间动画" class="headerlink" title="过渡-补间动画"></a>过渡-补间动画</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">transition-property:all;</td>
+<td style="text-align:center">给什么样式设置过渡</td>
+</tr>
+<tr>
+<td style="text-align:center">transition-duration:1s;</td>
+<td style="text-align:center">过渡的事件</td>
+</tr>
+<tr>
+<td style="text-align:center">transition-delay:2s;</td>
+<td style="text-align:center">过渡的延迟事件</td>
+</tr>
+<tr>
+<td style="text-align:center">transition-timing-function:ease;</td>
+<td style="text-align:center">过渡的类型</td>
+</tr>
+<tr>
+<td style="text-align:center">transition-timing-function:linear;</td>
+<td style="text-align:center">匀速</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2D转换"><a href="#2D转换" class="headerlink" title="2D转换"></a>2D转换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">语法:transform:translate(x,y)</div></pre></td></tr></table></figure>
+<p>总结:</p>
+<ul>
+<li>设置一个值的时候这个是是水平方向,垂直为0;</li>
+<li>x轴和y轴的正方向分别是水平向右,垂直向下</li>
+<li>取值是正数的时候是沿着正方向,负值的时候相反.</li>
+<li>通过translate设置的移动是相对于自己的位置来移动的.</li>
+</ul>
+<h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform:rotate(角度)</div></pre></td></tr></table></figure>
+<p>总结:</p>
+<ul>
+<li>旋转中设置的是角度单位deg</li>
+<li>正数表示按照顺时针旋转,否则按照逆时针旋转.</li>
+</ul>
+<p>旋转点的设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">transform-origin:left top;</div><div class="line">transform-origin:100px 200px;</div></pre></td></tr></table></figure>
+<h3 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform:scale(0.5,1)</div></pre></td></tr></table></figure>
+<p>总结:</p>
+<ul>
+<li>设置一个值,x和y同时实现缩放</li>
+<li>实现放大的缩放,让x和y大于1,</li>
+<li>实现缩小的缩放,x和y在0-1之间</li>
+<li>不能设置负值</li>
+</ul>
+<h3 id="倾斜"><a href="#倾斜" class="headerlink" title="倾斜"></a>倾斜</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform:skew(x,y)</div></pre></td></tr></table></figure>
+<p>总结:</p>
+<ul>
+<li>x:代表沿着x轴倾斜,y代表沿着y轴倾斜</li>
+<li>设置一个值,代表x</li>
+<li>transform-origin:设置倾斜的轴心点</li>
+</ul>
+<h3 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h3><p>前面是2D的转换,在这里我们来学习一下三维的,和2D的方式一样,就是多了一些属性.</p>
+<h4 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">transform:translateZ(length) </div><div class="line">          translateX(length) </div><div class="line">          translateY(length);</div></pre></td></tr></table></figure>
+<p>注意:</p>
+<ul>
+<li>若是要实现立体的效果,需要添加perspective透视属性</li>
+<li>如果要设置perspective透视属性,需要添加到当前元素的父元素添加</li>
+<li>perspective的取值可以是任何值,但是推荐设置800-1000之间</li>
+</ul>
+<h4 id="旋转-1"><a href="#旋转-1" class="headerlink" title="旋转"></a>旋转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">transform:rotateX(-30deg);</div><div class="line">transform:rotateY(30deg);</div><div class="line">transform:rotateZ(-30deg)</div></pre></td></tr></table></figure>
+<h4 id="缩放-1"><a href="#缩放-1" class="headerlink" title="缩放"></a>缩放</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">transform:scaleX(2);</div><div class="line">transform:scaleY(2);</div><div class="line">transform:scaleZ(2);//没有效果</div></pre></td></tr></table></figure>
+<h4 id="倾斜-1"><a href="#倾斜-1" class="headerlink" title="倾斜"></a>倾斜</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">transform:skewX(20deg);</div><div class="line">transform:skewY(20deg);</div><div class="line">//没有z轴</div></pre></td></tr></table></figure>
+<h4 id="CSS3动画"><a href="#CSS3动画" class="headerlink" title="CSS3动画"></a>CSS3动画</h4><p>特点:不需要任何的触发条件,只要调用就立即执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">动画的定义</div><div class="line"></div><div class="line">@keyframes 动画名&#123;</div><div class="line">  form&#123;</div><div class="line">    transform:translateX(0px);</div><div class="line">  &#125;</div><div class="line">  to&#123;</div><div class="line">    transform:translateX(300px);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>动画的调用:</p>
+<p>通过animation来调用,,一个元素可以有多个动画,多个动画之间用逗号隔开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">animation:动画名1 2s infinite alternate,动画名2 2s 3s ;</div></pre></td></tr></table></figure>
+<p>动画中的属性:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">animation-name:move;</td>
+<td style="text-align:center">动画的名字</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-duration:2s;</td>
+<td style="text-align:center">动画完成的时间</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-interation-count:infinite;</td>
+<td style="text-align:center">动画执行的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-direction:alternate;</td>
+<td style="text-align:center">动画执行的方向,返回</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-timing-function:linear;</td>
+<td style="text-align:center">动画的速度类型</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-delay:1s;</td>
+<td style="text-align:center">动画的延时时间</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-fill-mode:forwards;</td>
+<td style="text-align:center">动画结束后的状态</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-play-state:paused</td>
+<td style="text-align:center">动画是否暂停</td>
+</tr>
+</tbody>
+</table>
+<p>注意:</p>
+<p>设置animation-fill-mode:forwards的时候必须要保证animation-interation-count的值不是infinite</p>
+<p>动画的其他设置方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@keyframse move&#123;</div><div class="line">  0%&#123;</div><div class="line">    transform:translate(0px);</div><div class="line">  &#125;</div><div class="line">  50%&#123;</div><div class="line">    background-color:red;</div><div class="line">  &#125;</div><div class="line">  100%&#123;</div><div class="line">    transform:translateX(300px);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>百分数是相对于动画的时间而言的.</p>
+<h4 id="动画执行完之后触发的事件"><a href="#动画执行完之后触发的事件" class="headerlink" title="动画执行完之后触发的事件:"></a>动画执行完之后触发的事件:</h4><p>webkitTransitionEnd事件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dom.addEventListener(&quot;webkitTransitionEnd&quot;,function()&#123;&#125;);</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/25/H5animation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-H5background" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1471,288 +1867,6 @@
 
 
   
-    <article id="post-gitCommond" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/14/gitCommond/">常用的linux命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/14/gitCommond/" class="archive-article-date">
-  	<time datetime="2017-02-14T06:57:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习的过程中常用的命令记不住怎么破,只能多用多总结喽!</p>
-<p>linux命令的基本语法:</p>
-<p>一般 linux 命令都带有选项与参数,选项一般用于控制如何操作, 带有 - 或 – 引导符号, 一个命令可以带有多个选项,参数一般用于表示处理什么东西,大部分命令都有不带参数与选项的形式.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ 命令名 [选项] [参数]</div></pre></td></tr></table></figure></p>
-<h5 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">ls</td>
-<td style="text-align:center">列出当前目录下的所有非隐藏的文件</td>
-</tr>
-<tr>
-<td style="text-align:center">ls -a 或ls –all</td>
-<td style="text-align:center">列出所有的文件</td>
-</tr>
-<tr>
-<td style="text-align:center">ls -l</td>
-<td style="text-align:center">文件的详细列表</td>
-</tr>
-<tr>
-<td style="text-align:center">ls -l -a 或者 ls –all -l</td>
-<td style="text-align:center">所有文件的详细列表</td>
-</tr>
-<tr>
-<td style="text-align:center">ls 路径</td>
-<td style="text-align:center">列举出制定能够路径下的当前目录</td>
-</tr>
-<tr>
-<td style="text-align:center">clear</td>
-<td style="text-align:center">清屏</td>
-</tr>
-<tr>
-<td style="text-align:center">pwd</td>
-<td style="text-align:center">打印当前全路径</td>
-</tr>
-<tr>
-<td style="text-align:center">~</td>
-<td style="text-align:center">家目录</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">表示根目录</td>
-</tr>
-<tr>
-<td style="text-align:center">./</td>
-<td style="text-align:center">当前目录</td>
-</tr>
-<tr>
-<td style="text-align:center">../</td>
-<td style="text-align:center">上级目录</td>
-</tr>
-<tr>
-<td style="text-align:center">cd</td>
-<td style="text-align:center">切换当前目录,输入的时候用tab键可以补全目录名</td>
-</tr>
-<tr>
-<td style="text-align:center">$ touch 文件名</td>
-<td style="text-align:center">创建文件</td>
-</tr>
-<tr>
-<td style="text-align:center">$ rm 文件名 或 rm 通配符</td>
-<td style="text-align:center">删除文件</td>
-</tr>
-<tr>
-<td style="text-align:center">$ cat 文件名</td>
-<td style="text-align:center">查看文件的内容( 文件内容较少 )</td>
-</tr>
-<tr>
-<td style="text-align:center">$ head 文件名</td>
-<td style="text-align:center">查看文件的前 10 行, 如果带有 -数字 表示查看前 n 行</td>
-</tr>
-<tr>
-<td style="text-align:center">$ tail 文件名</td>
-<td style="text-align:center">查看文件的后 10 行, 如果带有 -数字 表示查看后 n 行</td>
-</tr>
-<tr>
-<td style="text-align:center">$ more 或 less</td>
-<td style="text-align:center">( more 只许在 linux 下用)该命令以回车的形式查看每一行, 使用 q 退出</td>
-</tr>
-<tr>
-<td style="text-align:center">$ mkdir 文件夹名</td>
-<td style="text-align:center">创建文件夹</td>
-</tr>
-<tr>
-<td style="text-align:center">$ rmdir 文件夹名</td>
-<td style="text-align:center">删除文件夹</td>
-</tr>
-<tr>
-<td style="text-align:center">$ rm -rf</td>
-<td style="text-align:center">如果希望递归删除文件夹 需要使用命令</td>
-</tr>
-<tr>
-<td style="text-align:center">$命令 –help</td>
-<td style="text-align:center">可以打印出该命令的含义以及用法</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/14/gitCommond/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gulp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/13/gulp/">gulp学习前导</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/13/gulp/" class="archive-article-date">
-  	<time datetime="2017-02-12T23:29:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在现在的前端学习中,各种工具的使用使我们的工作变得越来越高效,今天来浅浅的学习一下gulp工具吧.你会知道前端的世界是多么的美好.快来快来学习喽!!!</p>
-<h4 id="node的基本使用"><a href="#node的基本使用" class="headerlink" title="node的基本使用"></a>node的基本使用</h4><p>node将js从浏览器中剥离出来,在之前的js的学习中,BOM和DOM都是浏览器中提供的API,所以在node中就没有了,只有ECMAScript了,约定了一套新的API,commondjs</p>
-<h4 id="node运行的基本模式"><a href="#node运行的基本模式" class="headerlink" title="node运行的基本模式"></a>node运行的基本模式</h4><p><strong>在命令行中运行</strong></p>
-<p>$ node  即可进入 node 环境, 在 &gt; 后面书写命令与浏览器的控制台一样,这个用法常常用在一些测试环境, 或演示环境, 再或一些远程配置环境.</p>
-<p><strong>编写 js 文件, 用 node 运行( 主流 )</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1) 编写 js 文件( 需要符合 commondjs 规范 )</div><div class="line">2) 使用命令 `$ node 文件名`</div></pre></td></tr></table></figure></p>
-<h4 id="CommondJS规范最主要的就是模块化"><a href="#CommondJS规范最主要的就是模块化" class="headerlink" title="CommondJS规范最主要的就是模块化"></a>CommondJS规范最主要的就是模块化</h4><p>也就是将每一个 js 作为一个模块来使用. 如果要在一个 js 文件中使用另一个 js 文件中的代码( 使用其他模块 )就需要导入这个js代码,只有导入了才能使用,代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var res = require( &apos;模块名&apos; );</div><div class="line">这里 这个 require 好比 在 html 中 &lt;script src=&quot;....&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>举例演示:</strong><br>要读取文件, 需要引入 FileSystem 这个包.</p>
-<p>该包是 node js 平台提供的. 类似于浏览器原生 api.<br>1&gt; 新建一个 app.js 文件<br>2&gt; 首先写上:fs是filesystem的简写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> var fs = require( &apos;fs&apos; );</div><div class="line">来导入 File System 模块. 导入了该模块才可以使用该模块中的方法</div></pre></td></tr></table></figure></p>
-<p>3&gt; 读取文件使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fs.readFile( &apos;文件名&apos;, function ( err, data ) &#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><strong>注意:</strong><br>读取文件是硬盘操作. 机械操作会影响到代码运行的性能. 因此对于消耗想能的操作, node 中都采用回调函数的形式来触发. </p>
-<p>该代码的含义是 读取某一个文件, 并提供一个回调函数, 然后 js 代码就继续向下运行.待文件读取结束后, 回调函数会触发.</p>
-<p>4&gt; 回调函数的参数 err 表示在在读取文件的时候是否会报错.参数 data 是读取到的数据, 是一个数组( 字节数组: node 平台给出的一个 buffer 类型 )</p>
-<h2 id="使用第三方的模块"><a href="#使用第三方的模块" class="headerlink" title="使用第三方的模块"></a>使用第三方的模块</h2><pre><code>下载完成以后按照文档的要求编写代码, gulp 等就是如此.
-</code></pre><h3 id="gulp的使用步骤"><a href="#gulp的使用步骤" class="headerlink" title="gulp的使用步骤"></a>gulp的使用步骤</h3><p>1.先下载全局的 gulp 包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g gulp --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
-<p>2.再下载局部的 gulp 包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
-<p>3.在当前目录下创建一个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulpfile.js这个文件名是约定好的,不能修改</div></pre></td></tr></table></figure></p>
-<p>4.在 gulpfile.js 中写处理代码</p>
-<p>5.使用 gulp 命令运行书写的代码</p>
-<h3 id="gulp代码的实现"><a href="#gulp代码的实现" class="headerlink" title="gulp代码的实现"></a>gulp代码的实现</h3><p>创建一个 任务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task( 任务名, function () &#123;</div><div class="line">  // 执行任务就是在执行这个函数</div><div class="line">&#125; )</div></pre></td></tr></table></figure></p>
-<p>确定要处理什么文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gulp.task( 任务名, function () &#123;</div><div class="line">  // 执行任务就是在执行这个函数</div><div class="line">  gulp.src( &apos;文件名&apos; )</div><div class="line">&#125; )</div></pre></td></tr></table></figure></p>
-<p>利用第三方提供的 方法, 例如方法名是 handle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task( 任务名, function () &#123;</div><div class="line">// 执行任务就是在执行这个函数</div><div class="line">    gulp.src( &apos;文件名&apos; )</div><div class="line">    .pipe( handle )</div><div class="line">&#125; )</div></pre></td></tr></table></figure></p>
-<p>将处理的结果保存到某一个文件夹中, 例如 output 文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">gulp.task( 任务名, function () &#123;</div><div class="line">  // 执行任务就是在执行这个函数</div><div class="line">  gulp.src( &apos;文件名&apos; )</div><div class="line">      .pipe( handle )</div><div class="line">      .pipe( gulp.dest( &apos;output&apos; ) );</div><div class="line">&#125; );</div></pre></td></tr></table></figure></p>
-<h3 id="常用的gulp-第三方库"><a href="#常用的gulp-第三方库" class="headerlink" title="常用的gulp 第三方库"></a>常用的gulp 第三方库</h3><pre><code>-&gt; gulp-concat  用于合并代码
--&gt; gulp-htmlmin 用于压缩 html 文件
--&gt; gulp-uglify 用于压缩 js 文件
--&gt; gulp-cssmin 用于压缩 css 文件
--&gt; gulp-rename, gulp-html-replace, ...
-</code></pre><h3 id="在-gulp中创建-多个任务-可以实现任务按照我们的要求顺序执行"><a href="#在-gulp中创建-多个任务-可以实现任务按照我们的要求顺序执行" class="headerlink" title="在 gulp中创建 多个任务, 可以实现任务按照我们的要求顺序执行"></a>在 gulp中创建 多个任务, 可以实现任务按照我们的要求顺序执行</h3><p>  语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task( &apos;当前任务名&apos;, [ 依赖任务 ], function () &#123;</div><div class="line">  // 当前任务执行的函数</div><div class="line">&#125; );</div></pre></td></tr></table></figure></p>
-<p><strong>注意:</strong><br>    所谓的依赖任务, 是表示, 当前任务如果要完成必须保证这个依赖任务执行完</p>
-<p>  比如:<br>    我们在开发的时候, 有可能会引入多个 js 文件, 但是在编码的时候 js 文件是按照人能看明白的方式编写的实际项目上线后 这些代码要先压缩, 再合并, 或者先合并再压缩.</p>
-<h3 id="gulp-watch监视"><a href="#gulp-watch监视" class="headerlink" title="gulp.watch监视"></a>gulp.watch监视</h3><p>  该方法用于监视文件的变化, 当文件发生变化的时候可以触发一个行为,用ctrl+c退出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp.watch( &apos;文件匹配&apos;, [ 依赖任务 ], function () &#123;&#125; )</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tools study</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/13/gulp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1862,11 +1976,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">
