@@ -155,6 +155,175 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bindFunction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/11/bindFunction/">bindFunction</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/11/bindFunction/" class="archive-article-date">
+  	<time datetime="2017-02-11T11:44:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在学习js的过程中对bind函数,也就是绑定函数的机理不是很理解,特地研究研究,分享一下o(<em>￣︶￣</em>)o</p>
+<p>在函数里面外面知道有一个很特殊的东西,在函数不同的调用中,他的指向是不一定的,知道这么特殊的人是谁了吧,没错这个就是函数中外面很爱用的this了.但是使用this的时候我们需要对函数中的this的指向要特别的了解,不然我们会被他伤害的体无完肤的.</p>
+<p>我们控制好this的时候也就可以来让this为我们服务了,这就表明this的指向我们是可以控制的.我们通常知道this是谁调用他this就指向谁.以下是this的最常用的指向:</p>
+<h3 id="函数在没有导向的时候调用的时候this的指向"><a href="#函数在没有导向的时候调用的时候this的指向" class="headerlink" title="函数在没有导向的时候调用的时候this的指向"></a>函数在没有导向的时候调用的时候this的指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo()&#123;</div><div class="line">    console.log(this);</div><div class="line">&#125;;</div><div class="line">foo(); //在这里this指向的是window对象</div></pre></td></tr></table></figure>
+<p>上面的函数在调用的时候this指向的是window对象.也就是说是window调用了函数foo.</p>
+<h3 id="对象中的方法在调用的时候this的指向"><a href="#对象中的方法在调用的时候this的指向" class="headerlink" title="对象中的方法在调用的时候this的指向"></a>对象中的方法在调用的时候this的指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var person=&#123;</div><div class="line">    name:&quot;wenxiu&quot;,</div><div class="line">    age:19,</div><div class="line">    gender:&quot;女&quot;,</div><div class="line">    special:function()&#123;</div><div class="line">        console.log(this.name+&quot;is a good person.&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">person.special();//wenxiu is a good person.</div></pre></td></tr></table></figure>
+<p>上面的函数在调用的时候使用person对象来引导函数,也就是说明函数中的this指向的是person对象.</p>
+<h3 id="用call和apply来调用函数"><a href="#用call和apply来调用函数" class="headerlink" title="用call和apply来调用函数"></a>用call和apply来调用函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">call来调用函数:</div><div class="line">Object.prototype.toString.call(null)</div><div class="line">apply来调用函数:</div><div class="line">Object.prototype.toString.apply(null)</div></pre></td></tr></table></figure>
+<h3 id="使用bind来提前绑定函数中的this指向"><a href="#使用bind来提前绑定函数中的this指向" class="headerlink" title="使用bind来提前绑定函数中的this指向"></a>使用bind来提前绑定函数中的this指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> var obj=&#123;</div><div class="line">        name:&quot;jim&quot;</div><div class="line">    &#125;;</div><div class="line">function foo()&#123;</div><div class="line">   console.log(this)</div><div class="line">&#125;</div><div class="line">没有绑定的时候this指向:</div><div class="line">foo();//window</div><div class="line">绑定的时候this指向:</div><div class="line">foo().bind(obj)//obj</div></pre></td></tr></table></figure>
+<p>也就是说在这段代码中this的指向有window指向到了obj对象,但是函数中国其他的指向也不发送变化;</p>
+<p>bind函数的执行机理,模拟bind函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Function.prototype.mybind=function(content)&#123;</div><div class="line">    var that=this;</div><div class="line">    return function()&#123;</div><div class="line">        that.apply(content,arguments);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>在这段函数中函数中this的指向的就是函数的调用者,也就是Function.prototype对象,将this先保存在对象that中,然后用apply调用,在里面讲函数中的this指向变更到content中,第二个参数是函数中传入的参数数组.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javascript基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/11/bindFunction/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-markdown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/12/markdown/">markdown基本语法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/12/markdown/" class="archive-article-date">
+  	<time datetime="2017-01-12T00:18:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>创建了博客之后,发现markdown语法还不会是什么样的心情.偷偷的来补习一下下喽.<br>声明只有干货,最简单的markdow语法.</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>#表示标题,几个#号表示是几级标题,标题和html一样一共分为6级标题,标题和#之间要有空格,不然解析为#号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#一级标题</div><div class="line">##二级标题</div><div class="line">###三级标题</div><div class="line">####四级标题</div><div class="line">#####五级标题</div><div class="line">######六级标题</div></pre></td></tr></table></figure></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>无须列表只需要在前面加上短横线”-“即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 无序列表</div></pre></td></tr></table></figure></p>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>有序列表在前面加上’数字点空格’即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. 内容</div></pre></td></tr></table></figure></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>在markdown中链接是用’<a href="链接地址">显示文本</a>‘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[显示文本](链接地址)</div></pre></td></tr></table></figure></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="图片链接地址" alt=""> 这样的语法就可以了,非常简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](图片链接地址)</div></pre></td></tr></table></figure></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>文本内容的引用是在文字的前面加上&gt;号就可以了,文字和大于号之间空一格字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 文本引用</div></pre></td></tr></table></figure></p>
+<p>代码引用,单行用`包含,多行用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">`之间的代码是单行引用</div><div class="line">&apos;```&apos;之间的是多行引用</div></pre></td></tr></table></figure></p>
+<h2 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h2><p>两个※之间包含的文本是粗体,一个※之间的内容是斜体<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">**文本是粗体**</div><div class="line">*文本是斜体*</div></pre></td></tr></table></figure></p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>|表示分隔单元格,—–先上面的表示是表格中的th,其中两边有点表示居中,点在那边就是靠那边对齐<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 1       | 2           |3      |</div><div class="line">| ------- |:-----------:| -----:|</div><div class="line">| left    | center      | right |</div><div class="line">| 1       | centered    |3      |</div><div class="line">| 1       | 2           |3      |</div></pre></td></tr></table></figure></p>
+<p>结束语:都学会了吧,看完之后最好操作一下,你会发现就一个空格的坑,我们都会掉很多回,不过尽情的踩吧,谁让我们是学习编程的呢,热爱编程的我们也习惯采坑了吧.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/12/markdown/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-second-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -442,11 +611,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
