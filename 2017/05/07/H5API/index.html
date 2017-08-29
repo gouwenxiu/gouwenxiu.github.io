@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//gouwenxiu.me">
-  <title>Tag: angular tools | 秀之家</title>
+  <title>HTML5和CSS3(六) | 秀之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="辽宁师范大学13级,擅长各项前端技能,总之很厉害">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="秀之家">
-<meta property="og:url" content="//gouwenxiu.me/tags/angular-tools/index.html">
+  <meta name="description" content="在H5和CSS3中新增了很多的API,在这里我们来阐述其中的几个. 网络状态   属性 含义 返回值     window.navigator.onLine 用户当前的网络状态 布尔值   window.online 用户网络连接时被调用 —   window.offline 用户网络断开时被调用 —    演示代码: 123456789101112window.navigator.addEven">
+<meta name="keywords" content="HTML5 CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5和CSS3(六)">
+<meta property="og:url" content="//gouwenxiu.me/2017/05/07/H5API/index.html">
 <meta property="og:site_name" content="秀之家">
-<meta property="og:description" content="辽宁师范大学13级,擅长各项前端技能,总之很厉害">
+<meta property="og:description" content="在H5和CSS3中新增了很多的API,在这里我们来阐述其中的几个. 网络状态   属性 含义 返回值     window.navigator.onLine 用户当前的网络状态 布尔值   window.online 用户网络连接时被调用 —   window.offline 用户网络断开时被调用 —    演示代码: 123456789101112window.navigator.addEven">
+<meta property="og:updated_time" content="2017-08-29T05:44:21.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="秀之家">
-<meta name="twitter:description" content="辽宁师范大学13级,擅长各项前端技能,总之很厉害">
+<meta name="twitter:title" content="HTML5和CSS3(六)">
+<meta name="twitter:description" content="在H5和CSS3中新增了很多的API,在这里我们来阐述其中的几个. 网络状态   属性 含义 返回值     window.navigator.onLine 用户当前的网络状态 布尔值   window.online 用户网络连接时被调用 —   window.offline 用户网络断开时被调用 —    演示代码: 123456789101112window.navigator.addEven">
   
     <link rel="alternative" href="/atom.xml" title="秀之家" type="application/atom+xml">
   
@@ -153,174 +154,318 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-H5API" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5和CSS3(六)
+    </h1>
+  
+
+        
+        <a href="/2017/05/07/H5API/" class="archive-article-date">
+  	<time datetime="2017-05-07T14:50:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在H5和CSS3中新增了很多的API,在这里我们来阐述其中的几个.</p>
+<h3 id="网络状态"><a href="#网络状态" class="headerlink" title="网络状态"></a>网络状态</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">window.navigator.onLine</td>
+<td style="text-align:center">用户当前的网络状态</td>
+<td style="text-align:center">布尔值</td>
+</tr>
+<tr>
+<td style="text-align:center">window.online</td>
+<td style="text-align:center">用户网络连接时被调用</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:center">window.offline</td>
+<td style="text-align:center">用户网络断开时被调用</td>
+<td style="text-align:center">—</td>
+</tr>
+</tbody>
+</table>
+<p>演示代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">window.navigator.addEventListener(<span class="string">"online"</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        alert(<span class="string">"有网络"</span>)</div><div class="line">&#125;);</div><div class="line">window.navigator.addEventListener(<span class="string">"offline"</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">  alert(<span class="string">"没有网络"</span>)</div><div class="line">&#125;);</div><div class="line">var state=window.navigator.onLine;</div><div class="line"><span class="keyword">if</span>(sstate)&#123;</div><div class="line">  alert(<span class="string">"有网"</span>)</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  alert(<span class="string">"无网络"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p> 通过FileReader对象可以读取本地储存的文件,使用File对象来制定要读取的文件或者数据,File对象可以是用户在input上传入的文件后返回的FileList对象,也可以是来自拖放操作生成的DataTransfer.</p>
+<p>H5中通过为表单元素添加multiple属性实现文件的多选,通过input上传文件后得到的FileList对象是以伪数组的像是存在.</p>
+<p>FileReader对象,是H5新增的内建对象,用于读取本地文件</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">—-</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">属性</td>
+<td style="text-align:center">result</td>
+<td style="text-align:center">文件读取的结果</td>
+</tr>
+<tr>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">readAsDataURL(),readASText()</td>
+<td style="text-align:center">读取路径和读取内容</td>
+</tr>
+<tr>
+<td style="text-align:center">事件</td>
+<td style="text-align:center">onload</td>
+<td style="text-align:center">文件读取结束</td>
+</tr>
+</tbody>
+</table>
+<h3 id="地理位置-Location-Base-Service"><a href="#地理位置-Location-Base-Service" class="headerlink" title="地理位置 Location Base Service"></a>地理位置 Location Base Service</h3><p>获取当前地理位置的方法:getCurrentPosition</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigator.geolocation.getCurrentPosition(successCallback,errorCallback)</div></pre></td></tr></table></figure>
+<p>实时获取地理位置:watchPosition</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigator.geolocation.watchPosition(successCallback,errprCallback)</div></pre></td></tr></table></figure>
+<p>解释: 获取地理位置值成功后悔调用successCallback,bingfanhui一个包含地理位置信息的对象,失败后悔调用errorCallback,并返回一个调用错误信息的对象,参数是Position.</p>
+<p>对象中的值:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">position.coords.latitude</td>
+<td style="text-align:center">纬度</td>
+</tr>
+<tr>
+<td style="text-align:center">position.coords.longitude</td>
+<td style="text-align:center">经度</td>
+</tr>
+<tr>
+<td style="text-align:center">position.coords.accuracy</td>
+<td style="text-align:center">精度</td>
+</tr>
+<tr>
+<td style="text-align:center">position.coords.altitude</td>
+<td style="text-align:center">海拔高度</td>
+</tr>
+</tbody>
+</table>
+<p>演示代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(successCallback,errorCallback);</div><div class="line"><span class="keyword">function</span> successCallback(position)&#123;</div><div class="line">  var wd=position.coords.latitude;</div><div class="line">  var jd=position.coords.longitude;</div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> errorCallback(msg)&#123;</div><div class="line">  console.log(msg)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="web存储"><a href="#web存储" class="headerlink" title="web存储"></a>web存储</h3><p>jQuery中cookie的设置和获取</p>
+<p>$cookie(key,value)  设置cookie值<br>$.cookie(key)   通过键获取具体的cookie值<br>$.cookie() 获取所有的cookie值,返回对象</p>
+<p>sessionStorage的使用:<br>|方法 | 含义|<br>|:–:|:–:|<br>|window.sessionStorage.setItem(key,value) |设置值|<br>|window.sessionStorage.getItem(key)  |获取值|<br>|window.sessionStorage.getItem()  |获取全部的值,一对象的方式返回|<br>|window.sessionStorange.removeItem(key) |移除|<br>|window.sessionStorage.clear() |清除所有|</p>
+<p>注意:页面关闭之后数据不能被再次使用,只能在当前页面中使用,不能实现跨页面使用,5M</p>
+<p>localStorage的使用</p>
+<p>注意:</p>
+<ul>
+<li>永久生效,除非手动删除</li>
+<li>可以多窗口共享</li>
+<li>容量约为20M</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.localStorage.setItem(k1,value)</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">setItem(key,value)</td>
+<td style="text-align:center">设置存储内容</td>
+</tr>
+<tr>
+<td style="text-align:center">getItem(key)</td>
+<td style="text-align:center">获取存储内容</td>
+</tr>
+<tr>
+<td style="text-align:center">removeItem(key)</td>
+<td style="text-align:center">删除键值是key的存储内容</td>
+</tr>
+<tr>
+<td style="text-align:center">clear()</td>
+<td style="text-align:center">清空所有储存内容</td>
+</tr>
+<tr>
+<td style="text-align:center">key(n)</td>
+<td style="text-align:center">以索引值来获取存储的内容</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/28/angular-day4/" class="archive-article-date">
-  	<time datetime="2017-03-28T02:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/angular-day4/">angular学习之旅第四天</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/05/07/H5API/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/26/angularday3/" class="archive-article-date">
-  	<time datetime="2017-03-26T15:50:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/29/H5flex/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5和CSS3(五)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/26/angularday3/">angular学习之旅第三天</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="H5API" data-title="HTML5和CSS3(六)" data-url="//gouwenxiu.me/2017/05/07/H5API/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/25/angular-day2/" class="archive-article-date">
-  	<time datetime="2017-03-25T11:30:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/25/angular-day2/">angular学习之旅第二天</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/24/angular code/" class="archive-article-date">
-  	<time datetime="2017-03-24T13:37:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/24/angular code/">angularday学习之旅第一天</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -343,9 +488,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

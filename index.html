@@ -155,6 +155,213 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-H5API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/07/H5API/">HTML5和CSS3(六)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/07/H5API/" class="archive-article-date">
+  	<time datetime="2017-05-07T14:50:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在H5和CSS3中新增了很多的API,在这里我们来阐述其中的几个.</p>
+<h3 id="网络状态"><a href="#网络状态" class="headerlink" title="网络状态"></a>网络状态</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">window.navigator.onLine</td>
+<td style="text-align:center">用户当前的网络状态</td>
+<td style="text-align:center">布尔值</td>
+</tr>
+<tr>
+<td style="text-align:center">window.online</td>
+<td style="text-align:center">用户网络连接时被调用</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:center">window.offline</td>
+<td style="text-align:center">用户网络断开时被调用</td>
+<td style="text-align:center">—</td>
+</tr>
+</tbody>
+</table>
+<p>演示代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">window.navigator.addEventListener(<span class="string">"online"</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        alert(<span class="string">"有网络"</span>)</div><div class="line">&#125;);</div><div class="line">window.navigator.addEventListener(<span class="string">"offline"</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">  alert(<span class="string">"没有网络"</span>)</div><div class="line">&#125;);</div><div class="line">var state=window.navigator.onLine;</div><div class="line"><span class="keyword">if</span>(sstate)&#123;</div><div class="line">  alert(<span class="string">"有网"</span>)</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  alert(<span class="string">"无网络"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p> 通过FileReader对象可以读取本地储存的文件,使用File对象来制定要读取的文件或者数据,File对象可以是用户在input上传入的文件后返回的FileList对象,也可以是来自拖放操作生成的DataTransfer.</p>
+<p>H5中通过为表单元素添加multiple属性实现文件的多选,通过input上传文件后得到的FileList对象是以伪数组的像是存在.</p>
+<p>FileReader对象,是H5新增的内建对象,用于读取本地文件</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">—-</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">属性</td>
+<td style="text-align:center">result</td>
+<td style="text-align:center">文件读取的结果</td>
+</tr>
+<tr>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">readAsDataURL(),readASText()</td>
+<td style="text-align:center">读取路径和读取内容</td>
+</tr>
+<tr>
+<td style="text-align:center">事件</td>
+<td style="text-align:center">onload</td>
+<td style="text-align:center">文件读取结束</td>
+</tr>
+</tbody>
+</table>
+<h3 id="地理位置-Location-Base-Service"><a href="#地理位置-Location-Base-Service" class="headerlink" title="地理位置 Location Base Service"></a>地理位置 Location Base Service</h3><p>获取当前地理位置的方法:getCurrentPosition</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigator.geolocation.getCurrentPosition(successCallback,errorCallback)</div></pre></td></tr></table></figure>
+<p>实时获取地理位置:watchPosition</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigator.geolocation.watchPosition(successCallback,errprCallback)</div></pre></td></tr></table></figure>
+<p>解释: 获取地理位置值成功后悔调用successCallback,bingfanhui一个包含地理位置信息的对象,失败后悔调用errorCallback,并返回一个调用错误信息的对象,参数是Position.</p>
+<p>对象中的值:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">position.coords.latitude</td>
+<td style="text-align:center">纬度</td>
+</tr>
+<tr>
+<td style="text-align:center">position.coords.longitude</td>
+<td style="text-align:center">经度</td>
+</tr>
+<tr>
+<td style="text-align:center">position.coords.accuracy</td>
+<td style="text-align:center">精度</td>
+</tr>
+<tr>
+<td style="text-align:center">position.coords.altitude</td>
+<td style="text-align:center">海拔高度</td>
+</tr>
+</tbody>
+</table>
+<p>演示代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(successCallback,errorCallback);</div><div class="line"><span class="keyword">function</span> successCallback(position)&#123;</div><div class="line">  var wd=position.coords.latitude;</div><div class="line">  var jd=position.coords.longitude;</div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> errorCallback(msg)&#123;</div><div class="line">  console.log(msg)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="web存储"><a href="#web存储" class="headerlink" title="web存储"></a>web存储</h3><p>jQuery中cookie的设置和获取</p>
+<p>$cookie(key,value)  设置cookie值<br>$.cookie(key)   通过键获取具体的cookie值<br>$.cookie() 获取所有的cookie值,返回对象</p>
+<p>sessionStorage的使用:<br>|方法 | 含义|<br>|:–:|:–:|<br>|window.sessionStorage.setItem(key,value) |设置值|<br>|window.sessionStorage.getItem(key)  |获取值|<br>|window.sessionStorage.getItem()  |获取全部的值,一对象的方式返回|<br>|window.sessionStorange.removeItem(key) |移除|<br>|window.sessionStorage.clear() |清除所有|</p>
+<p>注意:页面关闭之后数据不能被再次使用,只能在当前页面中使用,不能实现跨页面使用,5M</p>
+<p>localStorage的使用</p>
+<p>注意:</p>
+<ul>
+<li>永久生效,除非手动删除</li>
+<li>可以多窗口共享</li>
+<li>容量约为20M</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.localStorage.setItem(k1,value)</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">setItem(key,value)</td>
+<td style="text-align:center">设置存储内容</td>
+</tr>
+<tr>
+<td style="text-align:center">getItem(key)</td>
+<td style="text-align:center">获取存储内容</td>
+</tr>
+<tr>
+<td style="text-align:center">removeItem(key)</td>
+<td style="text-align:center">删除键值是key的存储内容</td>
+</tr>
+<tr>
+<td style="text-align:center">clear()</td>
+<td style="text-align:center">清空所有储存内容</td>
+</tr>
+<tr>
+<td style="text-align:center">key(n)</td>
+<td style="text-align:center">以索引值来获取存储的内容</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/07/H5API/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-H5flex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1731,142 +1938,6 @@
 
 
   
-    <article id="post-requirejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/01/requirejs/">requirejs 的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/01/requirejs/" class="archive-article-date">
-  	<time datetime="2017-03-01T00:15:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前端模块化"><a href="#前端模块化" class="headerlink" title="前端模块化"></a>前端模块化</h3><p>前端这几年特别火,发展快的原因是因为很多后端开发者进入了前端领域,将后台开发的各种思想带入到了前端开发,javasscript开始的时候是应运于浏览器的,node将js从浏览器中剥离,使前端的的发展出现了一个契机,但是实际上node是和angular是在同一时期提出的.js的创始人也在开发js的过程中就在浏览器之外运行过js,但是这和当时的开发初衷不一样,也就不再使用了.</p>
-<p>js本身是不支持模块化的.模块化是指在多个文件中编写js,然后将js合到一起使用,每一个文件是独立的,与其他文件呢互不影响的单独结构,合到一起又可以相互协作.</p>
-<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><p>所谓的模块化是将我们的代码按照<strong>特定的逻辑</strong>组合到一起, 这个整体称为一个模块.</p>
-<h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>所谓的组件化, 是按照<strong>功能</strong>对代码进行组合, 得到一个独立的允许复用的完整结构, 称其为一个组件.</p>
-<p> 组件也可以组合成模块:<br> 模块也可以组合成组件:</p>
-<h3 id="前端模块化的发展历程"><a href="#前端模块化的发展历程" class="headerlink" title="前端模块化的发展历程"></a>前端模块化的发展历程</h3><h4 id="简单发展历程"><a href="#简单发展历程" class="headerlink" title="简单发展历程"></a>简单发展历程</h4><p><strong>node 前期</strong></p>
-<pre><code>js 的发明就是一个拙劣的, 简单的, 为了让不懂代码的人写点页面交互,所以 js 根本没有模块的概念.所以有各种程序员用各种技巧模拟模块化( 沙箱模式 )
-</code></pre><p><strong>node 期</strong></p>
-<pre><code>node 将 js 从浏览器中剥离出来. 带来了 CommonJS 规则. 其实就是一个模块的加载规则.在 node 中将 每一个 js 库都看成一个模块. 使用 **先下载, 然后利用 require 将其导入**到代码中, 从而实现代码的使用.
-</code></pre><p><strong>浏览器的模块化时代</strong></p>
-<pre><code>有人说 浏览器也需要模块化, 因此借用 node 的思路, 打算在浏览器中创建模块化.
-考虑:
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require( <span class="string">'fs'</span> );</div></pre></td></tr></table></figure>
-<p>requare 函数是同步执行的还是异步执行的? 这个函数等待导入 fs 模块的 返回值, 所以一定是同步函数. 因此浏览器一定不能采用这个模型. 因此就有人提出借助这个 node 模型, 采用异步加载的形式作用到 浏览器上. 就发明了 AMD 的概念.<strong>AMD 是说 异步模块定义规则</strong>( ansy module definition ). 其代表就是 require.js</p>
-<p>阿里的玉伯, 认为这个异步加载比较麻烦. require.js 采用的 全部需要的库先<strong>加载再执行代码</strong>. 将其称之为 提前加载( 预加载 ). 他提出应该<strong>按需加载</strong>. 即用的时候在加载. 因此提出了 <strong>CMD 的概念即 CommonJS Module Definition</strong>. 其代表就是 sea.js</p>
-<p><strong>现在( webpack 的时代 )</strong></p>
-<p>我们利用 高级的 js 语言特性(js自己可以写模块的代码啦)来编写具有模块化特征的 js 代码, 然后利用 webpack 来编译这个高级的代码. 也就是说在新的 js 发展趋势下, js 已经具备模块化特征. 所以玉伯停止了对 sea.js 的继续开发.</p>
-<p><strong>今天我们来学习AMD的代表作,requires.js.</strong></p>
-<h3 id="requirejs-基础"><a href="#requirejs-基础" class="headerlink" title="requirejs 基础"></a>requirejs 基础</h3><p>资料<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">网站: http://requirejs.org/</div></pre></td></tr></table></figure></p>
-<p>下载<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require.js</div></pre></td></tr></table></figure></p>
-<p> 定义模块( 就是一个 js 文件 )<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">语法:</div><div class="line">define( <span class="string">'模块名'</span>, [ 依赖项 ], <span class="keyword">function</span> ( 依赖列表 ) &#123;</div><div class="line">// 我们自己的代码</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><strong>参数说明:</strong></p>
-<p>参数1:模块名:表示当前模块的名字,一般不使用,表示创建匿名模块</p>
-<p>参数2:依赖项,表示当前模块编写的时候需要的依赖项,也就是必须要导入的js模块</p>
-<p>参数3:当前模块代码的编写地方,回调函数产手术的依次是模块的返回值</p>
-<p>加载模块的语法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">语法:require( [ <span class="string">'模块名'</span> ] );</div></pre></td></tr></table></figure></p>
-<p><strong>参数说明:</strong><br>1.使用require加载模块,可以一次加载一个,也可以加载多个,将模块的米子置于数组中即可.</p>
-<p>2.模块的名字在使用的时候是没有路径名(./)和后缀名.js的文件名,若是使用了路径和后缀名,就采用相对路径或者绝对路径来对文件进行定位.</p>
-<p><strong>多个模块如何协作( 即多个 js 文件, 加到一个 html 页面中 )</strong></p>
-<p>功能协作</p>
-<p>两个模块独立执行某件事情, 一个互相依赖, 一个互不依赖<br>1&gt; 互相依赖的</p>
-<p> 需求:  模块1 在页面中创建一个 div,模块2 在页面中给 div 添加样式,所以模块 2 依赖于 模块 1</p>
-<p> 代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">module1.js:创建div</div><div class="line">define(<span class="function"><span class="title">functon</span></span>()&#123;</div><div class="line">    var div=document.createElement(<span class="string">"div);</span></div><div class="line"><span class="string">    document.body.applendChild(div);</span></div><div class="line"><span class="string">&#125;)</span></div><div class="line"><span class="string">module2.js:给div添加样式</span></div><div class="line"><span class="string">define(["</span>module1],<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var div=document.querySelector(<span class="string">"div);</span></div><div class="line"><span class="string">    div.style.width="</span>200px<span class="string">";</span></div><div class="line"><span class="string">    div.style.height="</span>100px<span class="string">";</span></div><div class="line"><span class="string">    div.style.border="</span>1px solid red;</div><div class="line">&#125;)</div><div class="line">html:引入模块,引入模块2,由于module1在2中引入过,这里就不在引入,但是就算引入也只会加载一次,这是require处理的</div><div class="line">&lt;script src=<span class="string">"require.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt; </div><div class="line"> require([<span class="string">"module2])</span></div><div class="line"><span class="string">&lt;/script&gt;</span></div></pre></td></tr></table></figure></p>
-<p>2&gt; 不互相依赖的</p>
-<p>需求:模块1 在页面中创建一个 红色的 div,模块2 在页面中创建一个 蓝色的 div</p>
-<p>代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">module1.js</div><div class="line">define(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var div=document.createElement(<span class="string">"div);</span></div><div class="line"><span class="string">    div.style.width="</span>200px<span class="string">";</span></div><div class="line"><span class="string">    div.style.height="</span>100px<span class="string">";</span></div><div class="line"><span class="string">    div.style.border="</span>1px solid red;</div><div class="line">    document.body.appendChild(div);</div><div class="line">&#125;)</div><div class="line">module2.js</div><div class="line">define(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var div=document.createElement(<span class="string">"div);</span></div><div class="line"><span class="string">    div.style.width="</span>200px<span class="string">";</span></div><div class="line"><span class="string">    div.style.height="</span>100px<span class="string">";</span></div><div class="line"><span class="string">    div.style.border="</span>1px solid blue;</div><div class="line">    document.body.appendChild(div);</div><div class="line">&#125;)</div><div class="line">html:</div><div class="line">&lt;script src=<span class="string">"require.js"</span>&gt;&lt;/script&gt;</div><div class="line"> &lt;script&gt; </div><div class="line">  require([<span class="string">"module1"</span>,<span class="string">"module2])</span></div><div class="line"><span class="string"> &lt;/script&gt;</span></div></pre></td></tr></table></figure></p>
-<p>返回数据协作( 第三方库都是这么处理的 )</p>
-<p>模块一的返回值在模块2中以回调函数的参数来接受</p>
-<p>需求: 模块1 创建了一个获得元素, 处理 样式的 一套 api( 一套方法, 或一个对象 ),模块2 在使用的时候需要用到 模块1 创建的 东西<br>        实现方式就是让 模块1 返回一个数据, 在 模块2 中利用回调函数来接收<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">module1.js</div><div class="line">define(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var arr=[],</div><div class="line">        slice=arr.slice;</div><div class="line">    <span class="keyword">function</span> selector(selector)&#123;</div><div class="line">        <span class="built_in">return</span> slice.call(document.querySelectorAll(selector));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">function</span> css(tag,options)&#123;</div><div class="line">        tag.foreach(<span class="keyword">function</span>(dom)&#123;</div><div class="line">            <span class="keyword">for</span>(var k <span class="keyword">in</span> options)&#123;</div><div class="line">                dom.style[k]=options[k];</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">    var tools=&#123;</div><div class="line">        selector:selector,</div><div class="line">        css:css</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> css;</div><div class="line">&#125;)</div><div class="line">module2.js</div><div class="line">define([<span class="string">"module1"</span>],<span class="keyword">function</span>(tools)&#123;</div><div class="line">    var divs=tools.selector(<span class="string">"div);</span></div><div class="line"><span class="string">    tools.css(divs,&#123;</span></div><div class="line"><span class="string">        width:"</span>100px<span class="string">",</span></div><div class="line"><span class="string">        height:"</span>200px<span class="string">",</span></div><div class="line"><span class="string">        border:"</span>1px solid red<span class="string">"</span></div><div class="line"><span class="string">    &#125;)</span></div><div class="line"><span class="string">&#125;)</span></div><div class="line"><span class="string">html:</span></div><div class="line"><span class="string">&lt;script src="</span>require.js<span class="string">"&gt;&lt;/script&gt;</span></div><div class="line"><span class="string">&lt;script&gt; </span></div><div class="line"><span class="string">  require(["</span>module2])</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div&gt;&lt;/div&gt;</div><div class="line">    &lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure></p>
-<p>路径的搜索规则( 没有路径符号, 没有后缀名 )</p>
-<ul>
-<li>如果使用绝对路径与相对路径, 这个搜索规则无效</li>
-<li>默认查找方式:<br>  采用 与当前 html 文件所在的目录为查找起点,此时与相对路径 ./ 类似</li>
-<li>配置模块入口<br>  我们在使用 <code>&lt;script&gt;</code> 标签, 来加载 require.js 这个文件的时候, 可以配置data-main 这个属性来配置默认加载模块. 配置默认模块后, html 页面一加载就会,自动的加载该模块. 所有的模块加载路径采用这个默认模块所在的目录为参考路径.</li>
-<li><p>增加配置文件, 约定搜索路径( 推荐 )</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require.config(&#123;</div><div class="line">  baseUrl: <span class="string">'搜索的基础路径'</span>  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>requirejs 高级</p>
-<p>关于模块的路径</p>
-<p>  配置选项中可以带有一个 paths 属性, 用于配置每一个模块的短名字, 在实际开发的时候用短名字来加载模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">其语法:</div><div class="line">  require.config(&#123;</div><div class="line">    baseUrl: <span class="string">'搜索路径'</span>,</div><div class="line">    paths: &#123;</div><div class="line">      短名字1: <span class="string">'长名字'</span>,</div><div class="line">      短名字2: <span class="string">'长名字'</span>,</div><div class="line">      ...</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="命名模块的使用-命名模块很麻烦"><a href="#命名模块的使用-命名模块很麻烦" class="headerlink" title="命名模块的使用( 命名模块很麻烦 )"></a>命名模块的使用( 命名模块很麻烦 )</h3><p><strong>使用命名模块的要求:</strong></p>
-<pre><code>1&gt; 文件名必须与模块的名字一模一样
-
-2&gt; 给 jq 配置短名字, 要求短名字与命名的名字一模一样即可
-</code></pre><h3 id="扩展-require-函数"><a href="#扩展-require-函数" class="headerlink" title="扩展 require 函数"></a>扩展 require 函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require( [ 模块列表 ], <span class="keyword">function</span> ( 模块列表 ) &#123;</div><div class="line">  // 在加载模块完毕后立即执行, 其参数就是各个模块的导出的值</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<pre><code>利用 jq 在页面中进行处理 DOM
-</code></pre><h3 id="处理非模块"><a href="#处理非模块" class="headerlink" title="处理非模块"></a>处理非模块</h3><p>1&gt; 依赖模型<br>      例如: jquery 插件. 首先它是一个 jquery 插件, 第二它又不是一个模块.例如我们就以 jquery 与 bootstrap 为例.</p>
-<p><strong>解决方案:</strong>在配置文件中提供一个依赖模块( bootstrap )的短名字,增加一个 shim 属性, 在 shim 属性中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">shim: &#123;</div><div class="line">  依赖模块: &#123;</div><div class="line">    deps: [ 被依赖模块 ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">shim: &#123;</div><div class="line">    bootstrap:&#123;</div><div class="line">        deps:[<span class="string">"jquery"</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2&gt; 导出模型</p>
-<p>例如之前我们写的一些 js 库. 它没有按照模块的方式进行编写.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">  window.jdu = &#123;</div><div class="line">    name: <span class="string">'捷渡'</span>,</div><div class="line">    age: 19,</div><div class="line">    gender: <span class="string">'男'</span></div><div class="line">  &#125;;</div><div class="line">&#125;)(); // 传统的写法</div></pre></td></tr></table></figure></p>
-<p><strong>解决方案:</strong>依旧给这个 js 库添加一个短名字,然后增加一个 shim 配置属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">shim: &#123;</div><div class="line">  导出库的短名字: &#123;</div><div class="line">    exports: <span class="string">'你要导出的那个东西的名字'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/01/requirejs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1984,11 +2055,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
               </li>
             
             <div class="clearfix"></div>
