@@ -269,7 +269,37 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(successCallback,errorCallback);</div><div class="line"><span class="keyword">function</span> successCallback(position)&#123;</div><div class="line">  var wd=position.coords.latitude;</div><div class="line">  var jd=position.coords.longitude;</div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> errorCallback(msg)&#123;</div><div class="line">  console.log(msg)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="web存储"><a href="#web存储" class="headerlink" title="web存储"></a>web存储</h3><p>jQuery中cookie的设置和获取</p>
 <p>$cookie(key,value)  设置cookie值<br>$.cookie(key)   通过键获取具体的cookie值<br>$.cookie() 获取所有的cookie值,返回对象</p>
-<p>sessionStorage的使用:<br>|方法 | 含义|<br>|:–:|:–:|<br>|window.sessionStorage.setItem(key,value) |设置值|<br>|window.sessionStorage.getItem(key)  |获取值|<br>|window.sessionStorage.getItem()  |获取全部的值,一对象的方式返回|<br>|window.sessionStorange.removeItem(key) |移除|<br>|window.sessionStorage.clear() |清除所有|</p>
+<p>sessionStorage的使用:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">window.sessionStorage.setItem(key,value)</td>
+<td style="text-align:center">设置值</td>
+</tr>
+<tr>
+<td style="text-align:center">window.sessionStorage.getItem(key)</td>
+<td style="text-align:center">获取值</td>
+</tr>
+<tr>
+<td style="text-align:center">window.sessionStorage.getItem()</td>
+<td style="text-align:center">获取全部的值,一对象的方式返回</td>
+</tr>
+<tr>
+<td style="text-align:center">window.sessionStorange.removeItem(key)</td>
+<td style="text-align:center">移除</td>
+</tr>
+<tr>
+<td style="text-align:center">window.sessionStorage.clear()</td>
+<td style="text-align:center">清除所有</td>
+</tr>
+</tbody>
+</table>
 <p>注意:页面关闭之后数据不能被再次使用,只能在当前页面中使用,不能实现跨页面使用,5M</p>
 <p>localStorage的使用</p>
 <p>注意:</p>
@@ -2055,11 +2085,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
