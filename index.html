@@ -268,7 +268,11 @@
 <p>演示代码:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(successCallback,errorCallback);</div><div class="line"><span class="keyword">function</span> successCallback(position)&#123;</div><div class="line">  var wd=position.coords.latitude;</div><div class="line">  var jd=position.coords.longitude;</div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> errorCallback(msg)&#123;</div><div class="line">  console.log(msg)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="web存储"><a href="#web存储" class="headerlink" title="web存储"></a>web存储</h3><p>jQuery中cookie的设置和获取</p>
-<p>$cookie(key,value)  设置cookie值<br>$.cookie(key)   通过键获取具体的cookie值<br>$.cookie() 获取所有的cookie值,返回对象</p>
+<ul>
+<li>$cookie(key,value)  设置cookie值</li>
+<li>$.cookie(key)   通过键获取具体的cookie值</li>
+<li>$.cookie() 获取所有的cookie值,返回对象</li>
+</ul>
 <p>sessionStorage的使用:</p>
 <table>
 <thead>

@@ -15,7 +15,7 @@
 <meta property="og:url" content="//gouwenxiu.me/2017/05/07/H5API/index.html">
 <meta property="og:site_name" content="秀之家">
 <meta property="og:description" content="在H5和CSS3中新增了很多的API,在这里我们来阐述其中的几个. 网络状态   属性 含义 返回值     window.navigator.onLine 用户当前的网络状态 布尔值   window.online 用户网络连接时被调用 —   window.offline 用户网络断开时被调用 —    演示代码: 123456789101112window.navigator.addEven">
-<meta property="og:updated_time" content="2017-08-29T05:46:56.159Z">
+<meta property="og:updated_time" content="2017-08-29T05:54:35.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5和CSS3(六)">
 <meta name="twitter:description" content="在H5和CSS3中新增了很多的API,在这里我们来阐述其中的几个. 网络状态   属性 含义 返回值     window.navigator.onLine 用户当前的网络状态 布尔值   window.online 用户网络连接时被调用 —   window.offline 用户网络断开时被调用 —    演示代码: 123456789101112window.navigator.addEven">
@@ -267,7 +267,11 @@
 <p>演示代码:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(successCallback,errorCallback);</div><div class="line"><span class="keyword">function</span> successCallback(position)&#123;</div><div class="line">  var wd=position.coords.latitude;</div><div class="line">  var jd=position.coords.longitude;</div><div class="line">&#125;</div><div class="line"><span class="keyword">function</span> errorCallback(msg)&#123;</div><div class="line">  console.log(msg)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="web存储"><a href="#web存储" class="headerlink" title="web存储"></a>web存储</h3><p>jQuery中cookie的设置和获取</p>
-<p>$cookie(key,value)  设置cookie值<br>$.cookie(key)   通过键获取具体的cookie值<br>$.cookie() 获取所有的cookie值,返回对象</p>
+<ul>
+<li>$cookie(key,value)  设置cookie值</li>
+<li>$.cookie(key)   通过键获取具体的cookie值</li>
+<li>$.cookie() 获取所有的cookie值,返回对象</li>
+</ul>
 <p>sessionStorage的使用:</p>
 <table>
 <thead>
