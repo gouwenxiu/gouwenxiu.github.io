@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//gouwenxiu.me">
-  <title>HTML5和CSS3(二) | 秀之家</title>
+  <title>ES6(一) | 秀之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
-<meta name="keywords" content="HTML5 CSS3">
+  <meta name="description" content="ES6的介绍  ES6 是一个规范,不同的浏览器做了不同的实现,所以有的浏览器不一定完全支持 ES6的出现是为了让javascript更好.更健壮,更适应大型的应用开发 ES6也叫作ECMA2015   严格模式 出现时期:ES5的时候就有了  开启严格模式的代码:use strict;  作用:限制代码的编写  在严格模式中函数中的this禁止指向全局对象,指向的是undefined 在非严格">
+<meta name="keywords" content="ECMAScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5和CSS3(二)">
-<meta property="og:url" content="//gouwenxiu.me/2017/04/15/H5DOM/index.html">
+<meta property="og:title" content="ES6(一)">
+<meta property="og:url" content="//gouwenxiu.me/2017/05/13/es6-1/index.html">
 <meta property="og:site_name" content="秀之家">
-<meta property="og:description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
-<meta property="og:updated_time" content="2017-08-29T05:11:55.158Z">
+<meta property="og:description" content="ES6的介绍  ES6 是一个规范,不同的浏览器做了不同的实现,所以有的浏览器不一定完全支持 ES6的出现是为了让javascript更好.更健壮,更适应大型的应用开发 ES6也叫作ECMA2015   严格模式 出现时期:ES5的时候就有了  开启严格模式的代码:use strict;  作用:限制代码的编写  在严格模式中函数中的this禁止指向全局对象,指向的是undefined 在非严格">
+<meta property="og:updated_time" content="2017-08-30T12:31:24.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5和CSS3(二)">
-<meta name="twitter:description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
+<meta name="twitter:title" content="ES6(一)">
+<meta name="twitter:description" content="ES6的介绍  ES6 是一个规范,不同的浏览器做了不同的实现,所以有的浏览器不一定完全支持 ES6的出现是为了让javascript更好.更健壮,更适应大型的应用开发 ES6也叫作ECMA2015   严格模式 出现时期:ES5的时候就有了  开启严格模式的代码:use strict;  作用:限制代码的编写  在严格模式中函数中的this禁止指向全局对象,指向的是undefined 在非严格">
   
     <link rel="alternative" href="/atom.xml" title="秀之家" type="application/atom+xml">
   
@@ -154,89 +154,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-H5DOM" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-es6-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5和CSS3(二)
+      ES6(一)
     </h1>
   
 
         
-        <a href="/2017/04/15/H5DOM/" class="archive-article-date">
-  	<time datetime="2017-04-15T14:19:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
+        <a href="/2017/05/13/es6-1/" class="archive-article-date">
+  	<time datetime="2017-05-13T15:55:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h4><p><strong>获取元素</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">获取一个:</div><div class="line">document.querySelector(选择器);</div><div class="line">获取全部:</div><div class="line">document.querySelectorAll(选择器)</div></pre></td></tr></table></figure></p>
-<p><strong>类名操作:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">node.classList.add(“类名”);</td>
-<td style="text-align:center">添加</td>
-</tr>
-<tr>
-<td style="text-align:center">node.classList.remove(“类名”);</td>
-<td style="text-align:center">移除</td>
-</tr>
-<tr>
-<td style="text-align:center">node.classList.toggle(“类名”);</td>
-<td style="text-align:center">切换</td>
-</tr>
-<tr>
-<td style="text-align:center">node.classList.cotains(“类名”);</td>
-<td style="text-align:center">是否包含</td>
-</tr>
-</tbody>
-</table>
-<p><strong>自定义属性:</strong></p>
+        <p> ES6的介绍</p>
 <ul>
-<li><p>语法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data-开头   例如data-age</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取:</p>
-</li>
+<li>ES6 是一个规范,不同的浏览器做了不同的实现,所以有的浏览器不一定完全支持</li>
+<li>ES6的出现是为了让javascript更好.更健壮,更适应大型的应用开发</li>
+<li>ES6也叫作ECMA2015 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getAttribute()获取一个自定义属性</div><div class="line">node.dataset获取到标签所有的自定义属性,以对象的方式返回</div></pre></td></tr></table></figure>
-<h4 id="属性选择器的使用"><a href="#属性选择器的使用" class="headerlink" title="属性选择器的使用"></a>属性选择器的使用</h4><p><strong>语法:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[选择条件]&#123;属性:值&#125;</div></pre></td></tr></table></figure>
-<p><strong>具体的选择器:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[class=&quot;类名&quot;]&#123;样式&#125; 类名是 的</div><div class="line">[class^=&quot;o&quot;]&#123;样式&#125;类名以o开头的</div><div class="line">[class$=&quot;o&quot;]&#123;样式&#125;类名以o结束的</div><div class="line">[class*=&quot;o&quot;]&#123;样式&#125;类名中包含o的</div></pre></td></tr></table></figure>
-<p><strong>伪类选择器</strong></p>
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p> 出现时期:ES5的时候就有了</p>
+<p> 开启严格模式的代码:<code>use strict;</code></p>
+<p> 作用:限制代码的编写</p>
 <ul>
-<li><p>结构伪类:html结构必须是嵌套结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:first-child&#123;&#125;</div><div class="line">:nth-child(n)&#123;&#125;  n可以是具体的数值,关键字odd和even还可以是表达式an+b的样式,并且n从0开始</div><div class="line">:nth-last-child(n)</div></pre></td></tr></table></figure>
+<li>在严格模式中函数中的this禁止指向全局对象,指向的是undefined</li>
+<li><p>在非严格模式下可以使用with声明,作用是简化对象用于某些对象的代码,严格模式下禁止使用with语句,报错</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person=&#123; <span class="attr">name</span>:<span class="string">"jack"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"><span class="comment">//不用with的时候修改代码中name和age</span></div><div class="line">person.name=<span class="string">"rose"</span>;</div><div class="line">oerson.age:<span class="number">19</span>;</div><div class="line"><span class="built_in">console</span>.log(person.name)</div><div class="line"></div><div class="line"><span class="comment">//使用with语句</span></div><div class="line"><span class="keyword">with</span>(person)&#123;<span class="comment">//在严格模式下</span></div><div class="line">    <span class="comment">//报错：Strict mode code may not include a with statement</span></div><div class="line">    name=<span class="string">"rose"</span>;</div><div class="line">    age=<span class="number">20</span>;<span class="built_in">console</span>.log(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="严格模式和ES6"><a href="#严格模式和ES6" class="headerlink" title="严格模式和ES6"></a>严格模式和ES6</h4></li>
+<li>严格模式是严格模式,ES6是ES6,之间没有很大的关系</li>
+<li>严格模式是代码的限制,ES6是与噶的规范,增加了相关的代码功能</li>
+<li><p>在ES6中的部分关键字必须在严格模式下才能使用,所以凡是ES6就使用严格模式.</p>
+<h4 id="let声明变量的关键字"><a href="#let声明变量的关键字" class="headerlink" title="let声明变量的关键字"></a>let声明变量的关键字</h4></li>
+<li><p>let声明变量和var声明的变量的查找机制是一样的,逐级向上查找.也就是当前作用域有就使用当前作用域的,当前作用域没有,就向上级作用域中查找</p>
 </li>
-<li><p>空伪类:选择内容为空的元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :empty&#123;样式&#125;</div></pre></td></tr></table></figure>
+<li>let是块级作用域{},不会提升成全局变量</li>
+<li><p>在同一个块级作用域中不允许声明同名变量.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num=<span class="number">10</span>;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">let</span> num=<span class="number">20</span>;</div><div class="line">    <span class="built_in">console</span>.log(num);<span class="comment">//20</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(num);<span class="comment">//10</span></div></pre></td></tr></table></figure>
+<h4 id="const声明常量的关键字"><a href="#const声明常量的关键字" class="headerlink" title="const声明常量的关键字"></a>const声明常量的关键字</h4></li>
+<li><p>const是声明常量的关键字,声明常量的时候初始化是一起的;</p>
 </li>
-<li><p>排除伪类not</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :not(选择器)&#123;样式&#125;</div></pre></td></tr></table></figure>
+<li>常量声明不能被第二次赋值,赋值就是被声明的对象=XXX;<br><code>const person={}; person = &quot;123&quot; //报错</code></li>
+<li>但是可以修改挂载或者修改对象的属性<br><code>const person={}; person.name=&quot;123&quot;</code></li>
+<li><p>不可以同一个块级作用域声明同名变量</p>
+<h4 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h4></li>
+<li><p>都是块级作用域,不会提升成全局变量</p>
 </li>
-<li><p>目标伪类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :target&#123;样式&#125;</div></pre></td></tr></table></figure>
+<li>let是声明变量的,const是声明常量的</li>
+<li><p>const必须将声明和初始化一起操作完毕</p>
+<h4 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h4><p>可以包含换行和空格,也就是原样.</p>
+<p>语法:<code>包裹字符串</code>;用反映好包裹</p>
+<p>特点:</p>
 </li>
-</ul>
-<p>注意:指向当前标签的时候使用目标伪类,目标伪类主要配合锚点使用</p>
-<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">::first-letter 选择第一个字母</div><div class="line">::first-line 选择第一行文字</div><div class="line">::selection 被选中的时候的样式,只能设置与颜色相关的属性</div><div class="line">::before和::after 推荐使用的时候使用单引号,兼容ie</div></pre></td></tr></table></figure>
-<p>注意::before和::after的使用:</p>
-<ul>
-<li>在使用伪元素的时候必须设置content</li>
-<li>伪元素属于行内元素</li>
-<li>伪元素的操作方式和实际元素的是一样的</li>
+<li>可以包含换行和空格</li>
+<li>可以嵌入使用变量 <code>${对象名.属性}</code><br><code>``javascript
+let str=</code><ul><pre><code>     &lt;li&gt;${person.name}&lt;/li&gt;
+ &lt;/ul&gt;
+`;
+</code></pre>let person={name:”jack”}</ul></li>
 </ul>
 
       
@@ -272,7 +253,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ECMAScript</a>
         		</li>
       		
 		</ul>
@@ -328,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/04/15/H5DOM/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/05/13/es6-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +323,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/18/H5background/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/15/es6-2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          HTML5和CSS3(三)
+          ES6(二)
         
       </div>
     </a>
   
   
-    <a href="/2017/04/10/H5formElements/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5和CSS3(一)</div>
+    <a href="/2017/05/07/H5API/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5和CSS3(六)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,7 +362,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="H5DOM" data-title="HTML5和CSS3(二)" data-url="//gouwenxiu.me/2017/04/15/H5DOM/"></div>
+	<div class="ds-thread" data-thread-key="es6-1" data-title="ES6(一)" data-url="//gouwenxiu.me/2017/05/13/es6-1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

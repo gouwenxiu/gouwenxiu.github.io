@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//gouwenxiu.me">
-  <title>HTML5和CSS3(二) | 秀之家</title>
+  <title>ES6(五) | 秀之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
-<meta name="keywords" content="HTML5 CSS3">
+  <meta name="description" content="js中各种语法的规范以及实现    规范 实现 模块导入 模块导出     AMD requireJs define(‘id’,[‘依赖1’],fn(依赖1){}) return obj;   CMD seajs require(‘文件路径’) module.exports=x;   commonJs nodejs require(‘文件路径’) module.exports=x;   ES6 E">
+<meta name="keywords" content="ECMAScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5和CSS3(二)">
-<meta property="og:url" content="//gouwenxiu.me/2017/04/15/H5DOM/index.html">
+<meta property="og:title" content="ES6(五)">
+<meta property="og:url" content="//gouwenxiu.me/2017/05/29/es6-5/index.html">
 <meta property="og:site_name" content="秀之家">
-<meta property="og:description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
-<meta property="og:updated_time" content="2017-08-29T05:11:55.158Z">
+<meta property="og:description" content="js中各种语法的规范以及实现    规范 实现 模块导入 模块导出     AMD requireJs define(‘id’,[‘依赖1’],fn(依赖1){}) return obj;   CMD seajs require(‘文件路径’) module.exports=x;   commonJs nodejs require(‘文件路径’) module.exports=x;   ES6 E">
+<meta property="og:updated_time" content="2017-08-30T12:33:54.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5和CSS3(二)">
-<meta name="twitter:description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
+<meta name="twitter:title" content="ES6(五)">
+<meta name="twitter:description" content="js中各种语法的规范以及实现    规范 实现 模块导入 模块导出     AMD requireJs define(‘id’,[‘依赖1’],fn(依赖1){}) return obj;   CMD seajs require(‘文件路径’) module.exports=x;   commonJs nodejs require(‘文件路径’) module.exports=x;   ES6 E">
   
     <link rel="alternative" href="/atom.xml" title="秀之家" type="application/atom+xml">
   
@@ -154,91 +154,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-H5DOM" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-es6-5" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5和CSS3(二)
+      ES6(五)
     </h1>
   
 
         
-        <a href="/2017/04/15/H5DOM/" class="archive-article-date">
-  	<time datetime="2017-04-15T14:19:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
+        <a href="/2017/05/29/es6-5/" class="archive-article-date">
+  	<time datetime="2017-05-29T04:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h4><p><strong>获取元素</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">获取一个:</div><div class="line">document.querySelector(选择器);</div><div class="line">获取全部:</div><div class="line">document.querySelectorAll(选择器)</div></pre></td></tr></table></figure></p>
-<p><strong>类名操作:</strong></p>
+        <p>js中各种语法的规范以及实现</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">作用</th>
+<th style="text-align:center">规范</th>
+<th style="text-align:center">实现</th>
+<th style="text-align:center">模块导入</th>
+<th>模块导出</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">node.classList.add(“类名”);</td>
-<td style="text-align:center">添加</td>
+<td style="text-align:center">AMD</td>
+<td style="text-align:center">requireJs</td>
+<td style="text-align:center">define(‘id’,[‘依赖1’],fn(依赖1){})</td>
+<td>return obj;</td>
 </tr>
 <tr>
-<td style="text-align:center">node.classList.remove(“类名”);</td>
-<td style="text-align:center">移除</td>
+<td style="text-align:center">CMD</td>
+<td style="text-align:center">seajs</td>
+<td style="text-align:center">require(‘文件路径’)</td>
+<td>module.exports=x;</td>
 </tr>
 <tr>
-<td style="text-align:center">node.classList.toggle(“类名”);</td>
-<td style="text-align:center">切换</td>
+<td style="text-align:center">commonJs</td>
+<td style="text-align:center">nodejs</td>
+<td style="text-align:center">require(‘文件路径’)</td>
+<td>module.exports=x;</td>
 </tr>
 <tr>
-<td style="text-align:center">node.classList.cotains(“类名”);</td>
-<td style="text-align:center">是否包含</td>
+<td style="text-align:center">ES6</td>
+<td style="text-align:center">ECMA2015定义</td>
+<td style="text-align:center">import</td>
+<td>export</td>
+</tr>
+<tr>
+<td style="text-align:center">UMD</td>
+<td style="text-align:center">通用模块定义支持AMD  commonJS  和非模块化</td>
 </tr>
 </tbody>
 </table>
-<p><strong>自定义属性:</strong></p>
-<ul>
-<li><p>语法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data-开头   例如data-age</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取:</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getAttribute()获取一个自定义属性</div><div class="line">node.dataset获取到标签所有的自定义属性,以对象的方式返回</div></pre></td></tr></table></figure>
-<h4 id="属性选择器的使用"><a href="#属性选择器的使用" class="headerlink" title="属性选择器的使用"></a>属性选择器的使用</h4><p><strong>语法:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[选择条件]&#123;属性:值&#125;</div></pre></td></tr></table></figure>
-<p><strong>具体的选择器:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[class=&quot;类名&quot;]&#123;样式&#125; 类名是 的</div><div class="line">[class^=&quot;o&quot;]&#123;样式&#125;类名以o开头的</div><div class="line">[class$=&quot;o&quot;]&#123;样式&#125;类名以o结束的</div><div class="line">[class*=&quot;o&quot;]&#123;样式&#125;类名中包含o的</div></pre></td></tr></table></figure>
-<p><strong>伪类选择器</strong></p>
-<ul>
-<li><p>结构伪类:html结构必须是嵌套结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:first-child&#123;&#125;</div><div class="line">:nth-child(n)&#123;&#125;  n可以是具体的数值,关键字odd和even还可以是表达式an+b的样式,并且n从0开始</div><div class="line">:nth-last-child(n)</div></pre></td></tr></table></figure>
-</li>
-<li><p>空伪类:选择内容为空的元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :empty&#123;样式&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>排除伪类not</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :not(选择器)&#123;样式&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>目标伪类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :target&#123;样式&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意:指向当前标签的时候使用目标伪类,目标伪类主要配合锚点使用</p>
-<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">::first-letter 选择第一个字母</div><div class="line">::first-line 选择第一行文字</div><div class="line">::selection 被选中的时候的样式,只能设置与颜色相关的属性</div><div class="line">::before和::after 推荐使用的时候使用单引号,兼容ie</div></pre></td></tr></table></figure>
-<p>注意::before和::after的使用:</p>
-<ul>
-<li>在使用伪元素的时候必须设置content</li>
-<li>伪元素属于行内元素</li>
-<li>伪元素的操作方式和实际元素的是一样的</li>
-</ul>
-
+<p>UMD代码的分析:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">root, factory</span>) </span>&#123;  </div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> exports === <span class="string">'object'</span>) &#123;  判断当前是否存在该对象，说明是在commonJS规范的实现下运行，有nodejs 有seajs</div><div class="line">        <span class="built_in">module</span>.exports = factory();  按其方式做对象的导出</div><div class="line">          </div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd) &#123;  </div><div class="line">        define(factory); 判断当前是否有该对象 说明当前环境是AMD的规范的实现requireJS </div><div class="line">          </div><div class="line">    &#125; <span class="keyword">else</span> &#123;  </div><div class="line">        否则就是浏览器环境，就给<span class="built_in">window</span>挂载属性</div><div class="line">        root.eventUtil = factory();  </div><div class="line">    &#125;  </div><div class="line">&#125;)(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">    <span class="comment">// module  </span></div><div class="line">    <span class="keyword">return</span> &#123;  </div><div class="line">        addEvent: <span class="function"><span class="keyword">function</span>(<span class="params">el, type, handle</span>) </span>&#123;  </div><div class="line">            <span class="comment">//...  </span></div><div class="line">        &#125;,  </div><div class="line">        removeEvent: <span class="function"><span class="keyword">function</span>(<span class="params">el, type, handle</span>) </span>&#123;  </div><div class="line">              </div><div class="line">        &#125;,  </div><div class="line">    &#125;;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
       
 
       
@@ -272,7 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ECMAScript</a>
         		</li>
       		
 		</ul>
@@ -328,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/04/15/H5DOM/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/05/29/es6-5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/18/H5background/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          HTML5和CSS3(三)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/10/H5formElements/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5和CSS3(一)</div>
+    <a href="/2017/05/22/es6-4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6(四)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,7 +350,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="H5DOM" data-title="HTML5和CSS3(二)" data-url="//gouwenxiu.me/2017/04/15/H5DOM/"></div>
+	<div class="ds-thread" data-thread-key="es6-5" data-title="ES6(五)" data-url="//gouwenxiu.me/2017/05/29/es6-5/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

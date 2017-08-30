@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//gouwenxiu.me">
-  <title>HTML5和CSS3(二) | 秀之家</title>
+  <title>ES6(二) | 秀之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
-<meta name="keywords" content="HTML5 CSS3">
+  <meta name="description" content="es6中的集中函数的学习. 字符串: -字符串对象.includes(“xxxx”); 作用:字符串中是否包含xxxx 返回值:boolean 123let str=&apos;hello word&apos;;str.includes(&quot;wwo&quot;);//falsestr.includes(&quot;word&quot;);//true  字符串对象.startsWith(“XXX”)作用:字符串是否已xxx开始;返回值: boole">
+<meta name="keywords" content="ECMAScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5和CSS3(二)">
-<meta property="og:url" content="//gouwenxiu.me/2017/04/15/H5DOM/index.html">
+<meta property="og:title" content="ES6(二)">
+<meta property="og:url" content="//gouwenxiu.me/2017/05/15/es6-2/index.html">
 <meta property="og:site_name" content="秀之家">
-<meta property="og:description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
-<meta property="og:updated_time" content="2017-08-29T05:11:55.158Z">
+<meta property="og:description" content="es6中的集中函数的学习. 字符串: -字符串对象.includes(“xxxx”); 作用:字符串中是否包含xxxx 返回值:boolean 123let str=&apos;hello word&apos;;str.includes(&quot;wwo&quot;);//falsestr.includes(&quot;word&quot;);//true  字符串对象.startsWith(“XXX”)作用:字符串是否已xxx开始;返回值: boole">
+<meta property="og:updated_time" content="2017-08-30T12:31:51.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5和CSS3(二)">
-<meta name="twitter:description" content="DOM操作获取元素1234获取一个:document.querySelector(选择器);获取全部:document.querySelectorAll(选择器) 类名操作:    方法 作用     node.classList.add(“类名”); 添加   node.classList.remove(“类名”); 移除   node.classList.toggle(“类名”); 切换">
+<meta name="twitter:title" content="ES6(二)">
+<meta name="twitter:description" content="es6中的集中函数的学习. 字符串: -字符串对象.includes(“xxxx”); 作用:字符串中是否包含xxxx 返回值:boolean 123let str=&apos;hello word&apos;;str.includes(&quot;wwo&quot;);//falsestr.includes(&quot;word&quot;);//true  字符串对象.startsWith(“XXX”)作用:字符串是否已xxx开始;返回值: boole">
   
     <link rel="alternative" href="/atom.xml" title="秀之家" type="application/atom+xml">
   
@@ -154,90 +154,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-H5DOM" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-es6-2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5和CSS3(二)
+      ES6(二)
     </h1>
   
 
         
-        <a href="/2017/04/15/H5DOM/" class="archive-article-date">
-  	<time datetime="2017-04-15T14:19:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
+        <a href="/2017/05/15/es6-2/" class="archive-article-date">
+  	<time datetime="2017-05-15T13:11:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h4><p><strong>获取元素</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">获取一个:</div><div class="line">document.querySelector(选择器);</div><div class="line">获取全部:</div><div class="line">document.querySelectorAll(选择器)</div></pre></td></tr></table></figure></p>
-<p><strong>类名操作:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">node.classList.add(“类名”);</td>
-<td style="text-align:center">添加</td>
-</tr>
-<tr>
-<td style="text-align:center">node.classList.remove(“类名”);</td>
-<td style="text-align:center">移除</td>
-</tr>
-<tr>
-<td style="text-align:center">node.classList.toggle(“类名”);</td>
-<td style="text-align:center">切换</td>
-</tr>
-<tr>
-<td style="text-align:center">node.classList.cotains(“类名”);</td>
-<td style="text-align:center">是否包含</td>
-</tr>
-</tbody>
-</table>
-<p><strong>自定义属性:</strong></p>
+        <p>es6中的集中函数的学习.</p>
+<p>字符串:</p>
+<p>-字符串对象.includes(“xxxx”);<br> 作用:字符串中是否包含xxxx<br> 返回值:boolean<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str=<span class="string">'hello word'</span>;</div><div class="line">str.includes(<span class="string">"wwo"</span>);<span class="comment">//false</span></div><div class="line">str.includes(<span class="string">"word"</span>);<span class="comment">//true</span></div></pre></td></tr></table></figure></p>
 <ul>
-<li><p>语法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data-开头   例如data-age</div></pre></td></tr></table></figure>
+<li><p>字符串对象.startsWith(“XXX”)<br>作用:字符串是否已xxx开始;<br>返回值: boolean</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str=<span class="string">"hello word"</span>;</div><div class="line">str.stratsWith(<span class="string">"hel"</span>)<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>字符串对象.endsWith(“xxx”)<br>作用:字符串是否已xxx结尾;<br>返回值:boolean;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span>  str=<span class="string">"hello word"</span>;</div><div class="line">str.endsWith(<span class="string">"rd"</span>);<span class="comment">//true</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>获取:</p>
+<li><p>字符串.repeat(次数);<br>作用:字符串对象调用接受参数,返回参数倍的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str=<span class="string">" love you"</span>;</div><div class="line">str.repeat(<span class="number">500</span>);<span class="comment">//输出500次的love you</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getAttribute()获取一个自定义属性</div><div class="line">node.dataset获取到标签所有的自定义属性,以对象的方式返回</div></pre></td></tr></table></figure>
-<h4 id="属性选择器的使用"><a href="#属性选择器的使用" class="headerlink" title="属性选择器的使用"></a>属性选择器的使用</h4><p><strong>语法:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[选择条件]&#123;属性:值&#125;</div></pre></td></tr></table></figure>
-<p><strong>具体的选择器:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[class=&quot;类名&quot;]&#123;样式&#125; 类名是 的</div><div class="line">[class^=&quot;o&quot;]&#123;样式&#125;类名以o开头的</div><div class="line">[class$=&quot;o&quot;]&#123;样式&#125;类名以o结束的</div><div class="line">[class*=&quot;o&quot;]&#123;样式&#125;类名中包含o的</div></pre></td></tr></table></figure>
-<p><strong>伪类选择器</strong></p>
-<ul>
-<li><p>结构伪类:html结构必须是嵌套结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:first-child&#123;&#125;</div><div class="line">:nth-child(n)&#123;&#125;  n可以是具体的数值,关键字odd和even还可以是表达式an+b的样式,并且n从0开始</div><div class="line">:nth-last-child(n)</div></pre></td></tr></table></figure>
-</li>
-<li><p>空伪类:选择内容为空的元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :empty&#123;样式&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>排除伪类not</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :not(选择器)&#123;样式&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>目标伪类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- :target&#123;样式&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>注意:指向当前标签的时候使用目标伪类,目标伪类主要配合锚点使用</p>
-<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">::first-letter 选择第一个字母</div><div class="line">::first-line 选择第一行文字</div><div class="line">::selection 被选中的时候的样式,只能设置与颜色相关的属性</div><div class="line">::before和::after 推荐使用的时候使用单引号,兼容ie</div></pre></td></tr></table></figure>
-<p>注意::before和::after的使用:</p>
+<p>数学:</p>
 <ul>
-<li>在使用伪元素的时候必须设置content</li>
-<li>伪元素属于行内元素</li>
-<li>伪元素的操作方式和实际元素的是一样的</li>
+<li><p>函数: Math.trunc(小数);</p>
+</li>
+<li><p>作用: 截取整数作为返回值,去掉小数部分</p>
+</li>
+<li><p>返回值:整数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num=<span class="number">100.23</span>;</div><div class="line"><span class="built_in">Math</span>.trunc(<span class="number">100.23</span>);<span class="comment">//100</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>数组:</p>
+<ul>
+<li>arr.find(fn); 查找元素<br>返回值:返回查找到的元素<br>参数:fn function(ele,index,arr){ return true/false 结束遍历}</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line">arr.find(<span class="function"><span class="keyword">function</span>(<span class="params">ele,index,arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> ele==<span class="number">3</span>;</div><div class="line">&#125;)<span class="comment">//返回值是3</span></div></pre></td></tr></table></figure>
+<p>注意:<br>在return后面跟的是能够转换为boolean值的表达式,只要结果是true的时候直接结束循环,返回找到的元素.</p>
+<ul>
+<li>数组对象.查找元素索引,返回元素的索引</li>
+</ul>
+<p>语法:<code>arr.findIndex(fn)</code><br>参数: <code>function (ele,index,arr){return true/false}</code>结束遍历返回索引</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</div><div class="line">arr.findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">ele,index,arr</span>)</span>&#123;</div><div class="line">    returnn ele==<span class="number">3</span>;</div><div class="line">&#125;)</div><div class="line"><span class="comment">//返回3的索引2,</span></div></pre></td></tr></table></figure>
+<ul>
+<li>总结: return的时候要写判断表达式,而不是赋值,若是没有找到元素,find函数返回undefined,findIndex函数返回-1.</li>
+</ul>
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h4><p>箭头函数的特点:</p>
+<ul>
+<li>本身没有this值,会根据声明时上级的function绑定this</li>
+<li><p>以前的this是根据运行时对象所绑定是多边的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj=&#123;</div><div class="line">    name:<span class="string">"rose"</span>,</div><div class="line">    sayHi =&gt; &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"my name is "</span>+ <span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">obj.sayHi();<span class="comment">//报错,此时的this指向是window</span></div></pre></td></tr></table></figure>
+<p>箭头函数的简写:</p>
+<ul>
+<li><p>一个参数的时候省略左边小括号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fn = <span class="function"><span class="params">num</span> =&gt;</span> num;<span class="comment">//左边是形参,右边是返回值</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>多个参数或者没有参数的是后续必须要有小括号</p>
+</li>
+<li>多行代码的时候,必须要有大括号</li>
+</ul>
+<p>注意事项:</p>
+<ul>
+<li>箭头函数中没有this,所以不能当做构造函数,直接报错</li>
+<li>不管是this还是arguments本身,箭头函数都没有,会根据声明时上级的function来绑定.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//给箭头函数this和arguments</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);<span class="comment">//[1,2]</span></div><div class="line"> <span class="keyword">let</span> fn = <span class="function">(<span class="params">c,d</span>)=&gt;</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//window</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)<span class="comment">//[1,2]</span></div><div class="line">    &#125;</div><div class="line">    fn(<span class="number">3</span>,<span class="number">4</span>)<span class="comment">//</span></div><div class="line">&#125;</div><div class="line">fn(<span class="number">1</span>,<span class="number">2</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ES6函数简写"><a href="#ES6函数简写" class="headerlink" title="ES6函数简写"></a>ES6函数简写</h3><ul>
+<li>在对象中声明方法:省略了<code>:function</code><br>-<code>let obj={init :function(){}}</code><ul>
+<li><code>let obj={init (){}}</code></li>
+</ul>
+</li>
+<li>ES6中函数简写实际就是ES5的普通函数的便捷形式</li>
+<li>ES6 中的箭头函数,就是为了处理this相关的指向</li>
+</ul>
+<p>注意:</p>
+<p><strong>ES6的函数简写实际上功能和ES5函数功能一致,就是写起来简单,只能用在属性的声明上.箭头函数可以动态的根据声明是上级function绑定this,function和ES6函数简写,this都是根据运行时的对象绑定的.</strong></p>
 
       
 
@@ -272,7 +280,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ECMAScript</a>
         		</li>
       		
 		</ul>
@@ -328,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/04/15/H5DOM/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/05/15/es6-2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +350,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/18/H5background/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/19/es6-3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          HTML5和CSS3(三)
+          ES6(三)
         
       </div>
     </a>
   
   
-    <a href="/2017/04/10/H5formElements/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5和CSS3(一)</div>
+    <a href="/2017/05/13/es6-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6(一)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,7 +389,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="H5DOM" data-title="HTML5和CSS3(二)" data-url="//gouwenxiu.me/2017/04/15/H5DOM/"></div>
+	<div class="ds-thread" data-thread-key="es6-2" data-title="ES6(二)" data-url="//gouwenxiu.me/2017/05/15/es6-2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
