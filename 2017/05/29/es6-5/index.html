@@ -15,7 +15,7 @@
 <meta property="og:url" content="//gouwenxiu.me/2017/05/29/es6-5/index.html">
 <meta property="og:site_name" content="秀之家">
 <meta property="og:description" content="js中各种语法的规范以及实现    规范 实现 模块导入 模块导出     AMD requireJs define(‘id’,[‘依赖1’],fn(依赖1){}) return obj;   CMD seajs require(‘文件路径’) module.exports=x;   commonJs nodejs require(‘文件路径’) module.exports=x;   ES6 E">
-<meta property="og:updated_time" content="2017-08-30T12:33:54.801Z">
+<meta property="og:updated_time" content="2017-08-30T12:37:19.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6(五)">
 <meta name="twitter:description" content="js中各种语法的规范以及实现    规范 实现 模块导入 模块导出     AMD requireJs define(‘id’,[‘依赖1’],fn(依赖1){}) return obj;   CMD seajs require(‘文件路径’) module.exports=x;   commonJs nodejs require(‘文件路径’) module.exports=x;   ES6 E">
@@ -209,12 +209,9 @@
 <td style="text-align:center">import</td>
 <td>export</td>
 </tr>
-<tr>
-<td style="text-align:center">UMD</td>
-<td style="text-align:center">通用模块定义支持AMD  commonJS  和非模块化</td>
-</tr>
 </tbody>
 </table>
+<p> UMD:通用模块定义支持AMD  commonJS  和非模块化</p>
 <p>UMD代码的分析:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">root, factory</span>) </span>&#123;  </div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> exports === <span class="string">'object'</span>) &#123;  判断当前是否存在该对象，说明是在commonJS规范的实现下运行，有nodejs 有seajs</div><div class="line">        <span class="built_in">module</span>.exports = factory();  按其方式做对象的导出</div><div class="line">          </div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd) &#123;  </div><div class="line">        define(factory); 判断当前是否有该对象 说明当前环境是AMD的规范的实现requireJS </div><div class="line">          </div><div class="line">    &#125; <span class="keyword">else</span> &#123;  </div><div class="line">        否则就是浏览器环境，就给<span class="built_in">window</span>挂载属性</div><div class="line">        root.eventUtil = factory();  </div><div class="line">    &#125;  </div><div class="line">&#125;)(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">    <span class="comment">// module  </span></div><div class="line">    <span class="keyword">return</span> &#123;  </div><div class="line">        addEvent: <span class="function"><span class="keyword">function</span>(<span class="params">el, type, handle</span>) </span>&#123;  </div><div class="line">            <span class="comment">//...  </span></div><div class="line">        &#125;,  </div><div class="line">        removeEvent: <span class="function"><span class="keyword">function</span>(<span class="params">el, type, handle</span>) </span>&#123;  </div><div class="line">              </div><div class="line">        &#125;,  </div><div class="line">    &#125;;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
       
@@ -478,6 +475,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ECMAScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
@@ -491,10 +492,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ECMAScript</a>
               </li>
             
             <div class="clearfix"></div>
