@@ -155,6 +155,161 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-H5background" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/18/H5background/">HTML5和CSS3(三)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/18/H5background/" class="archive-article-date">
+  	<time datetime="2017-04-18T12:35:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在html中关于背景的设置有很多,今天就在这里来总结一下.</p>
+<h4 id="背景尺寸-background-size"><a href="#背景尺寸-background-size" class="headerlink" title="背景尺寸 background-size"></a>背景尺寸 background-size</h4><p>作用:调整背景图片的大小.</p>
+<p>设置方式:</p>
+<p><strong>设置具体的值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-size:200px 200px;设置背景图片的宽为200,高为200</div></pre></td></tr></table></figure>
+<p><strong>设置auto,但是两个值不能一起设置auto</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background-size: auto 100%;</div><div class="line">background-size 100% auto;</div></pre></td></tr></table></figure>
+<p><strong>设置关键字</strong></p>
+<ul>
+<li>cover:背景图片按照自己的缩放比,始终铺满整个容器,但是图片不一定全部显示.</li>
+<li>contain:背景图片按照自己的缩放比始终全部显示在页面中,但是容器不一定铺满.<h4 id="背景原点-background-origin"><a href="#背景原点-background-origin" class="headerlink" title="背景原点 background-origin"></a>背景原点 background-origin</h4>作用:改变图片背景的原点位置.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">padding-box</td>
+<td style="text-align:center">内边距对齐 是默认值</td>
+</tr>
+<tr>
+<td style="text-align:center">content-box</td>
+<td style="text-align:center">内容对齐</td>
+</tr>
+<tr>
+<td style="text-align:center">border-box</td>
+<td style="text-align:center">边框对齐</td>
+</tr>
+</tbody>
+</table>
+<h4 id="背景裁切background-clip"><a href="#背景裁切background-clip" class="headerlink" title="背景裁切background-clip"></a>背景裁切background-clip</h4><p>作用:将背景图片显示到指定的位置;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">border-box</td>
+<td style="text-align:center">默认要将图片显示到整个区域</td>
+</tr>
+<tr>
+<td style="text-align:center">padding-box</td>
+<td style="text-align:center">将图片显示到padding区域</td>
+</tr>
+</tbody>
+</table>
+<p>content-box|将图片显示到内容区域|</p>
+<h4 id="多背景"><a href="#多背景" class="headerlink" title="多背景"></a>多背景</h4><p>一个容器中可以同时设置多个背景图片<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">background:url(1.jpg) no-repeat left top,</div><div class="line">           url(2.jpg) no repeat top right,</div><div class="line">           url(3.jpg) no-repeat bottom right,</div><div class="line">           url(4.jpg) no-repeat bottom left;</div></pre></td></tr></table></figure></p>
+<p>注意:在设置的时候不能讲背景颜色设置到符合属性中,需要单独设置.</p>
+<h4 id="背景图片的渐变"><a href="#背景图片的渐变" class="headerlink" title="背景图片的渐变"></a>背景图片的渐变</h4><p><strong>线性渐变</strong></p>
+<p>渐变的组成:开始时颜色,结束颜色,渐变方向,渐变范围</p>
+<p>语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background-image:linear-gradient(</div><div class="line">  to right,//渐变的方向</div><div class="line">  red,//开始的颜色额</div><div class="line">  green//结束的颜色</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>方向:  </p>
+<ul>
+<li><p>关键字表示:to right|to left| to top |to bottom</p>
+</li>
+<li><p>具体的角度表示:上0右90</p>
+</li>
+</ul>
+<p>总结:</p>
+<ul>
+<li>渐变的范围是通过百分比表示的</li>
+<li>渐变的范围百分比默认是相对父容器的宽度设置的</li>
+<li>如果设置了background-size以后,n那么百分比是相对于设置的background-size的值设置的.</li>
+</ul>
+<p><strong>径向渐变</strong></p>
+<p>渐变的组成:开始颜色,结束颜色,径向渐变圆心位置,范围</p>
+<p>语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background-image:radial-gradient(</div><div class="line">  100px at 200px 200px,</div><div class="line">  red ,</div><div class="line">  blue</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>总结:</p>
+<ul>
+<li>通过半径的大小设置渐变的范围</li>
+<li>圆心的位置可以通过center |left|top |right|bottom 设置</li>
+<li>圆心的位置还可以通过具体的值来设置</li>
+<li>如果设置百分比,那么是相对于半径设置的</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/18/H5background/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-H5DOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1598,91 +1753,6 @@
 
 
   
-    <article id="post-bindFunction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/11/bindFunction/">bindFunction</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/11/bindFunction/" class="archive-article-date">
-  	<time datetime="2017-02-11T11:44:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习js的过程中对bind函数,也就是绑定函数的机理不是很理解,特地研究研究,分享一下o(<em>￣︶￣</em>)o</p>
-<p>在函数里面外面知道有一个很特殊的东西,在函数不同的调用中,他的指向是不一定的,知道这么特殊的人是谁了吧,没错这个就是函数中外面很爱用的this了.但是使用this的时候我们需要对函数中的this的指向要特别的了解,不然我们会被他伤害的体无完肤的.</p>
-<p>我们控制好this的时候也就可以来让this为我们服务了,这就表明this的指向我们是可以控制的.我们通常知道this是谁调用他this就指向谁.以下是this的最常用的指向:</p>
-<h3 id="函数在没有导向的时候调用的时候this的指向"><a href="#函数在没有导向的时候调用的时候this的指向" class="headerlink" title="函数在没有导向的时候调用的时候this的指向"></a>函数在没有导向的时候调用的时候this的指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo()&#123;</div><div class="line">    console.log(this);</div><div class="line">&#125;;</div><div class="line">foo(); //在这里this指向的是window对象</div></pre></td></tr></table></figure>
-<p>上面的函数在调用的时候this指向的是window对象.也就是说是window调用了函数foo.</p>
-<h3 id="对象中的方法在调用的时候this的指向"><a href="#对象中的方法在调用的时候this的指向" class="headerlink" title="对象中的方法在调用的时候this的指向"></a>对象中的方法在调用的时候this的指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var person=&#123;</div><div class="line">    name:&quot;wenxiu&quot;,</div><div class="line">    age:19,</div><div class="line">    gender:&quot;女&quot;,</div><div class="line">    special:function()&#123;</div><div class="line">        console.log(this.name+&quot;is a good person.&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">person.special();//wenxiu is a good person.</div></pre></td></tr></table></figure>
-<p>上面的函数在调用的时候使用person对象来引导函数,也就是说明函数中的this指向的是person对象.</p>
-<h3 id="用call和apply来调用函数"><a href="#用call和apply来调用函数" class="headerlink" title="用call和apply来调用函数"></a>用call和apply来调用函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">call来调用函数:</div><div class="line">Object.prototype.toString.call(null)</div><div class="line">apply来调用函数:</div><div class="line">Object.prototype.toString.apply(null)</div></pre></td></tr></table></figure>
-<h3 id="使用bind来提前绑定函数中的this指向"><a href="#使用bind来提前绑定函数中的this指向" class="headerlink" title="使用bind来提前绑定函数中的this指向"></a>使用bind来提前绑定函数中的this指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> var obj=&#123;</div><div class="line">        name:&quot;jim&quot;</div><div class="line">    &#125;;</div><div class="line">function foo()&#123;</div><div class="line">   console.log(this)</div><div class="line">&#125;</div><div class="line">没有绑定的时候this指向:</div><div class="line">foo();//window</div><div class="line">绑定的时候this指向:</div><div class="line">foo().bind(obj)//obj</div></pre></td></tr></table></figure>
-<p>也就是说在这段代码中this的指向有window指向到了obj对象,但是函数中国其他的指向也不发送变化;</p>
-<p>bind函数的执行机理,模拟bind函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Function.prototype.mybind=function(content)&#123;</div><div class="line">    var that=this;</div><div class="line">    return function()&#123;</div><div class="line">        that.apply(content,arguments);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>在这段函数中函数中this的指向的就是函数的调用者,也就是Function.prototype对象,将this先保存在对象that中,然后用apply调用,在里面讲函数中的this指向变更到content中,第二个参数是函数中传入的参数数组.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javascript基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/11/bindFunction/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1788,19 +1858,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javascript基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ECMAScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">javascript基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

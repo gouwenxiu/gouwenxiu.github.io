@@ -231,6 +231,118 @@
 
 
   
+    <article id="post-regExp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/10/regExp/">正则表达式中的元字符</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/10/regExp/" class="archive-article-date">
+  	<time datetime="2017-06-10T09:56:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">描术</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">/</td>
+<td style="text-align:center">将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，’n’ 匹配字符 “n”。’/n’ 匹配一个换行符。序列 ‘//’ 匹配 “/” 而 “/(” 则匹配 “(”。</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:center">匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 ‘/n’ 或 ‘/r’ 之后的位置。</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 ‘/n’ 或 ‘/r’ 之前的位置。</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">匹配前面的子表达式零次或多次。例如，zo<em> 能匹配 “z” 以及 “zoo”。</em> 等价于{0,}。</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">匹配前面的子表达式一次或多次。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}。</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:center">匹配前面的子表达式零次或一次。例如，”do(es)?” 可以匹配 “do” 或 “does” 中的”do” 。? 等价于 {0,1}。</td>
+</tr>
+<tr>
+<td style="text-align:center">{n}</td>
+<td style="text-align:center">n 是一个非负整数。匹配确定的 n 次。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。</td>
+</tr>
+</tbody>
+</table>
+<p>{n,}|n是一个非负整数。匹配确定的 n 次。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。|<br>|{n,m}|m 和 n 均为非负整数，其中n ＜= m。最少匹配 n 次且最多匹配 m 次。例如，”o{1,3}” 将匹配 “fooooood” 中的前三个 o。’o{0,1}’ 等价于 ‘o?’。请注意在逗号和两个数之间不能有空格。|<br>|?|当该字符紧跟在任何一个其他限制符 (*, +, ?, {n}, {n,}, {n,m}) 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串 “oooo”，’o+?’ 将匹配单个 “o”，而 ‘o+’ 将匹配所有 ‘o’。|<br>|.|    匹配除 “/n” 之外的任何单个字符。要匹配包括 ‘/n’ 在内的任何字符，请使用象 ‘[./n]’ 的模式。|<br>|(pattern)|匹配 pattern 并获取这一匹配。所获取的匹配可以从产生的 Matches 集合得到，在VBScript 中使用 SubMatches 集合，在JScript 中则使用 $0…$9 属性。要匹配圆括号字符，请使用 ‘/(’ 或 ‘/)’。|<br>|(?:pattern)|    匹 配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用 “或” 字符 (|) 来组合一个模式的各个部分是很有用。例如， ‘industr(?:y|ies) 就是一个比 ‘industry|industries’ 更简略的表达式。|<br>|(?=pattern)    |正 向预查，在任何匹配 pattern 的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，’Windows (?=95|98|NT|2000)’ 能匹配 “Windows 2000″ 中的 “Windows” ，但不能匹配 “Windows 3.1″ 中的 “Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。|<br>|(?!pattern)|    负 向预查，在任何不匹配 pattern 的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如’Windows (?!95|98|NT|2000)’ 能匹配 “Windows 3.1″ 中的 “Windows”，但不能匹配 “Windows 2000″ 中的 “Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始|<br>|x|y|    匹配 x 或 y。例如，’z|food’ 能匹配 “z” 或 “food”。’(z|f)ood’ 则匹配 “zood” 或 “food”。|<br>|[xyz]    |字符集合。匹配所包含的任意一个字符。例如， ‘[abc]’ 可以匹配 “plain” 中的 ‘a’。|<br>|[^xyz]    |负值字符集合。匹配未包含的任意字符。例如， ‘[^abc]’ 可以匹配 “plain” 中的’p’。|<br>|[a-z]    |字符范围。匹配指定范围内的任意字符。例如，’[a-z]’ 可以匹配 ‘a’ 到 ‘z’ 范围内的任意小写字母字符。|<br>|[^a-z]|    负值字符范围。匹配任何不在指定范围内的任意字符。例如，’[^a-z]’ 可以匹配任何不在 ‘a’ 到 ‘z’ 范围内的任意字符。|<br>|/b    |匹配一个单词边界，也就是指单词和空格间的位置。例如， ‘er/b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。|<br>|/B|匹配非单词边界。’er/B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。|<br>|/cx|匹配由 x 指明的控制字符。例如， /cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符。|<br>|/d|匹配一个数字字符。等价于 [0-9]。|<br>|/D|匹配一个非数字字符。等价于 [^0-9]。|<br>|/f|匹配一个换页符。等价于 /x0c 和 /cL。|<br>|/n|匹配一个换行符。等价于 /x0a 和 /cJ。|<br>|/r|匹配一个回车符。等价于 /x0d 和 /cM|。<br>|/s|匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ /f/n/r/t/v]。|<br>|/S|匹配任何非空白字符。等价于 [^ /f/n/r/t/v]|。|<br>|/t|匹配一个制表符。等价于 /x09 和 /cI。|<br>|/v|匹配一个垂直制表符。等价于 /x0b 和 /cK。|<br>|/w|匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9<em>]’。|<br>|/W|匹配任何非单词字符。等价于 ‘[^A-Za-z0-9</em>]’。|<br>|/xn|匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，’/x41′ 匹配 |“A”。|’/x041′ 则等价于 ‘/x04′ &amp; “1″。正则表达式中可以使用 ASCII 编码。.|<br>|/num|匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。例如，’(.)/1′ 匹配两个连续的相同字符|<br>|/n|标识一个八进制转义值或一个向后引用。如果 /n 之前至少 n 个获取的子表达式，则 n 为向后引用。否则，如果 n 为八进制数字 (0-7)，则 n 为一个八进制转义值。|<br>|/nm|标 识一个八进制转义值或一个向后引用。如果 /nm 之前至少有 nm 个获得子表达式，则 nm 为向后引用。如果 /nm 之前至少有 n 个获取，则 n 为一个后跟文字 m 的向后引用。如果前面的条件都不满足，若 n 和 m 均为八进制数字 (0-7)，则 /nm 将匹配八进制转义值 nm。|<br>|/nml|如果 n 为八进制数字 (0-3)，且 m 和 l 均为八进制数字 (0-7)，则匹配八进制转义值 nml。|<br>|/un|匹配 n，其中 n 是一个用四个十六进制数字表示的Unicode 字符。例如， /u00A9 匹配版权符号 (©)。|</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/10/regExp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-es6-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1413,161 +1525,6 @@
 
 
   
-    <article id="post-H5background" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/18/H5background/">HTML5和CSS3(三)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/18/H5background/" class="archive-article-date">
-  	<time datetime="2017-04-18T12:35:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在html中关于背景的设置有很多,今天就在这里来总结一下.</p>
-<h4 id="背景尺寸-background-size"><a href="#背景尺寸-background-size" class="headerlink" title="背景尺寸 background-size"></a>背景尺寸 background-size</h4><p>作用:调整背景图片的大小.</p>
-<p>设置方式:</p>
-<p><strong>设置具体的值</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-size:200px 200px;设置背景图片的宽为200,高为200</div></pre></td></tr></table></figure>
-<p><strong>设置auto,但是两个值不能一起设置auto</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background-size: auto 100%;</div><div class="line">background-size 100% auto;</div></pre></td></tr></table></figure>
-<p><strong>设置关键字</strong></p>
-<ul>
-<li>cover:背景图片按照自己的缩放比,始终铺满整个容器,但是图片不一定全部显示.</li>
-<li>contain:背景图片按照自己的缩放比始终全部显示在页面中,但是容器不一定铺满.<h4 id="背景原点-background-origin"><a href="#背景原点-background-origin" class="headerlink" title="背景原点 background-origin"></a>背景原点 background-origin</h4>作用:改变图片背景的原点位置.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">值</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">padding-box</td>
-<td style="text-align:center">内边距对齐 是默认值</td>
-</tr>
-<tr>
-<td style="text-align:center">content-box</td>
-<td style="text-align:center">内容对齐</td>
-</tr>
-<tr>
-<td style="text-align:center">border-box</td>
-<td style="text-align:center">边框对齐</td>
-</tr>
-</tbody>
-</table>
-<h4 id="背景裁切background-clip"><a href="#背景裁切background-clip" class="headerlink" title="背景裁切background-clip"></a>背景裁切background-clip</h4><p>作用:将背景图片显示到指定的位置;</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">值</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">border-box</td>
-<td style="text-align:center">默认要将图片显示到整个区域</td>
-</tr>
-<tr>
-<td style="text-align:center">padding-box</td>
-<td style="text-align:center">将图片显示到padding区域</td>
-</tr>
-</tbody>
-</table>
-<p>content-box|将图片显示到内容区域|</p>
-<h4 id="多背景"><a href="#多背景" class="headerlink" title="多背景"></a>多背景</h4><p>一个容器中可以同时设置多个背景图片<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">background:url(1.jpg) no-repeat left top,</div><div class="line">           url(2.jpg) no repeat top right,</div><div class="line">           url(3.jpg) no-repeat bottom right,</div><div class="line">           url(4.jpg) no-repeat bottom left;</div></pre></td></tr></table></figure></p>
-<p>注意:在设置的时候不能讲背景颜色设置到符合属性中,需要单独设置.</p>
-<h4 id="背景图片的渐变"><a href="#背景图片的渐变" class="headerlink" title="背景图片的渐变"></a>背景图片的渐变</h4><p><strong>线性渐变</strong></p>
-<p>渐变的组成:开始时颜色,结束颜色,渐变方向,渐变范围</p>
-<p>语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background-image:linear-gradient(</div><div class="line">  to right,//渐变的方向</div><div class="line">  red,//开始的颜色额</div><div class="line">  green//结束的颜色</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<p>方向:  </p>
-<ul>
-<li><p>关键字表示:to right|to left| to top |to bottom</p>
-</li>
-<li><p>具体的角度表示:上0右90</p>
-</li>
-</ul>
-<p>总结:</p>
-<ul>
-<li>渐变的范围是通过百分比表示的</li>
-<li>渐变的范围百分比默认是相对父容器的宽度设置的</li>
-<li>如果设置了background-size以后,n那么百分比是相对于设置的background-size的值设置的.</li>
-</ul>
-<p><strong>径向渐变</strong></p>
-<p>渐变的组成:开始颜色,结束颜色,径向渐变圆心位置,范围</p>
-<p>语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background-image:radial-gradient(</div><div class="line">  100px at 200px 200px,</div><div class="line">  red ,</div><div class="line">  blue</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<p>总结:</p>
-<ul>
-<li>通过半径的大小设置渐变的范围</li>
-<li>圆心的位置可以通过center |left|top |right|bottom 设置</li>
-<li>圆心的位置还可以通过具体的值来设置</li>
-<li>如果设置百分比,那么是相对于半径设置的</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/18/H5background/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1673,19 +1630,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javascript基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ECMAScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">javascript基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
