@@ -15,7 +15,7 @@
 <meta property="og:url" content="//gouwenxiu.me/2017/06/15/regExp/index.html">
 <meta property="og:site_name" content="秀之家">
 <meta property="og:description" content="字符 描术     / 将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，’n’ 匹配字符 “n”。’/n’ 匹配一个换行符。序列 ‘//’ 匹配 “/” 而 “/(” 则匹配 “(”。   ^ 匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 ‘/n’ 或 ‘/r’ 之后的位置。   $ 匹配输入字符">
-<meta property="og:updated_time" content="2017-09-02T11:19:12.553Z">
+<meta property="og:updated_time" content="2017-09-02T11:20:15.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式中的元字符">
 <meta name="twitter:description" content="字符 描术     / 将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，’n’ 匹配字符 “n”。’/n’ 匹配一个换行符。序列 ‘//’ 匹配 “/” 而 “/(” 则匹配 “(”。   ^ 匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 ‘/n’ 或 ‘/r’ 之后的位置。   $ 匹配输入字符">
@@ -243,9 +243,8 @@
 <td style="text-align:left">负 向预查，在任何不匹配 pattern 的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如’Windows (?!95竖线98竖线NT竖线2000)’ 能匹配 “Windows 3.1″ 中的 “Windows”，但不能匹配 “Windows 2000″ 中的 “Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</td>
 </tr>
 <tr>
-<td style="text-align:center">x</td>
-<td style="text-align:left">y</td>
-<td>匹配 x 或 y。例如，’z竖线food’ 能匹配 “z” 或 “food”。’(z竖线f)ood’ 则匹配 “zood” 或 “food”。</td>
+<td style="text-align:center">x竖线y</td>
+<td style="text-align:left">匹配 x 或 y。例如，’z竖线food’ 能匹配 “z” 或 “food”。’(z竖线f)ood’ 则匹配 “zood” 或 “food”。</td>
 </tr>
 <tr>
 <td style="text-align:center">[xyz]</td>
