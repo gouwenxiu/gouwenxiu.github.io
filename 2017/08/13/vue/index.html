@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//gouwenxiu.me">
-  <title>javascript线程 | 秀之家</title>
+  <title>vue的学习 | 秀之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下. 首先看下面的代码： 12345678function foo() &amp;#123;    console.log( &apos;first&apos; );    setTimeout( ( function()&amp;#123; console.log( &apos;second&apos; ); &amp;#125; ), 5);&amp;#125; for (var i =">
-<meta name="keywords" content="javascript">
+  <meta name="description" content="vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置123456789101112//引入文件&amp;lt;script src=&quot;vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;//创建Vue的实例对象,并对对象进行配置 new Vue(&amp;#123;     template:&quot;模板">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript线程">
-<meta property="og:url" content="//gouwenxiu.me/2017/07/22/js-line/index.html">
+<meta property="og:title" content="vue的学习">
+<meta property="og:url" content="//gouwenxiu.me/2017/08/13/vue/index.html">
 <meta property="og:site_name" content="秀之家">
-<meta property="og:description" content="在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下. 首先看下面的代码： 12345678function foo() &amp;#123;    console.log( &apos;first&apos; );    setTimeout( ( function()&amp;#123; console.log( &apos;second&apos; ); &amp;#125; ), 5);&amp;#125; for (var i =">
-<meta property="og:updated_time" content="2017-09-17T11:58:52.500Z">
+<meta property="og:description" content="vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置123456789101112//引入文件&amp;lt;script src=&quot;vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;//创建Vue的实例对象,并对对象进行配置 new Vue(&amp;#123;     template:&quot;模板">
+<meta property="og:updated_time" content="2017-09-17T12:06:06.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript线程">
-<meta name="twitter:description" content="在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下. 首先看下面的代码： 12345678function foo() &amp;#123;    console.log( &apos;first&apos; );    setTimeout( ( function()&amp;#123; console.log( &apos;second&apos; ); &amp;#125; ), 5);&amp;#125; for (var i =">
+<meta name="twitter:title" content="vue的学习">
+<meta name="twitter:description" content="vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置123456789101112//引入文件&amp;lt;script src=&quot;vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;//创建Vue的实例对象,并对对象进行配置 new Vue(&amp;#123;     template:&quot;模板">
   
     <link rel="alternative" href="/atom.xml" title="秀之家" type="application/atom+xml">
   
@@ -154,54 +154,109 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js-line" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      javascript线程
+      vue的学习
     </h1>
   
 
         
-        <a href="/2017/07/22/js-line/" class="archive-article-date">
-  	<time datetime="2017-07-22T15:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
+        <a href="/2017/08/13/vue/" class="archive-article-date">
+  	<time datetime="2017-08-13T11:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下.</p>
-<p>首先看下面的代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log( <span class="string">'first'</span> );</div><div class="line">    setTimeout( ( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log( <span class="string">'second'</span> ); &#125; ), <span class="number">5</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">    foo();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>执行结果会首先全部输出first，然后全部输出second；尽管中间的执行会超过5ms。为什么？</p>
-<h3 id="Javascript是单线程的"><a href="#Javascript是单线程的" class="headerlink" title="Javascript是单线程的"></a>Javascript是单线程的</h3><p>因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列，你可以理解成就是普通函数和回调函数构成的队列。当异步事件发生时，如mouse click, a timer firing, or an XMLHttpRequest completing（鼠标点击事件发生、定时器触发事件发生、XMLHttpRequest完成回调触发等），将他们放入执行队列，等待当前代码执行完成。</p>
-<h3 id="异步事件驱动"><a href="#异步事件驱动" class="headerlink" title="异步事件驱动"></a>异步事件驱动</h3><p>前面已经提到浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，例如：鼠标点击事件、窗口大小拖拉事件、定时器触发事件、XMLHttpRequest完成回调等。当一个异步事件发生的时候，它就进入事件队列。浏览器有一个内部大消息循环，Event Loop（事件循环），会轮询大的事件队列并处理事件。例如，浏览器当前正在忙于处理onclick事件，这时另外一个事件发生了（如：window onSize），这个异步事件就被放入事件队列等待处理，只有前面的处理完毕了，空闲了才会执行这个事件。setTimeout也是一样，当调用的时候，js引擎会启动定时器timer，大约xxms以后执行xxx，当定时器时间到，就把该事件放到主事件队列等待处理（浏览器不忙的时候才会真正执行）。</p>
-<p>每个浏览器具体实现主事件队列不尽相同，这不谈了。</p>
-<h3 id="浏览器不是单线程的"><a href="#浏览器不是单线程的" class="headerlink" title="浏览器不是单线程的"></a>浏览器不是单线程的</h3><p>虽然JS运行在浏览器中，是单线程的，每个window一个JS线程，但浏览器不是单线程的，例如Webkit或是Gecko引擎，都可能有如下线程：</p>
-<p>javascript引擎线程<br>界面渲染线程<br>浏览器事件触发线程<br>Http请求线程<br>很多童鞋搞不清，如果js是单线程的，那么谁去轮询大的Event loop事件队列？答案是浏览器会有单独的线程去处理这个队列。</p>
-<h3 id="Ajax异步请求是否真的异步"><a href="#Ajax异步请求是否真的异步" class="headerlink" title="Ajax异步请求是否真的异步?"></a>Ajax异步请求是否真的异步?</h3><p>很多童鞋搞不清楚，既然说JavaScript是单线程运行的，那么XMLHttpRequest在连接后是否真的异步?<br>其实请求确实是异步的，这请求是由浏览器新开一个线程请求（见前面的浏览器多线程）。当请求的状态变更时，如果先前已设置回调，这异步线程就产生状态变更事件放到 JavaScript引擎的事件处理队列中等待处理。当浏览器空闲的时候出队列任务被处理，JavaScript引擎始终是单线程运行回调函数。javascript引擎确实是单线程处理它的任务队列，能理解成就是普通函数和回调函数构成的队列。</p>
-<p>总结一下，Ajax请求确实是异步的，这请求是由浏览器新开一个线程请求，事件回调的时候是放入Event loop单线程事件队列等候处理。</p>
-<h3 id="setTimeout-func-0-为什么有时候有用？"><a href="#setTimeout-func-0-为什么有时候有用？" class="headerlink" title="setTimeout(func, 0)为什么有时候有用？"></a>setTimeout(func, 0)为什么有时候有用？</h3><p>写js多的童鞋可能发现，有时候加一个setTimeout(func, 0)非常有用，为什么？难道是模拟多线程吗？错！前面已经说过了，javascript是JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，setTimeout(func, 0)神奇在哪儿？那就是告诉js引擎，在0ms以后把func放到主事件队列中，等待当前的代码执行完毕再执行，注意：重点是改变了代码流程，把func的执行放到了等待当前的代码执行完毕再执行。这就是它的神奇之处了。它的用处有三个：</p>
+        <p>vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入文件</span></div><div class="line">&lt;script src=<span class="string">"vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line"><span class="comment">//创建Vue的实例对象,并对对象进行配置</span></div><div class="line"> <span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">"模板样式"</span>,</div><div class="line">     data:&#123;</div><div class="line"> <span class="comment">//暴露数据</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="vue-js主要作用"><a href="#vue-js主要作用" class="headerlink" title="vue.js主要作用"></a>vue.js主要作用</h3><p>响应式编程,声明式渲染,组件化开发,虚拟DOM,跨平台支持… 更适合小型团队或者个人上手</p>
+<p>声明式渲染—&gt;组件系统—&gt;客户端路由—&gt;大规模状态管理—&gt;构建工具</p>
+<p>vuejs以js为入口,html只是提供一个渲染的锚点,有利于vuejs迁移到浏览器之外的其他平台,比如移动设备或者服务器.</p>
+<p>vuejs文件的创建:</p>
+<ol>
+<li>引入库文件 </li>
+<li>创建vue实例 </li>
+<li>渲染vue实例</li>
+</ol>
+<h4 id="引入vue库"><a href="#引入vue库" class="headerlink" title="引入vue库:"></a>引入vue库:</h4><p>目的: 暴露出一个全局类—Vue,可以用它来创建一个Vue的实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"vue.js"</span>&gt;&lt;script&gt;</div></pre></td></tr></table></figure>
+<p>创建Vue实例: Vue是一个封装了响应式开发.模板编译等诸多特性的基础类,可以通过提供一些配置来创建一个实例:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;各种配置&#125;)</div></pre></td></tr></table></figure>
+<p>常见的配置项:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">template 以类似html的语法来编制视图的结构</div><div class="line"></div><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line"></div><div class="line">template:<span class="string">"&lt;h1&gt;Hello,Vue.js&lt;/h1&gt;"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>渲染Vue实例:</p>
 <ul>
-<li>让浏览器渲染当前的变化（很多浏览器UI render和js执行是放在一个线程中，线程阻塞会导致界面无法更新渲染）</li>
-<li>重新评估”script is running too long”警告</li>
-<li>改变执行顺序<br>例如：下面的例子，点击按钮就会显”calculating….”，如果删除setTimeout就不会。因为reDraw事件被进入事件队列到长时间操作的最后才能被执行，所以无法刷新。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;button id=<span class="string">'do'</span>&gt; Do long calc!&lt;/button&gt;</div><div class="line">&lt;div id=<span class="string">'status'</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div id=<span class="string">'result'</span>&gt;&lt;/div&gt;</div><div class="line"> </div><div class="line">$(<span class="string">'#do'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  </div><div class="line">  $(<span class="string">'#status'</span>).text(<span class="string">'calculating....'</span>); <span class="comment">//此处会触发redraw事件的fired，但会放到队列里执行，直到long()执行完。</span></div><div class="line">  </div><div class="line">  <span class="comment">// without set timeout, user will never see "calculating...."</span></div><div class="line">  <span class="comment">//long();//执行长时间任务，阻塞</span></div><div class="line">   </div><div class="line">  <span class="comment">// with set timeout, works as expected</span></div><div class="line">  setTimeout(long,<span class="number">50</span>);<span class="comment">//用定时器，大约50ms以后执行长时间任务，放入执行队列，但在redraw之后了，根据先进先出原则</span></div><div class="line">  </div><div class="line"> &#125;)</div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">long</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="number">0</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;<span class="number">1000</span>; i++)&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;<span class="number">1000</span>; j++)&#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</div><div class="line">        result = result + i+j+k</div><div class="line">      &#125;</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">  $(<span class="string">'#status'</span>).text(<span class="string">'calclation done'</span>) <span class="comment">// has to be in here for this example. or else it will ALWAYS run instantly. This is the same as passing it a callback </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>显示渲染:<br>采用Vue的实例$mount()方法,这个方法的名称,意味着渲染实际上是将Vue实例生成的虚拟的DOM子树,挂接到页面DOM中.$mount方法需要制定一个定位用的DOM节点—-锚点:Vue.js会将渲染出的DOM子树,插入锚点与安娜苏之前,并最终删除这个锚点元素,可以使用css选择器或者一个制定的html标签来声明锚点.</li>
+</ul>
+<p>工作原理:</p>
+<p>如果vuejs检测到你指定了el配置项,将在内部自动地执行渲染,这种时候就是隐式渲染不需要在调用$mount方法了.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vm.$mount(<span class="string">"#app"</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li>隐式渲染:<br>Vue.js提供了一个实例化时的配置项el来允许我们隐式地启动Vue实例的渲染.el用来声明渲染的锚点<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">"&lt;h1&gt; Hello vue.js&lt;/h1&gt;&gt;"</span>,</div><div class="line">     el:<span class="string">"#app"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="非阻塞js的实现（non-blocking-javascript）"><a href="#非阻塞js的实现（non-blocking-javascript）" class="headerlink" title="非阻塞js的实现（non-blocking javascript）"></a>非阻塞js的实现（non-blocking javascript）</h3><p>js在浏览器中需要被下载、解释并执行这三步。在html body标签中的script都是阻塞的。也就是说，顺序下载、解释、执行。尽管Chrome可以实现多线程并行下载外部资源，例如：script file、image、frame等（css比较复杂，在IE中不阻塞下载，但Firefox阻塞下载）。但是，由于js是单线程的，所以尽管浏览器可以并发加快js的下载，但必须依次执行。所以chrome中image图片资源是可以并发下载的，但外部js文件并发下载没有多大意义。</p>
-<p>要实现非阻塞js（non-blocking javascript）有两个方法：</p>
-<ol>
-<li>html5 </li>
-<li>动态加载js</li>
-</ol>
-<p>首先一种办法是HTML5的defer和async关键字：</p>
-<p><strong>defer</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer src=<span class="string">"foo.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>async</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> <span class="keyword">async</span> src=<span class="string">"foo.js"</span>&gt;&lt;/script&gt;</div><div class="line">然后第二种方法是动态加载js：</div><div class="line"></div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">    script.type = <span class="string">"text/javascript"</span>;</div><div class="line">    script.src = <span class="string">"foo.js"</span>;</div><div class="line">    <span class="keyword">var</span> head = <span class="literal">true</span>; <span class="comment">//加在头还是尾</span></div><div class="line">    <span class="keyword">if</span>(head)</div><div class="line">      <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</div><div class="line">    <span class="keyword">else</span></div><div class="line">      <span class="built_in">document</span>.body.appendChild(script); </div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"> </div><div class="line"><span class="comment">//另外一个独立的动态加载js的函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadJs</span>(<span class="params">jsurl, head, callback</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> script=<span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">    script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</div><div class="line">     </div><div class="line">    <span class="keyword">if</span>(callback)&#123;</div><div class="line">        <span class="keyword">if</span> (script.readyState)&#123;  <span class="comment">//IE</span></div><div class="line">            script.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">if</span> (script.readyState == <span class="string">"loaded"</span> ||</div><div class="line">                        script.readyState == <span class="string">"complete"</span>)&#123;</div><div class="line">                    script.onreadystatechange = <span class="literal">null</span>;</div><div class="line">                    callback();</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">//Others</span></div><div class="line">            script.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                callback();</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    script.setAttribute(<span class="string">"src"</span>, jsurl);</div><div class="line">     </div><div class="line">    <span class="keyword">if</span>(head)</div><div class="line">     <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script); </div><div class="line">    <span class="keyword">else</span></div><div class="line">      <span class="built_in">document</span>.body.appendChild(script); </div><div class="line"> </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>工作原理:</p>
+<p>Vue.js发现你提供的配置中没有template的时候,将提取el属性所指定的DOM节点的outerHTML内容作为模板内容,类似于<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> VUe(&#123;</div><div class="line">     el:<span class="string">"#app"</span>,</div><div class="line">     template:<span class="built_in">document</span>.querySelector(<span class="string">"#app"</span>).outerHTML</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>模型的声明和绑定:<br>模板存在的唯一目的是为了和数据绑定.</p>
+<p>Vue.js在标准的HTML语法的基础上,增加了一些扩展的语法来声明数据的绑定,模板中的差值表达式声明了和模型的绑定</p>
+<p>数据绑定的语法:<br>在vuejs的模型中,最常见的一种数据绑定的语法,是使用模板引擎的差值写法.<br>当vuejs渲染此模板时,将使用实例数据上下文中的name变量值,来计算最终的渲染结果</p>
+<p>数据模型声明:</p>
+<p>在创建Vue实例时,使用data配置来声明Vue实例的数据模型,vue.js根据data配置项的使命初始化模型构造数据的上下文,静儿和template配置项所有声明的模板进行数据绑定.</p>
+<p>模板数据的上下文:<br>通常使用data配置项来声明vue实例的数据模型,但是不是只有在data对象上的声明数据才可以与模板绑定,模板的数据上下文=Vue实例对象,当vuejs创建一个Vue实例时,他会将data配置项的每个根属性,经过若干处理后天年假为实例的根属性</p>
+<p>因此我们在模板中可以绑定实例中的任意属性,例如$mount()函数也是可以的o(<em>￣︶￣</em>)o</p>
+<p>既然如此,我们为什么要使用data配置项来声明数据模型,而不是直接在实例上设置数据模型呢</p>
+<p>var vm=new Vue({<br>     template:’</p><h1></h1>‘<br>});<br>vm.name=”nihao”;<br>vm.$mount(“#app”)<br>这关乎于vue.js的核心特性—–响应式计算<p></p>
+<p>响应式计算机制:<br>响应式计算是一种面向变化传播的编程范式,响应式计算模型主要包括两个部分:数据源和依赖数据源的计算过程,当数据源发生变化时,将自动执行计算过程,比如视图的渲染过程:</p>
+<p>虽然响应式本质上是一种通用的编程范式,但这种模型最初就是为了简化交互式用户界面的创建和实时系统动画的绘制而提出来的一种方法,他使得我们只需要修改数据源就可以自动更新用户界面.</p>
+<p>Vue.js内部实现了响应式计算框架,我们在创建Vue实例时,在data配置项中声明的数据,会被自动转换为响应式数据源,当我们修改这部分数据的时候,依赖这部分数据的计算过程–例如界面渲染过程—将自动被执行,因此用用户界面也自动更新.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">"&lt;h1&gt;&#123;&#123;counter&#125;&#125;&lt;/h1&gt;"</span>,</div><div class="line">     data:&#123;<span class="attr">counter</span>:<span class="number">0</span>&#125;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>vue将自动创建如下的响应式计算模型:</p>
+<p>你看到,渲染计算依赖于Vue的实例counter,因此当counter变化时,我们将自动得到刷新的DOM视图</p>
+<p>交互行为声明:</p>
+<p>视图的作用是双向的,除了向用户展示信息,另一方面的用途在于采集用户的输入和数据绑定类似,Vue.js通过扩展模板的html语法,用来声明对用户交互事件的监听,例如下面的模板向vue.js框架声明了对button元素click事件的监听</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button v-on:click=<span class="string">"counter=0"</span>&gt; RESET&lt;<span class="regexp">/button&gt;</span></div></pre></td></tr></table></figure>
+<p>在vuejs中这种以v-为前缀的特殊的html属性,被称之为指令.通常用来增强或改变所在html元素的行为,例如v-on指令的作用就是为宿主与安娜苏声明时间内监听</p>
+<p>类似于vue.js中的其他指令,v-on指令包括以下几个部分:</p>
+<ul>
+<li>指令名称: v-开始,:或者=之前的部分称之为指令名称,v-on称之为指令名称</li>
+<li>指令参数:之后的部分称之为指令参数.在图中,指令参数是:click.不是所有的vue.js的指令都需要参数,但是对于v-on指令而言,使用参数可以避免为不同的事件实现不同的指令,例如我们可以用同样的方式声明对hover事件的监听: v-:hover=”事件”.</li>
+<li>指令的值=之后的字符串称之为指令的值.在上图中.指令的值是:counter=0.不同的指令,对指令值有不同的解释.对于v-on指令,他的值表示当事件发生时应当执行的表达式</li>
+</ul>
+<p>指令值的执行上下文</p>
+<p>模板的数据上下文是所属的Vue实例对象.容易理解,v-on指令的值表达式执行的上下文也是所属的Vue实例对象,因此在下面的实例中,当电脑极爱按钮后,Vue实例的counter属性将复位为0;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">template:<span class="string">"&lt;button v-on:click="</span>counter=<span class="number">0</span><span class="string">"&gt;reset&lt;/button&gt;,</span></div><div class="line"><span class="string">data:&#123;counter:123&#125;</span></div><div class="line"><span class="string">&#125;)</span></div></pre></td></tr></table></figure>
+<h4 id="指令的简化写法"><a href="#指令的简化写法" class="headerlink" title="指令的简化写法:"></a>指令的简化写法:</h4><p>为了避免书写大量的v-on:前缀,vuejs允许我们使用@来简化事件绑定的声明语法</p>
+<h4 id="实例方法声明"><a href="#实例方法声明" class="headerlink" title="实例方法声明:"></a>实例方法声明:</h4><p>如果需要在点击鼠标时,执行一个复杂的操作,name采用单一的表达式作为v-on指令就不够了,我们需要将复杂的操作封装为Vue实例的一个方法,然后将v-on指令的值设置为这个方法.<br>使用methods配置项来声明Vue实例的方法,当Vue.js创建一个Vue实例时,会将methods配置项中声明的方法,挂接到Vue实例对象上</p>
+<p>实例方法可以直接通过实例对象调用,例如,对于上图中的vm实例:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vm.handler();</div></pre></td></tr></table></figure></p>
+<p>实例方法另一个常见的用途,是将方法名声明为v-on指令的值,当时间出发时将调用该实例对象上该名称的方法,录入下面的代码为Vue实例声明了reset方法,并将该方法的名称作为模板中button元素v-on指令的是<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">"&lt;button v-on:click='reset'&gt;&lt;/button&gt;"</span>,</div><div class="line">     data:&#123;<span class="attr">counter</span>:<span class="number">0</span>&#125;,</div><div class="line">methods:&#123;</div><div class="line">reset:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">this</span>.counter=<span class="number">0</span>&#125;</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>方法函数体内的this对象: 需要指出的是在methods配置对象中声明的方法,器函数实现体内,this形式指向所在的Vue实例,所以,可以在这些函数体内,直接访问通过data配置项声明的数据,比如this.counter</p>
+<h4 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子:"></a>生命周期钩子:</h4><p>每个vue实例在被创建之前都要经过一系列的初始化过程,在这个过程中,实例也会调用一些生命周期钩子,这就给我们提供了执行自定义逻辑的机会.</p>
+<h5 id="初始化钩子"><a href="#初始化钩子" class="headerlink" title="初始化钩子:"></a>初始化钩子:</h5><p><strong>beforeCreated</strong>和<strong>created</strong>.允许我们在实例被渲染到Dom之前执行一些初始化操作.由于DOM还没有就绪,在初始化钩子里,不能访问DON对象,实例$el属性—-宿主DOM对象—也没有创建</p>
+<ul>
+<li>beforeCreated是最早被调用的钩子,这是Vue.js还没有构造响应式数据源,也咩有初始化实例事件.</li>
+<li>在created钩子里,我们可以访问响应式数据,监听实例事件.不过还没有将虚拟DOM渲染到文档DOM树</li>
+</ul>
+<h5 id="DOM挂载钩子"><a href="#DOM挂载钩子" class="headerlink" title="DOM挂载钩子"></a>DOM挂载钩子</h5><p>挂载钩子包括<strong>beforeMount</strong>和<strong>mounted</strong>,是最常用的钩子.这两个钩子允许我们在首次渲染前后立即访问Vue实例,因此.若果我们需要在首次渲染前后访问或者修改DOM对象,例如通过实例的$el属性访问宿主与安娜苏,就应给使用这两个钩子</p>
+<ul>
+<li>beforeMount钩子在模板编辑完成后,首次渲染前执行.</li>
+<li>在mounted钩子内可以自由第访问组件你熏染后的DOM对象(this.$el),这个钩子经常被用于修改DOM,集成第三方库等操作</li>
+</ul>
+<h5 id="更新钩子函数"><a href="#更新钩子函数" class="headerlink" title="更新钩子函数"></a>更新钩子函数</h5><p>更新钩子包括<strong>beforeUpdate</strong>和<strong>updated</strong>,每当实例需要重新渲染的,例如模型发生变化等,框架就会用这两个钩子:</p>
+<p>在这个过程中只会执行需要更新的部分.</p>
+<ul>
+<li>beforeUpdate钩子在模型数据变化之后,渲染周期开始之前执行,在这个钩子里,我们可以在界面渲染前获取实例属性的最新值.</li>
+<li>updated钩子在重新渲染完之后被调用.</li>
+</ul>
+<h5 id="DOM卸载钩子"><a href="#DOM卸载钩子" class="headerlink" title="DOM卸载钩子"></a>DOM卸载钩子</h5><p>DOM卸载钩子包括<strong>beforeDestroy</strong>和<strong>destroyed</strong>,当时李被从DOM树上移除时执行.这两个钩子允许我们在实例销毁前后执行一些清理或同级分析的工作.</p>
+<ul>
+<li>beforeDestroy钩子在实例被销毁,利用,通过调用实例的$destroyed()方法之前被调用,在这个钩子里面可以清理对响应式数据的监听.</li>
+<li>destroyed钩子在实例被销毁之后被调用,此时实例已经不剩什么东西了,也可以在这个钩子里执行一些最后时刻的清理工作,或者向远程服务器通知实例被销毁的消息</li>
+</ul>
+
       
 
       
@@ -235,7 +290,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -291,7 +346,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/07/22/js-line/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/08/13/vue/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +360,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/13/vue/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue的学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/06/20/我所喜爱的思想/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我所喜爱的思想</div>
+    <a href="/2017/07/22/js-line/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript线程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -344,7 +390,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js-line" data-title="javascript线程" data-url="//gouwenxiu.me/2017/07/22/js-line/"></div>
+	<div class="ds-thread" data-thread-key="vue" data-title="vue的学习" data-url="//gouwenxiu.me/2017/08/13/vue/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

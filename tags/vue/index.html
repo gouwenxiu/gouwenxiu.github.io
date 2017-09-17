@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//gouwenxiu.me">
-  <title>javascript线程 | 秀之家</title>
+  <title>Tag: vue | 秀之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下. 首先看下面的代码： 12345678function foo() &amp;#123;    console.log( &apos;first&apos; );    setTimeout( ( function()&amp;#123; console.log( &apos;second&apos; ); &amp;#125; ), 5);&amp;#125; for (var i =">
-<meta name="keywords" content="javascript">
-<meta property="og:type" content="article">
-<meta property="og:title" content="javascript线程">
-<meta property="og:url" content="//gouwenxiu.me/2017/07/22/js-line/index.html">
+  <meta name="description" content="辽宁师范大学13级,擅长各项前端技能,总之很厉害">
+<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+<meta property="og:type" content="website">
+<meta property="og:title" content="秀之家">
+<meta property="og:url" content="//gouwenxiu.me/tags/vue/index.html">
 <meta property="og:site_name" content="秀之家">
-<meta property="og:description" content="在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下. 首先看下面的代码： 12345678function foo() &amp;#123;    console.log( &apos;first&apos; );    setTimeout( ( function()&amp;#123; console.log( &apos;second&apos; ); &amp;#125; ), 5);&amp;#125; for (var i =">
-<meta property="og:updated_time" content="2017-09-17T11:58:52.500Z">
+<meta property="og:description" content="辽宁师范大学13级,擅长各项前端技能,总之很厉害">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript线程">
-<meta name="twitter:description" content="在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下. 首先看下面的代码： 12345678function foo() &amp;#123;    console.log( &apos;first&apos; );    setTimeout( ( function()&amp;#123; console.log( &apos;second&apos; ); &amp;#125; ), 5);&amp;#125; for (var i =">
+<meta name="twitter:title" content="秀之家">
+<meta name="twitter:description" content="辽宁师范大学13级,擅长各项前端技能,总之很厉害">
   
     <link rel="alternative" href="/atom.xml" title="秀之家" type="application/atom+xml">
   
@@ -154,220 +153,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js-line" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      javascript线程
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/13/vue/" class="archive-article-date">
+  	<time datetime="2017-08-13T11:20:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/08/13/vue/">vue的学习</a>
     </h1>
   
 
-        
-        <a href="/2017/07/22/js-line/" class="archive-article-date">
-  	<time datetime="2017-07-22T15:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习javascript的过程中总是弄不清楚线程的问题,今天就来仔细研究一下.</p>
-<p>首先看下面的代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log( <span class="string">'first'</span> );</div><div class="line">    setTimeout( ( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log( <span class="string">'second'</span> ); &#125; ), <span class="number">5</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">    foo();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>执行结果会首先全部输出first，然后全部输出second；尽管中间的执行会超过5ms。为什么？</p>
-<h3 id="Javascript是单线程的"><a href="#Javascript是单线程的" class="headerlink" title="Javascript是单线程的"></a>Javascript是单线程的</h3><p>因为JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列，你可以理解成就是普通函数和回调函数构成的队列。当异步事件发生时，如mouse click, a timer firing, or an XMLHttpRequest completing（鼠标点击事件发生、定时器触发事件发生、XMLHttpRequest完成回调触发等），将他们放入执行队列，等待当前代码执行完成。</p>
-<h3 id="异步事件驱动"><a href="#异步事件驱动" class="headerlink" title="异步事件驱动"></a>异步事件驱动</h3><p>前面已经提到浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，例如：鼠标点击事件、窗口大小拖拉事件、定时器触发事件、XMLHttpRequest完成回调等。当一个异步事件发生的时候，它就进入事件队列。浏览器有一个内部大消息循环，Event Loop（事件循环），会轮询大的事件队列并处理事件。例如，浏览器当前正在忙于处理onclick事件，这时另外一个事件发生了（如：window onSize），这个异步事件就被放入事件队列等待处理，只有前面的处理完毕了，空闲了才会执行这个事件。setTimeout也是一样，当调用的时候，js引擎会启动定时器timer，大约xxms以后执行xxx，当定时器时间到，就把该事件放到主事件队列等待处理（浏览器不忙的时候才会真正执行）。</p>
-<p>每个浏览器具体实现主事件队列不尽相同，这不谈了。</p>
-<h3 id="浏览器不是单线程的"><a href="#浏览器不是单线程的" class="headerlink" title="浏览器不是单线程的"></a>浏览器不是单线程的</h3><p>虽然JS运行在浏览器中，是单线程的，每个window一个JS线程，但浏览器不是单线程的，例如Webkit或是Gecko引擎，都可能有如下线程：</p>
-<p>javascript引擎线程<br>界面渲染线程<br>浏览器事件触发线程<br>Http请求线程<br>很多童鞋搞不清，如果js是单线程的，那么谁去轮询大的Event loop事件队列？答案是浏览器会有单独的线程去处理这个队列。</p>
-<h3 id="Ajax异步请求是否真的异步"><a href="#Ajax异步请求是否真的异步" class="headerlink" title="Ajax异步请求是否真的异步?"></a>Ajax异步请求是否真的异步?</h3><p>很多童鞋搞不清楚，既然说JavaScript是单线程运行的，那么XMLHttpRequest在连接后是否真的异步?<br>其实请求确实是异步的，这请求是由浏览器新开一个线程请求（见前面的浏览器多线程）。当请求的状态变更时，如果先前已设置回调，这异步线程就产生状态变更事件放到 JavaScript引擎的事件处理队列中等待处理。当浏览器空闲的时候出队列任务被处理，JavaScript引擎始终是单线程运行回调函数。javascript引擎确实是单线程处理它的任务队列，能理解成就是普通函数和回调函数构成的队列。</p>
-<p>总结一下，Ajax请求确实是异步的，这请求是由浏览器新开一个线程请求，事件回调的时候是放入Event loop单线程事件队列等候处理。</p>
-<h3 id="setTimeout-func-0-为什么有时候有用？"><a href="#setTimeout-func-0-为什么有时候有用？" class="headerlink" title="setTimeout(func, 0)为什么有时候有用？"></a>setTimeout(func, 0)为什么有时候有用？</h3><p>写js多的童鞋可能发现，有时候加一个setTimeout(func, 0)非常有用，为什么？难道是模拟多线程吗？错！前面已经说过了，javascript是JS运行在浏览器中，是单线程的，每个window一个JS线程，既然是单线程的，setTimeout(func, 0)神奇在哪儿？那就是告诉js引擎，在0ms以后把func放到主事件队列中，等待当前的代码执行完毕再执行，注意：重点是改变了代码流程，把func的执行放到了等待当前的代码执行完毕再执行。这就是它的神奇之处了。它的用处有三个：</p>
-<ul>
-<li>让浏览器渲染当前的变化（很多浏览器UI render和js执行是放在一个线程中，线程阻塞会导致界面无法更新渲染）</li>
-<li>重新评估”script is running too long”警告</li>
-<li>改变执行顺序<br>例如：下面的例子，点击按钮就会显”calculating….”，如果删除setTimeout就不会。因为reDraw事件被进入事件队列到长时间操作的最后才能被执行，所以无法刷新。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;button id=<span class="string">'do'</span>&gt; Do long calc!&lt;/button&gt;</div><div class="line">&lt;div id=<span class="string">'status'</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div id=<span class="string">'result'</span>&gt;&lt;/div&gt;</div><div class="line"> </div><div class="line">$(<span class="string">'#do'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  </div><div class="line">  $(<span class="string">'#status'</span>).text(<span class="string">'calculating....'</span>); <span class="comment">//此处会触发redraw事件的fired，但会放到队列里执行，直到long()执行完。</span></div><div class="line">  </div><div class="line">  <span class="comment">// without set timeout, user will never see "calculating...."</span></div><div class="line">  <span class="comment">//long();//执行长时间任务，阻塞</span></div><div class="line">   </div><div class="line">  <span class="comment">// with set timeout, works as expected</span></div><div class="line">  setTimeout(long,<span class="number">50</span>);<span class="comment">//用定时器，大约50ms以后执行长时间任务，放入执行队列，但在redraw之后了，根据先进先出原则</span></div><div class="line">  </div><div class="line"> &#125;)</div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">long</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="number">0</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;<span class="number">1000</span>; i++)&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j&lt;<span class="number">1000</span>; j++)&#123;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k&lt;<span class="number">1000</span>; k++)&#123;</div><div class="line">        result = result + i+j+k</div><div class="line">      &#125;</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">  $(<span class="string">'#status'</span>).text(<span class="string">'calclation done'</span>) <span class="comment">// has to be in here for this example. or else it will ALWAYS run instantly. This is the same as passing it a callback </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="非阻塞js的实现（non-blocking-javascript）"><a href="#非阻塞js的实现（non-blocking-javascript）" class="headerlink" title="非阻塞js的实现（non-blocking javascript）"></a>非阻塞js的实现（non-blocking javascript）</h3><p>js在浏览器中需要被下载、解释并执行这三步。在html body标签中的script都是阻塞的。也就是说，顺序下载、解释、执行。尽管Chrome可以实现多线程并行下载外部资源，例如：script file、image、frame等（css比较复杂，在IE中不阻塞下载，但Firefox阻塞下载）。但是，由于js是单线程的，所以尽管浏览器可以并发加快js的下载，但必须依次执行。所以chrome中image图片资源是可以并发下载的，但外部js文件并发下载没有多大意义。</p>
-<p>要实现非阻塞js（non-blocking javascript）有两个方法：</p>
-<ol>
-<li>html5 </li>
-<li>动态加载js</li>
-</ol>
-<p>首先一种办法是HTML5的defer和async关键字：</p>
-<p><strong>defer</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer src=<span class="string">"foo.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>async</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> <span class="keyword">async</span> src=<span class="string">"foo.js"</span>&gt;&lt;/script&gt;</div><div class="line">然后第二种方法是动态加载js：</div><div class="line"></div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">    script.type = <span class="string">"text/javascript"</span>;</div><div class="line">    script.src = <span class="string">"foo.js"</span>;</div><div class="line">    <span class="keyword">var</span> head = <span class="literal">true</span>; <span class="comment">//加在头还是尾</span></div><div class="line">    <span class="keyword">if</span>(head)</div><div class="line">      <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</div><div class="line">    <span class="keyword">else</span></div><div class="line">      <span class="built_in">document</span>.body.appendChild(script); </div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"> </div><div class="line"><span class="comment">//另外一个独立的动态加载js的函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadJs</span>(<span class="params">jsurl, head, callback</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> script=<span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">    script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</div><div class="line">     </div><div class="line">    <span class="keyword">if</span>(callback)&#123;</div><div class="line">        <span class="keyword">if</span> (script.readyState)&#123;  <span class="comment">//IE</span></div><div class="line">            script.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">if</span> (script.readyState == <span class="string">"loaded"</span> ||</div><div class="line">                        script.readyState == <span class="string">"complete"</span>)&#123;</div><div class="line">                    script.onreadystatechange = <span class="literal">null</span>;</div><div class="line">                    callback();</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">//Others</span></div><div class="line">            script.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                callback();</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    script.setAttribute(<span class="string">"src"</span>, jsurl);</div><div class="line">     </div><div class="line">    <span class="keyword">if</span>(head)</div><div class="line">     <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script); </div><div class="line">    <span class="keyword">else</span></div><div class="line">      <span class="built_in">document</span>.body.appendChild(script); </div><div class="line"> </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://gouwenxiu.me/2017/07/22/js-line/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/08/13/vue/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue的学习
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/06/20/我所喜爱的思想/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我所喜爱的思想</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js-line" data-title="javascript线程" data-url="//gouwenxiu.me/2017/07/22/js-line/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -390,9 +229,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
