@@ -15,7 +15,7 @@
 <meta property="og:url" content="//gouwenxiu.me/2017/08/13/vue/index.html">
 <meta property="og:site_name" content="秀之家">
 <meta property="og:description" content="vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置123456789101112//引入文件&amp;lt;script src=&quot;vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;//创建Vue的实例对象,并对对象进行配置 new Vue(&amp;#123;     template:&quot;模板">
-<meta property="og:updated_time" content="2017-09-17T12:06:06.856Z">
+<meta property="og:updated_time" content="2017-09-17T12:14:32.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue的学习">
 <meta name="twitter:description" content="vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置123456789101112//引入文件&amp;lt;script src=&quot;vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;//创建Vue的实例对象,并对对象进行配置 new Vue(&amp;#123;     template:&quot;模板">
@@ -209,8 +209,8 @@
 <p>在创建Vue实例时,使用data配置来声明Vue实例的数据模型,vue.js根据data配置项的使命初始化模型构造数据的上下文,静儿和template配置项所有声明的模板进行数据绑定.</p>
 <p>模板数据的上下文:<br>通常使用data配置项来声明vue实例的数据模型,但是不是只有在data对象上的声明数据才可以与模板绑定,模板的数据上下文=Vue实例对象,当vuejs创建一个Vue实例时,他会将data配置项的每个根属性,经过若干处理后天年假为实例的根属性</p>
 <p>因此我们在模板中可以绑定实例中的任意属性,例如$mount()函数也是可以的o(<em>￣︶￣</em>)o</p>
-<p>既然如此,我们为什么要使用data配置项来声明数据模型,而不是直接在实例上设置数据模型呢</p>
-<p>var vm=new Vue({<br>     template:’</p><h1></h1>‘<br>});<br>vm.name=”nihao”;<br>vm.$mount(“#app”)<br>这关乎于vue.js的核心特性—–响应式计算<p></p>
+<p>既然如此,我们为什么要使用data配置项来声明数据模型,而不是直接在实例上设置数据模型呢<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">'&lt;h1&gt;&#123;&#123;name&#125;&#125;&lt;/h1&gt;'</span></div><div class="line">&#125;);</div><div class="line">vm.name=<span class="string">"nihao"</span>;</div><div class="line">vm.$mount(<span class="string">"#app"</span>)</div></pre></td></tr></table></figure></p>
+<p>这关乎于vue.js的核心特性—–响应式计算</p>
 <p>响应式计算机制:<br>响应式计算是一种面向变化传播的编程范式,响应式计算模型主要包括两个部分:数据源和依赖数据源的计算过程,当数据源发生变化时,将自动执行计算过程,比如视图的渲染过程:</p>
 <p>虽然响应式本质上是一种通用的编程范式,但这种模型最初就是为了简化交互式用户界面的创建和实时系统动画的绘制而提出来的一种方法,他使得我们只需要修改数据源就可以自动更新用户界面.</p>
 <p>Vue.js内部实现了响应式计算框架,我们在创建Vue实例时,在data配置项中声明的数据,会被自动转换为响应式数据源,当我们修改这部分数据的时候,依赖这部分数据的计算过程–例如界面渲染过程—将自动被执行,因此用用户界面也自动更新.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">"&lt;h1&gt;&#123;&#123;counter&#125;&#125;&lt;/h1&gt;"</span>,</div><div class="line">     data:&#123;<span class="attr">counter</span>:<span class="number">0</span>&#125;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
@@ -531,15 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">
