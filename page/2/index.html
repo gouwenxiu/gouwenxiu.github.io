@@ -155,6 +155,202 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-H5flex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/29/H5flex/">HTML5和CSS3(五)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/29/H5flex/" class="archive-article-date">
+  	<time datetime="2017-04-29T15:55:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用H5和CSS3来设置布局和H5CSS3的兼容处理</p>
+<h3 id="伸缩布局"><a href="#伸缩布局" class="headerlink" title="伸缩布局"></a>伸缩布局</h3><p>设置盒子为伸缩盒子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">display:flex;设置父盒子是伸缩盒子</div></pre></td></tr></table></figure>
+<p>伸缩盒子的特点:</p>
+<ul>
+<li><p>主轴:默认水平从左到右;</p>
+</li>
+<li><p>侧轴:始终垂直主轴从上到下;</p>
+</li>
+<li><p>在伸缩盒子中,子元素是按照主轴方向显示.</p>
+</li>
+</ul>
+<p>子元素在主轴方向的对齐方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">flex-start</td>
+<td style="text-align:center">主轴开始</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">flex-end</td>
+<td style="text-align:center">主轴结束</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">center</td>
+<td style="text-align:center">居中</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">space-between</td>
+<td style="text-align:center">之间有举例</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">space-around</td>
+<td style="text-align:center">环绕</td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">strench</td>
+<td style="text-align:center">拉伸(默认值)</td>
+</tr>
+</tbody>
+</table>
+<p>子元素在侧轴方向上的对齐方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">align-itemst</td>
+<td style="text-align:center">flex-start</td>
+<td style="text-align:center">侧轴开始</td>
+</tr>
+<tr>
+<td style="text-align:center">align-itemst</td>
+<td style="text-align:center">flex-end</td>
+<td style="text-align:center">侧轴结束</td>
+</tr>
+<tr>
+<td style="text-align:center">align-itemst</td>
+<td style="text-align:center">center</td>
+<td style="text-align:center">居中始</td>
+</tr>
+</tbody>
+</table>
+<p>调整主轴的方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-direction:row(默认)\|cloumn\|row-reverse\|column-reverse</div></pre></td></tr></table></figure>
+<p>设置盒子是否换行显示</p>
+<ul>
+<li>默认盒子是不会换行显示的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">flex-wrap:nowrap;不换行显示</div><div class="line">flex-wrap:wrap;换行显示</div></pre></td></tr></table></figure>
+<p>盒子换行后对齐方式发生了变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">align-content:flex-start;</div><div class="line">align-content:flex-end;</div><div class="line">align-content:center;</div><div class="line">align-content:space-between;</div><div class="line">align-content:space-around;</div><div class="line">align-content:stretch;</div></pre></td></tr></table></figure>
+<p>设置伸缩盒子中子元素的属性</p>
+<p>flex:数值,代表子元素在父元素中所占的比例</p>
+<h3 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">column-count:2</td>
+<td style="text-align:center">设置列数</td>
+</tr>
+<tr>
+<td style="text-align:center">column:200px;</td>
+<td style="text-align:center">设置列宽</td>
+</tr>
+<tr>
+<td style="text-align:center">column-gap:50px</td>
+<td style="text-align:center">设置列间距</td>
+</tr>
+<tr>
+<td style="text-align:center">column-rule:1px solid #ccc</td>
+<td style="text-align:center">设置边线</td>
+</tr>
+<tr>
+<td style="text-align:center">column-span:all</td>
+<td style="text-align:center">设置标题跨列显示</td>
+</tr>
+</tbody>
+</table>
+<h3 id="C3兼容属性的处理"><a href="#C3兼容属性的处理" class="headerlink" title="C3兼容属性的处理"></a>C3兼容属性的处理</h3><p>一般兼容性的处理是在属性前面加浏览器的私有前缀,不能解决的时候应该避免使用,无需刻意去处理css3的兼容性问题</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/29/H5flex/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-H5animation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1671,184 +1867,6 @@
 
 
   
-    <article id="post-gitCommond" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/14/gitCommond/">常用的linux命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/14/gitCommond/" class="archive-article-date">
-  	<time datetime="2017-02-14T06:57:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习的过程中常用的命令记不住怎么破,只能多用多总结喽!</p>
-<p>linux命令的基本语法:</p>
-<p>一般 linux 命令都带有选项与参数,选项一般用于控制如何操作, 带有 - 或 – 引导符号, 一个命令可以带有多个选项,参数一般用于表示处理什么东西,大部分命令都有不带参数与选项的形式.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ 命令名 [选项] [参数]</div></pre></td></tr></table></figure></p>
-<h5 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">ls</td>
-<td style="text-align:center">列出当前目录下的所有非隐藏的文件</td>
-</tr>
-<tr>
-<td style="text-align:center">ls -a 或ls –all</td>
-<td style="text-align:center">列出所有的文件</td>
-</tr>
-<tr>
-<td style="text-align:center">ls -l</td>
-<td style="text-align:center">文件的详细列表</td>
-</tr>
-<tr>
-<td style="text-align:center">ls -l -a 或者 ls –all -l</td>
-<td style="text-align:center">所有文件的详细列表</td>
-</tr>
-<tr>
-<td style="text-align:center">ls 路径</td>
-<td style="text-align:center">列举出制定能够路径下的当前目录</td>
-</tr>
-<tr>
-<td style="text-align:center">clear</td>
-<td style="text-align:center">清屏</td>
-</tr>
-<tr>
-<td style="text-align:center">pwd</td>
-<td style="text-align:center">打印当前全路径</td>
-</tr>
-<tr>
-<td style="text-align:center">~</td>
-<td style="text-align:center">家目录</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">表示根目录</td>
-</tr>
-<tr>
-<td style="text-align:center">./</td>
-<td style="text-align:center">当前目录</td>
-</tr>
-<tr>
-<td style="text-align:center">../</td>
-<td style="text-align:center">上级目录</td>
-</tr>
-<tr>
-<td style="text-align:center">cd</td>
-<td style="text-align:center">切换当前目录,输入的时候用tab键可以补全目录名</td>
-</tr>
-<tr>
-<td style="text-align:center">$ touch 文件名</td>
-<td style="text-align:center">创建文件</td>
-</tr>
-<tr>
-<td style="text-align:center">$ rm 文件名 或 rm 通配符</td>
-<td style="text-align:center">删除文件</td>
-</tr>
-<tr>
-<td style="text-align:center">$ cat 文件名</td>
-<td style="text-align:center">查看文件的内容( 文件内容较少 )</td>
-</tr>
-<tr>
-<td style="text-align:center">$ head 文件名</td>
-<td style="text-align:center">查看文件的前 10 行, 如果带有 -数字 表示查看前 n 行</td>
-</tr>
-<tr>
-<td style="text-align:center">$ tail 文件名</td>
-<td style="text-align:center">查看文件的后 10 行, 如果带有 -数字 表示查看后 n 行</td>
-</tr>
-<tr>
-<td style="text-align:center">$ more 或 less</td>
-<td style="text-align:center">( more 只许在 linux 下用)该命令以回车的形式查看每一行, 使用 q 退出</td>
-</tr>
-<tr>
-<td style="text-align:center">$ mkdir 文件夹名</td>
-<td style="text-align:center">创建文件夹</td>
-</tr>
-<tr>
-<td style="text-align:center">$ rmdir 文件夹名</td>
-<td style="text-align:center">删除文件夹</td>
-</tr>
-<tr>
-<td style="text-align:center">$ rm -rf</td>
-<td style="text-align:center">如果希望递归删除文件夹 需要使用命令</td>
-</tr>
-<tr>
-<td style="text-align:center">$命令 –help</td>
-<td style="text-align:center">可以打印出该命令的含义以及用法</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/14/gitCommond/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1962,11 +1980,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1974,7 +1996,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
