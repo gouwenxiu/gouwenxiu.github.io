@@ -155,6 +155,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/13/es6-1/">ES6(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/13/es6-1/" class="archive-article-date">
+  	<time datetime="2017-05-13T15:55:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> ES6的介绍</p>
+<ul>
+<li>ES6 是一个规范,不同的浏览器做了不同的实现,所以有的浏览器不一定完全支持</li>
+<li>ES6的出现是为了让javascript更好.更健壮,更适应大型的应用开发</li>
+<li>ES6也叫作ECMA2015 </li>
+</ul>
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p> 出现时期:ES5的时候就有了</p>
+<p> 开启严格模式的代码:<code>use strict;</code></p>
+<p> 作用:限制代码的编写</p>
+<ul>
+<li>在严格模式中函数中的this禁止指向全局对象,指向的是undefined</li>
+<li><p>在非严格模式下可以使用with声明,作用是简化对象用于某些对象的代码,严格模式下禁止使用with语句,报错</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person=&#123; <span class="attr">name</span>:<span class="string">"jack"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"><span class="comment">//不用with的时候修改代码中name和age</span></div><div class="line">person.name=<span class="string">"rose"</span>;</div><div class="line">oerson.age:<span class="number">19</span>;</div><div class="line"><span class="built_in">console</span>.log(person.name)</div><div class="line"></div><div class="line"><span class="comment">//使用with语句</span></div><div class="line"><span class="keyword">with</span>(person)&#123;<span class="comment">//在严格模式下</span></div><div class="line">    <span class="comment">//报错：Strict mode code may not include a with statement</span></div><div class="line">    name=<span class="string">"rose"</span>;</div><div class="line">    age=<span class="number">20</span>;<span class="built_in">console</span>.log(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="严格模式和ES6"><a href="#严格模式和ES6" class="headerlink" title="严格模式和ES6"></a>严格模式和ES6</h4></li>
+<li>严格模式是严格模式,ES6是ES6,之间没有很大的关系</li>
+<li>严格模式是代码的限制,ES6是与噶的规范,增加了相关的代码功能</li>
+<li><p>在ES6中的部分关键字必须在严格模式下才能使用,所以凡是ES6就使用严格模式.</p>
+<h4 id="let声明变量的关键字"><a href="#let声明变量的关键字" class="headerlink" title="let声明变量的关键字"></a>let声明变量的关键字</h4></li>
+<li><p>let声明变量和var声明的变量的查找机制是一样的,逐级向上查找.也就是当前作用域有就使用当前作用域的,当前作用域没有,就向上级作用域中查找</p>
+</li>
+<li>let是块级作用域{},不会提升成全局变量</li>
+<li><p>在同一个块级作用域中不允许声明同名变量.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num=<span class="number">10</span>;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">let</span> num=<span class="number">20</span>;</div><div class="line">    <span class="built_in">console</span>.log(num);<span class="comment">//20</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(num);<span class="comment">//10</span></div></pre></td></tr></table></figure>
+<h4 id="const声明常量的关键字"><a href="#const声明常量的关键字" class="headerlink" title="const声明常量的关键字"></a>const声明常量的关键字</h4></li>
+<li><p>const是声明常量的关键字,声明常量的时候初始化是一起的;</p>
+</li>
+<li>常量声明不能被第二次赋值,赋值就是被声明的对象=XXX;<br><code>const person={}; person = &quot;123&quot; //报错</code></li>
+<li>但是可以修改挂载或者修改对象的属性<br><code>const person={}; person.name=&quot;123&quot;</code></li>
+<li><p>不可以同一个块级作用域声明同名变量</p>
+<h4 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h4></li>
+<li><p>都是块级作用域,不会提升成全局变量</p>
+</li>
+<li>let是声明变量的,const是声明常量的</li>
+<li><p>const必须将声明和初始化一起操作完毕</p>
+<h4 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h4><p>可以包含换行和空格,也就是原样.</p>
+<p>语法:<code>包裹字符串</code>;用反映好包裹</p>
+<p>特点:</p>
+</li>
+<li>可以包含换行和空格</li>
+<li>可以嵌入使用变量 <code>${对象名.属性}</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">let</span> str=<span class="string">`&lt;ul&gt;</span></div><div class="line"><span class="string">                &lt;li&gt;<span class="subst">$&#123;person.name&#125;</span>&lt;/li&gt;</span></div><div class="line"><span class="string">            &lt;/ul&gt;</span></div><div class="line"><span class="string">           `</span>;</div><div class="line"><span class="keyword">let</span> person=&#123;<span class="attr">name</span>:<span class="string">"jack"</span>&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ECMAScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/13/es6-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-H5API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1840,138 +1954,6 @@
 
 
   
-    <article id="post-angular code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/angular code/">angularday学习之旅第一天</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/24/angular code/" class="archive-article-date">
-  	<time datetime="2017-03-24T13:37:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="angular中数据的双向绑定"><a href="#angular中数据的双向绑定" class="headerlink" title="angular中数据的双向绑定"></a>angular中数据的双向绑定</h3><p>代码展示:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">html</div><div class="line">&lt;body ng-app ng-init=<span class="string">"val=10"</span>&gt;</div><div class="line">   &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"val"</span>/&gt;</div><div class="line">   &lt;div&gt;&#123;&#123;val&#125;&#125;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure></p>
-<p><strong>代码效果描述:</strong></p>
-<p>在修改input框中的内容的时候,下面div中的内容也一起变化.</p>
-<p><strong>解释出现上面效果的原因:</strong></p>
-<p>在页面加载完毕的时候angularjs会在整个页面中寻找ng-app这个指令,找不到的时候什么也不做,找到的时候会先创建一个对象,然后看到ng-init的时候会在这个对象中寻找val这个变量,有的时候就将值赋值给val没有的时候就在这个对象中创建一个属性val,然后在将值赋值给这个变量,在往下面找,看到指令ng-model的时候在寻找val,找到了这个值,并且赋值,然后在下面使用val的值,在ng-model的时候对input标签添加了一个值变化的事件并且实时监听这个事件,当这个值变化后,就将这个对象中相对应的属性值修改,然后在把使用到这个变量的地方的值更新.实现了html和js的双向绑定.</p>
-<p><strong>数据的双向绑定:</strong></p>
-<ol>
-<li>html—&gt;js</li>
-<li>js—-&gt;html</li>
-</ol>
-<h3 id="angular中模板的使用"><a href="#angular中模板的使用" class="headerlink" title="angular中模板的使用"></a>angular中模板的使用</h3><p>语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(&quot;模板名&quot;,[依赖项])</div></pre></td></tr></table></figure></p>
-<p>注意:</p>
-<p>1.在html中使用的时候使用的是模板的名字;</p>
-<p>2.这个函数的返回值是一个对象,在angular中返回的都是对象,可以使用链式编程</p>
-<p>3.使用的时候使用ng-app这个指令告诉angular这个标签的范围是使用哪个模块来管理的.</p>
-<h3 id="获取模块"><a href="#获取模块" class="headerlink" title="获取模块"></a>获取模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(&quot;模块名&quot;);//表示获取到这个模块</div></pre></td></tr></table></figure>
-<h3 id="模块依赖"><a href="#模块依赖" class="headerlink" title="模块依赖"></a>模块依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(&quot;模块名&quot;,[依赖模块名])</div></pre></td></tr></table></figure>
-<p>注意:</p>
-<p>模块依赖的时候依赖模块中的控制器和主模块中的控制器的使用是一样的.直接使用</p>
-<p>使用步骤:</p>
-<ol>
-<li>将依赖模块引入到主模块的页面中.</li>
-<li>将被依赖模块作为子模块的依赖项,就可以使用依赖木块中的控制器了.</li>
-</ol>
-<h3 id="angular中控制器的使用"><a href="#angular中控制器的使用" class="headerlink" title="angular中控制器的使用"></a>angular中控制器的使用</h3><p>语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(&quot;模板名&quot;,[依赖项])</div><div class="line">        .controller(&quot;控制器名&quot;,function($scope)&#123;</div><div class="line">            具体的逻辑代码书写位置</div><div class="line">        &#125;)</div></pre></td></tr></table></figure></p>
-<p>注意:</p>
-<p>1.控制器是模块中的,在一个模块中可以创建多个控制器.</p>
-<p>2.控制器中的参数$scope是不能随便修改名称中,是一个对象.</p>
-<p>3.具体的逻辑代码中的变量和函数以属性和方法的形式添加在$scope这个对象中,主要是用来暴露数据.</p>
-<p>4.使用的时候在标签中用ng-controller=”模块名”的方式来使用</p>
-<p><strong>控制器的作用:</strong></p>
-<p>1.页面内中赋初始值</p>
-<p>2.页面中展示数据</p>
-<p>3.代码分类</p>
-<h3 id="单页面-sing-page-web-Application-SPA"><a href="#单页面-sing-page-web-Application-SPA" class="headerlink" title="单页面 sing page web Application SPA"></a>单页面 sing page web Application SPA</h3><p><strong>单页面的特点:</strong></p>
-<ol>
-<li>整个网站只有一个页面</li>
-<li>锚点和页面是一个对应关系</li>
-<li>页面一开始会将资源文件全部加载到页面中,之后不会在加载资源文件,不会造成资源的浪费</li>
-<li>页面切换是通过ajax开请求数据局部刷新的,并不是传统意义上的连接跳转,ajax请求是angular在底部实现的,不需要我们操作.</li>
-<li>不会在页面跳转的时候出现白屏的现象.</li>
-</ol>
-<p>补充:地址栏中锚点值发生变化的时候,会触发下面的事件.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.onhashchange=function()&#123;</div><div class="line">    触发的时候执行的代码程序</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>路由</strong></p>
-<p>文件配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular中将路由单独写为一个文件,angular-route文件,是个单文件,模块的名字是ngRoute,需要引入</div></pre></td></tr></table></figure></p>
-<p>路由的配置:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"模块名"</span>,[依赖项])</div><div class="line">        .config(<span class="keyword">function</span>(<span class="variable">$routeProvider</span>)&#123;</div><div class="line">            <span class="variable">$routeProvider</span></div><div class="line">            .when(<span class="string">"锚点"</span>,&#123;</div><div class="line">                template:<span class="string">"内容"</span>,</div><div class="line">                templateUrl:<span class="string">"请求数据的路径"</span>,</div><div class="line">                controller:<span class="string">"控制器名"</span></div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">        .controller(<span class="string">"控制器名"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line">                具体的业务逻辑代码</div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
-<p>注意:</p>
-<ul>
-<li>锚点:锚点的格式是<code>锚点名</code> 在html中是在标签中书写<code>/锚点名</code>,#号的作用是告诉浏览器后面的是锚点,!号的作用是告诉搜索引擎这里可以抓取,主要是在单页面中没有内容对搜索引擎不友好.</li>
-<li>template后面配置的是内容,templateUrl中配置的是地址,主要是告诉在哪里请求到对应锚点的数据,显示器中写ng-view就可以了,直接会将内容用ajax请求到之后渲染到页面中.</li>
-<li>返回的是对象,可以使用链式编程.在$scope中的变量和方法可以在两个大括号中显示中显示或者调用</li>
-</ul>
-<h3 id="在路由中传递参数"><a href="#在路由中传递参数" class="headerlink" title="在路由中传递参数"></a>在路由中传递参数</h3><p>步骤:</p>
-<ol>
-<li>在被传递参数的路由中配置参数占位符 用 <strong>/: 参数名</strong>  来表示;是形参</li>
-<li>在要跳转的连接中配置真的id值 <strong>/值</strong> ,是实参</li>
-<li>在被传递参数的页面控制器中用 <strong>$routeParams</strong> 来获取参数,值是一个对象,这个对象的属性名是是形参名.用<code>$scope.形参名=$routeParams.形参名</code>的方式来使用<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">argular.module(<span class="string">"模块名"</span>,[依赖项])</div><div class="line">        .config(<span class="keyword">function</span>(<span class="variable">$routeProvider</span>)&#123;</div><div class="line">            <span class="variable">$routeProvider</span></div><div class="line">            .when(<span class="string">"锚点名/:参数名"</span>,&#123;</div><div class="line">                templateUrl:<span class="string">"请求数据的路径"</span>,</div><div class="line">                controller:<span class="string">"控制器名"</span></div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">        .controller(<span class="string">"控制器名"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>,<span class="variable">$routeParams</span>)&#123;</div><div class="line">            <span class="variable">$scope</span>.变量名=<span class="variable">$routeParams</span>.变量名;</div><div class="line">            //获取到传递过来的参数</div><div class="line">        &#125;)</div></pre></td></tr></table></figure></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/angular code/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -2085,15 +2067,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">

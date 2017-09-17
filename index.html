@@ -155,6 +155,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-进步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/17/进步/">进步</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/17/进步/" class="archive-article-date">
+  	<time datetime="2017-08-17T12:07:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们总是会羡慕一些人的成功,认为幸运为什么不会降生到我们的身上,这是没有什么问题的.我们都是凡人,嫉妒别人也是可的.在看到别人的成功之后自己每天努力进步一点点也是好的.</p>
+<p>看到别人的成功,告诉自己也要好好的努力.虽然不一定开花结果,但是在每一时刻,至少我们的心是温和的.我们感受到四季的变化,享受着自己一点一点的进步,何尝又不是一种成功.我爱这样随性的生活.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/17/进步/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1238,120 +1313,6 @@
 
 
   
-    <article id="post-es6-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/13/es6-1/">ES6(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/13/es6-1/" class="archive-article-date">
-  	<time datetime="2017-05-13T15:55:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> ES6的介绍</p>
-<ul>
-<li>ES6 是一个规范,不同的浏览器做了不同的实现,所以有的浏览器不一定完全支持</li>
-<li>ES6的出现是为了让javascript更好.更健壮,更适应大型的应用开发</li>
-<li>ES6也叫作ECMA2015 </li>
-</ul>
-<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p> 出现时期:ES5的时候就有了</p>
-<p> 开启严格模式的代码:<code>use strict;</code></p>
-<p> 作用:限制代码的编写</p>
-<ul>
-<li>在严格模式中函数中的this禁止指向全局对象,指向的是undefined</li>
-<li><p>在非严格模式下可以使用with声明,作用是简化对象用于某些对象的代码,严格模式下禁止使用with语句,报错</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person=&#123; <span class="attr">name</span>:<span class="string">"jack"</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;;</div><div class="line"><span class="comment">//不用with的时候修改代码中name和age</span></div><div class="line">person.name=<span class="string">"rose"</span>;</div><div class="line">oerson.age:<span class="number">19</span>;</div><div class="line"><span class="built_in">console</span>.log(person.name)</div><div class="line"></div><div class="line"><span class="comment">//使用with语句</span></div><div class="line"><span class="keyword">with</span>(person)&#123;<span class="comment">//在严格模式下</span></div><div class="line">    <span class="comment">//报错：Strict mode code may not include a with statement</span></div><div class="line">    name=<span class="string">"rose"</span>;</div><div class="line">    age=<span class="number">20</span>;<span class="built_in">console</span>.log(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="严格模式和ES6"><a href="#严格模式和ES6" class="headerlink" title="严格模式和ES6"></a>严格模式和ES6</h4></li>
-<li>严格模式是严格模式,ES6是ES6,之间没有很大的关系</li>
-<li>严格模式是代码的限制,ES6是与噶的规范,增加了相关的代码功能</li>
-<li><p>在ES6中的部分关键字必须在严格模式下才能使用,所以凡是ES6就使用严格模式.</p>
-<h4 id="let声明变量的关键字"><a href="#let声明变量的关键字" class="headerlink" title="let声明变量的关键字"></a>let声明变量的关键字</h4></li>
-<li><p>let声明变量和var声明的变量的查找机制是一样的,逐级向上查找.也就是当前作用域有就使用当前作用域的,当前作用域没有,就向上级作用域中查找</p>
-</li>
-<li>let是块级作用域{},不会提升成全局变量</li>
-<li><p>在同一个块级作用域中不允许声明同名变量.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num=<span class="number">10</span>;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="keyword">let</span> num=<span class="number">20</span>;</div><div class="line">    <span class="built_in">console</span>.log(num);<span class="comment">//20</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(num);<span class="comment">//10</span></div></pre></td></tr></table></figure>
-<h4 id="const声明常量的关键字"><a href="#const声明常量的关键字" class="headerlink" title="const声明常量的关键字"></a>const声明常量的关键字</h4></li>
-<li><p>const是声明常量的关键字,声明常量的时候初始化是一起的;</p>
-</li>
-<li>常量声明不能被第二次赋值,赋值就是被声明的对象=XXX;<br><code>const person={}; person = &quot;123&quot; //报错</code></li>
-<li>但是可以修改挂载或者修改对象的属性<br><code>const person={}; person.name=&quot;123&quot;</code></li>
-<li><p>不可以同一个块级作用域声明同名变量</p>
-<h4 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h4></li>
-<li><p>都是块级作用域,不会提升成全局变量</p>
-</li>
-<li>let是声明变量的,const是声明常量的</li>
-<li><p>const必须将声明和初始化一起操作完毕</p>
-<h4 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h4><p>可以包含换行和空格,也就是原样.</p>
-<p>语法:<code>包裹字符串</code>;用反映好包裹</p>
-<p>特点:</p>
-</li>
-<li>可以包含换行和空格</li>
-<li>可以嵌入使用变量 <code>${对象名.属性}</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">let</span> str=<span class="string">`&lt;ul&gt;</span></div><div class="line"><span class="string">                &lt;li&gt;<span class="subst">$&#123;person.name&#125;</span>&lt;/li&gt;</span></div><div class="line"><span class="string">            &lt;/ul&gt;</span></div><div class="line"><span class="string">           `</span>;</div><div class="line"><span class="keyword">let</span> person=&#123;<span class="attr">name</span>:<span class="string">"jack"</span>&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ECMAScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/13/es6-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1465,15 +1426,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">
