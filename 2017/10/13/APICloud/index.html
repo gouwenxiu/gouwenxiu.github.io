@@ -15,7 +15,7 @@
 <meta property="og:url" content="//gouwenxiu.me/2017/10/13/APICloud/index.html">
 <meta property="og:site_name" content="秀之家">
 <meta property="og:description" content="APICloud方法中的网络通信ajax使用方法：api.ajax({params},callback(ret,err))params中的参数：    名称 含义 类型 默认值     url 请求地址 字符串 无   encode 是否对url进行编码 布尔 true   tag 用于传给cancelAjax方法来取消请求，保证唯一性 字符串 无   method 异步请求数据的方法 字符串 g">
-<meta property="og:updated_time" content="2017-10-13T02:22:21.526Z">
+<meta property="og:updated_time" content="2017-10-13T02:27:15.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APICloud">
 <meta name="twitter:description" content="APICloud方法中的网络通信ajax使用方法：api.ajax({params},callback(ret,err))params中的参数：    名称 含义 类型 默认值     url 请求地址 字符串 无   encode 是否对url进行编码 布尔 true   tag 用于传给cancelAjax方法来取消请求，保证唯一性 字符串 无   method 异步请求数据的方法 字符串 g">
@@ -1622,7 +1622,25 @@
 <p>params<br>|名称|含义|类型|默认值|<br>|:—|:—|:—|:—|<br>|from|frame名字|字符串|无|<br>|to|frame名字,不传时调整from对应frame到最后,否则调整对应的from到此frame|字符串|无|<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">api.sendFrameToBack(&#123;</div><div class="line">    <span class="keyword">from</span>:<span class="string">"page1"</span>,</div><div class="line">    to:<span class="string">"page2"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h4 id="setFrameClient"><a href="#setFrameClient" class="headerlink" title="setFrameClient"></a>setFrameClient</h4><p>作用:设置指定frame的页面加载监听,仅在window中调用生效,可以对多个frame进行监听</p>
 <p>使用方法:<code>api.setFrameClient({params},callback(ret,err))</code></p>
-<p>params<br>|名称|含义|类型|默认值|<br>|:—|:—|:—|:—|<br>|frameName|frame名字|字符串|无|</p>
+<p>params</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">含义</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">frameName</td>
+<td style="text-align:left">frame名字</td>
+<td style="text-align:left">字符串</td>
+<td style="text-align:left">无</td>
+</tr>
+</tbody>
+</table>
 <p>回调函数<br>ret:</p>
 <ul>
 <li>类型:json对象</li>
@@ -1632,7 +1650,79 @@
 <p>实例代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">api.setframeClient(&#123;</div><div class="line">    frameName:<span class="string">"webpage"</span></div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">ret,err</span>)</span>&#123;</div><div class="line">    <span class="keyword">switch</span> (ret.state)&#123;</div><div class="line">       <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       <span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">       <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h4 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h4><p>作用:frame动画,支持平移,缩放,转转和透明度变化,仅支持frame,不支持window以及frameGroup里面的frame</p>
 <p>使用方法:<code>api.animation({params},callback(ret,err))</code></p>
-<p>params<br>|名称|含义|类型|默认值|<br>|:—|:—|:—|:—|<br>|name|frame名字|字符串|当前frame|<br>|delay|动画延迟事件,单位毫秒,默认立即开始|数字|0|<br>|duration|动画过渡时间单位毫秒|数字|0|<br>|curve|动画曲线类型,制定动画开始和结束是的快慢|字符串|ease_in_out|<br>|repeatCount|动画次数,默认不重复,为-1时无限重复|数字|0|<br>|autoreverse|一次动画结束后是否自动翻转动画|布尔|false|<br>|alpha|整个页面的透明度,介于0-1之间,android不支持|数字|无|<br>|translation|位置平移参数|json对象|无|<br>|scale|页面缩放参数,android不支持|json对象|无|<br>|rotation|页面旋转参数,android不支持|json对象|无|</p>
+<p>params</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">含义</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">frame名字</td>
+<td style="text-align:left">字符串</td>
+<td style="text-align:left">当前frame</td>
+</tr>
+<tr>
+<td style="text-align:left">delay</td>
+<td style="text-align:left">动画延迟事件,单位毫秒,默认立即开始</td>
+<td style="text-align:left">数字</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">duration</td>
+<td style="text-align:left">动画过渡时间单位毫秒</td>
+<td style="text-align:left">数字</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">curve</td>
+<td style="text-align:left">动画曲线类型,制定动画开始和结束是的快慢</td>
+<td style="text-align:left">字符串</td>
+<td style="text-align:left">ease_in_out</td>
+</tr>
+<tr>
+<td style="text-align:left">repeatCount</td>
+<td style="text-align:left">动画次数,默认不重复,为-1时无限重复</td>
+<td style="text-align:left">数字</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">autoreverse</td>
+<td style="text-align:left">一次动画结束后是否自动翻转动画</td>
+<td style="text-align:left">布尔</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td style="text-align:left">alpha</td>
+<td style="text-align:left">整个页面的透明度,介于0-1之间,android不支持</td>
+<td style="text-align:left">数字</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">translation</td>
+<td style="text-align:left">位置平移参数</td>
+<td style="text-align:left">json对象</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">scale</td>
+<td style="text-align:left">页面缩放参数,android不支持</td>
+<td style="text-align:left">json对象</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">rotation</td>
+<td style="text-align:left">页面旋转参数,android不支持</td>
+<td style="text-align:left">json对象</td>
+<td style="text-align:left">无</td>
+</tr>
+</tbody>
+</table>
 <p>备注:<br>curve动画曲线类型的值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ease_in_out <span class="comment">//开始和结束时慢</span></div><div class="line">ease_in<span class="comment">//开始时慢</span></div><div class="line">ease_out<span class="comment">//结束时慢</span></div><div class="line">linear<span class="comment">//匀速</span></div></pre></td></tr></table></figure></p>
 <p>transition<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    x:<span class="number">0</span>,<span class="comment">//x轴方向的平移距离,默认为0</span></div><div class="line">    y:<span class="number">0</span>,<span class="comment">//y轴方向的平移距离,默认为0</span></div><div class="line">    z:<span class="number">0</span><span class="comment">//z轴方向的平移距离,默认为0安卓不支持</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>scale<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    x:<span class="number">1</span>,<span class="comment">//x轴方向上的放大倍率,默认为1</span></div><div class="line">    y:<span class="number">1</span>,<span class="comment">//y轴方向上的放大倍率,默认为1</span></div><div class="line">    z:<span class="number">1</span><span class="comment">//z轴方向上的放大倍率,默认为1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -2620,11 +2710,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
