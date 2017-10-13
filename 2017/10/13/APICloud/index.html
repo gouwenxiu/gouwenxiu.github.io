@@ -15,7 +15,7 @@
 <meta property="og:url" content="//gouwenxiu.me/2017/10/13/APICloud/index.html">
 <meta property="og:site_name" content="秀之家">
 <meta property="og:description" content="APICloud方法中的网络通信ajax使用方法：api.ajax({params},callback(ret,err))params中的参数：    名称 含义 类型 默认值     url 请求地址 字符串 无   encode 是否对url进行编码 布尔 true   tag 用于传给cancelAjax方法来取消请求，保证唯一性 字符串 无   method 异步请求数据的方法 字符串 g">
-<meta property="og:updated_time" content="2017-10-13T02:27:15.165Z">
+<meta property="og:updated_time" content="2017-10-13T02:30:58.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APICloud">
 <meta name="twitter:description" content="APICloud方法中的网络通信ajax使用方法：api.ajax({params},callback(ret,err))params中的参数：    名称 含义 类型 默认值     url 请求地址 字符串 无   encode 是否对url进行编码 布尔 true   tag 用于传给cancelAjax方法来取消请求，保证唯一性 字符串 无   method 异步请求数据的方法 字符串 g">
@@ -1619,7 +1619,32 @@
 </table>
 <p>实例代码:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">api.bringFrameToFront(&#123;</div><div class="line">    <span class="keyword">from</span>:<span class="string">"page1"</span>,</div><div class="line">    to:<span class="string">"page2"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <h4 id="sendFrameToBack调整frame到最后面"><a href="#sendFrameToBack调整frame到最后面" class="headerlink" title="sendFrameToBack调整frame到最后面"></a>sendFrameToBack调整frame到最后面</h4><p>使用方法:<code>api.sendFrameToBack(params)</code></p>
-<p>params<br>|名称|含义|类型|默认值|<br>|:—|:—|:—|:—|<br>|from|frame名字|字符串|无|<br>|to|frame名字,不传时调整from对应frame到最后,否则调整对应的from到此frame|字符串|无|<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">api.sendFrameToBack(&#123;</div><div class="line">    <span class="keyword">from</span>:<span class="string">"page1"</span>,</div><div class="line">    to:<span class="string">"page2"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>params</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">含义</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">frame名字</td>
+<td style="text-align:left">字符串</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">frame名字,不传时调整from对应frame到最后,否则调整对应的from到此frame</td>
+<td style="text-align:left">字符串</td>
+<td style="text-align:left">无</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">api.sendFrameToBack(&#123;</div><div class="line">    <span class="keyword">from</span>:<span class="string">"page1"</span>,</div><div class="line">    to:<span class="string">"page2"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h4 id="setFrameClient"><a href="#setFrameClient" class="headerlink" title="setFrameClient"></a>setFrameClient</h4><p>作用:设置指定frame的页面加载监听,仅在window中调用生效,可以对多个frame进行监听</p>
 <p>使用方法:<code>api.setFrameClient({params},callback(ret,err))</code></p>
 <p>params</p>
