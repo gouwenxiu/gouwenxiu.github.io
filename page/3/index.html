@@ -155,6 +155,155 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-angular-day2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/angular-day2/">angular学习之旅第二天</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/angular-day2/" class="archive-article-date">
+  	<time datetime="2017-03-25T11:30:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>angular中控制器controller中的各个参数也就是服务哦名称是不能随便修改的,这个是angularjs的内部运行机制造成的.下面来详细介绍一下他的原理和附带的一些知识点,准备好一起学习了吗?</p>
+<h3 id="scope-不能修改名称的原因"><a href="#scope-不能修改名称的原因" class="headerlink" title="$scope 不能修改名称的原因"></a>$scope 不能修改名称的原因</h3><p>angularjs是使用形参名来传递参数的,找不到形参名就传递不了参数.</p>
+<p><strong>$scope的内部实现代码:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//在这里是调用函数contruller,里面的<span class="keyword">function</span>是回调函数,回调函数在这里是函数的声明,</div><div class="line">//在angular的内部对这个函数进行了调用</div><div class="line">controller([模块名],<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line"><span class="variable">$scope</span>.a=1;//函数在调用的时候在<span class="variable">$scope</span>对象中添加内容</div><div class="line">&#125;)</div><div class="line">//angular内部执行的函数</div><div class="line"><span class="keyword">function</span> constroller(callback)&#123;</div><div class="line">    <span class="variable">$scope</span>=&#123;&#125;;</div><div class="line">    var arr=callback.split(/\(|\)/)[0].split(<span class="string">","</span>);</div><div class="line">    <span class="keyword">for</span>(var i=0;i&lt;arr.length;i++)&#123;</div><div class="line">        switch(arr[i])&#123;</div><div class="line">            <span class="keyword">case</span> <span class="string">"<span class="variable">$scope</span>"</span>:</div><div class="line">                arr[i]=<span class="variable">$scope</span>;</div><div class="line">                breack;</div><div class="line">            <span class="keyword">case</span>.....匹配多个参数</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    callback.apply(null,arr);//将第二个参数以数组的方式传入函数的调用中</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在angularjs中不能改变形参的名字,但是在使用压缩功能工具的时候会将形参压缩,所以在这个过程中要使用安全的方式创建构造器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"模块名"</span>,[])</div><div class="line">        .controller(<span class="string">"控制器名称"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="string">"<span class="variable">$routeParams</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>,<span class="variable">$routeParams</span>)&#123;</div><div class="line">            //压缩工具在压缩的时候不会压缩字符串,字符串只见那用逗号隔开,是数组中的元素</div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
+<h3 id="angularjs的作用域"><a href="#angularjs的作用域" class="headerlink" title="angularjs的作用域"></a>angularjs的作用域</h3><h4 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h4><p>控制器控制的区域就是局部作用域,控制器也可以包含在控制器中,查询规则是逐级向上查找,本质上$scope就是局部作用域</p>
+<h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>$rootScope就是全局作用域,但是写在局部的控制器中的时候若是这个控制器没有没使用的时候就不会被创建,因此在模块对象的下面有一个函数run,来控制全局作用域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"模块名"</span>,[])</div><div class="line">        .run(<span class="keyword">function</span>(<span class="variable">$rootScope</span>)&#123;</div><div class="line">            在这里声明全局变量或者公用的方法</div><div class="line">        &#125;)</div></pre></td></tr></table></figure></p>
+<p>注意:<br>在页面加载完之后会首先执行run方法,并且这个方法值执行一次,一般作为项目的初始化,可以在$rootScope这个对象上挂载一些公用的属性和方法.</p>
+<h3 id="angular中常用的指令"><a href="#angular中常用的指令" class="headerlink" title="angular中常用的指令"></a>angular中常用的指令</h3><p>指令:用来进行DOM操作的时候首先要想到指令.</p>
+<p>分类:内置指令和事件指令</p>
+<p>ng-repeat:用来对数组,对象进行循环,并将指令所在的元素复制粘贴</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;li ng-repeat=<span class="string">"item in arr"</span>&gt; &#123;&#123;item&#125;&#125; &lt;/li&gt;//数组</div><div class="line">&lt;li ng-repeat=<span class="string">"item in arr track by <span class="variable">$index</span>"</span>&gt; &#123;&#123;item &#125;&#125;&lt;/li&gt;</div><div class="line">//数组中有重复的元素的时候使用,by后面跟的是绝对不重复的东西,只正对基本数据类型</div><div class="line">&lt;li ng-repeat=<span class="string">"(key,value) in obj"</span>&gt; &#123;&#123;key&#125;&#125;&#123;&#123;value&#125;&#125; &lt;/li&gt;//遍历对象,也可以遍历数组</div></pre></td></tr></table></figure>
+<p>常用</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">指令名字</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$index</td>
+<td style="text-align:center">索引</td>
+</tr>
+<tr>
+<td style="text-align:center">$first</td>
+<td style="text-align:center">是否是第一个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">$lasst</td>
+<td style="text-align:center">是否是最后一个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">$middle</td>
+<td style="text-align:center">是否是除第一个和最后一个的其他元素</td>
+</tr>
+<tr>
+<td style="text-align:center">$even</td>
+<td style="text-align:center">是否是偶数元素</td>
+</tr>
+<tr>
+<td style="text-align:center">$odd</td>
+<td style="text-align:center">是否是奇数元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ng-class-添加和删除类名"><a href="#ng-class-添加和删除类名" class="headerlink" title="ng-class 添加和删除类名"></a>ng-class 添加和删除类名</h3><p>语法:ng-class=”{‘类名’:boolean}”,是之前写好的样式,在这里添加,true表示是添加,false表示不添加或者移除</p>
+<p>第二个参数:boolean|变量|能换为布尔值的表达式</p>
+<p>ng-module在复选框中表示的是复选框是选中还是没有选中,选中 true,没有选中false</p>
+<h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>数据的第一种绑定形式: <strong>ng-bind</strong></p>
+<p>数据的第二种绑定形式:<strong>ng-bind-template</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;li ng-bind=<span class="string">"msg"</span>&gt;&lt;/li&gt;//只能绑定一个,直接放在元素中,内容会自动放于命令所在的盒子中,不用再盒子中写&#123;&#123;msg&#125;&#125;</div><div class="line">&lt;li ng-bind-template=<span class="string">"&#123;&#123;msg&#125;&#125; &#123;&#123;msg2&#125;&#125;"</span>&gt;&lt;/li&gt;//能绑定多个</div></pre></td></tr></table></figure></p>
+<p>数据的第三中绑定方法: <strong>ng-cloak</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//先在style标签中设置样式为display隐藏</div><div class="line">&lt;style&gt;</div><div class="line">    [ng-cloak]&#123;</div><div class="line">        display:none;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">//html中</div><div class="line"></div><div class="line">&lt;li ng-cloak=<span class="string">"boolean|变量|表达式"</span>&gt; &#123;&#123;要显示的变量&#125;&#125;&lt;/li&gt;</div></pre></td></tr></table></figure></p>
+<p>注意:</p>
+<ul>
+<li>使用这三种方法的时候本质是给ng-cloak指令所在的标签添加样式,也就是display为none,但是在数据到位的时候就将display;none去掉,将元素显示出来</li>
+<li>里面的数在最后要转换为boolean值</li>
+<li>ng-bind和ng-bind-template会将标签中的所有内容都替换掉,相当于innerHTML.<h3 id="ng-non-bindable"><a href="#ng-non-bindable" class="headerlink" title="ng-non-bindable"></a>ng-non-bindable</h3>作用:在这个区域中的angularjs的双大括号和内容是原样输出,不进行angularjs的解析<h3 id="ng-options的使用"><a href="#ng-options的使用" class="headerlink" title="ng-options的使用"></a>ng-options的使用</h3>注意:ng-options命令使用在select标签中<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;select ng-options=<span class="string">"item.value as item.name for item in arr"</span>&gt;</div><div class="line">具体说明:</div><div class="line">        item 是数组中的元素</div><div class="line">        arr数要遍历的数组</div><div class="line">        item.value是放在option中的value的值</div><div class="line">        item.name是放在option标签中的内容  name和value可以改变,主要是as和<span class="keyword">for</span>来判断的</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>举例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">数据的准备</div><div class="line">argular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .controller(<span class="string">"ctr"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line">            <span class="variable">$scope</span>.arr=[</div><div class="line">                &#123;</div><div class="line">                    name:<span class="string">"jim"</span>,</div><div class="line">                    id:19,</div><div class="line">                    ischecked:<span class="literal">true</span></div><div class="line">                &#125;,</div><div class="line">                &#123;</div><div class="line">                    name:<span class="string">"tom"</span>,</div><div class="line">                    ide:20,</div><div class="line">                    ischecked:<span class="literal">false</span></div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">        &#125;]);</div><div class="line"></div><div class="line">&lt;select ng-model=<span class="string">"item.ischecked"</span> ng-options=<span class="string">"item.id as item.name for item in arr"</span>&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="事件指令"><a href="#事件指令" class="headerlink" title="事件指令"></a>事件指令</h3><p>事件指令和原生js中的不同点是将前面的on去掉,变为ng-即可,例如onclick变为ng-click了.<br>具体的方法挂载到$scope这个对象上了.</p>
+<p>事件参数:事件参数和原生的不同,在这里事件参数在调用函数的时候用$event来传入,函数声明的时候用e来接受,这样就可以使用事件参数了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-click=<span class="string">"clear(<span class="variable">$event</span>)"</span>&gt;点击清除数据&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="variable">$scope</span>.clear=<span class="keyword">function</span>(e)&#123;</div><div class="line">    console.log(e);</div><div class="line">    //这里的e就是事件对象</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="ng-href和ng-src指令"><a href="#ng-href和ng-src指令" class="headerlink" title="ng-href和ng-src指令"></a>ng-href和ng-src指令</h3><p>注意:这两个命令的值都要用双大括号来包裹</p>
+<p>具体的含义:<br>ng-href:链接地址无效的时候不应该显示为连接,连接地址有效的时候设置href属性,显示为连接</p>
+<p>ng-src:页面一刷新看到src属性的时候立即回发出请求,没有找到内容的时候回报错,这个属性是在地址有效的时候在生成src属性,去请求数据,防止404错误出现.</p>
+<h3 id="定时器-timeout"><a href="#定时器-timeout" class="headerlink" title="定时器 $timeout"></a>定时器 $timeout</h3><p>定时器也是控制器中的一个参数,使用和原生的一样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .controller(<span class="string">"ctr"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="string">"<span class="variable">$timeout</span>"</span>],<span class="keyword">function</span>(<span class="variable">$scope</span>,<span class="variable">$timeout</span>)&#123;</div><div class="line">            //使用定时器</div><div class="line">            <span class="variable">$timeout</span>(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                //具体的代码</div><div class="line">            &#125;,2000)</div><div class="line">        &#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="angular中的数据请求–都是控制器中的参数"><a href="#angular中的数据请求–都是控制器中的参数" class="headerlink" title="angular中的数据请求–都是控制器中的参数"></a>angular中的数据请求–都是控制器中的参数</h3><p>方式一:$http<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .controller(<span class="string">"ctr"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="string">"<span class="variable">$http</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>,<span class="variable">$http</span>)&#123;</div><div class="line">            <span class="variable">$http</span>(&#123;</div><div class="line">                url:请求数据的地址,</div><div class="line">                method:请求的方式,</div><div class="line">                params:&#123;  get请求的时候数据的传递方式,数据会拼接到地址栏中数据</div><div class="line">                &#125;,</div><div class="line">                data:&#123;post请求的时候的数据的传递方式,数据不会拼接到地址栏中数据</div><div class="line">                &#125;</div><div class="line">            &#125;).<span class="keyword">then</span>(<span class="keyword">function</span>(res)&#123;</div><div class="line">                <span class="variable">$scope</span>.data=res.data;</div><div class="line">                请求成功是的函数</div><div class="line">            &#125;,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                请求失败时的函数,可以不写</div><div class="line">            &#125;)</div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
+<p>方式二:$http.get<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$http</span>.get(url,&#123;params:&#123;具体数据&#125;&#125;,<span class="function"><span class="title">function</span></span>()&#123;成功函数&#125;,<span class="function"><span class="title">function</span></span>()&#123;失败时的函数&#125;)</div></pre></td></tr></table></figure></p>
+<p>方式三:$http.post<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$http</span>.post(url,&#123;具体的数据&#125;,<span class="function"><span class="title">function</span></span>()&#123;成功时函数&#125;,<span class="function"><span class="title">function</span></span>()&#123;失败时的函数&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="ng-bind-html"><a href="#ng-bind-html" class="headerlink" title="ng-bind-html"></a>ng-bind-html</h3><p>ng-bind-html这个命令所在的文件是官方提供的模块,shi angular-sanitize.min.js,先要引入模块,然后在在主模块上注入依赖ngSanitize才能使用这个命令,主要的作用是可以解析html标签,在文章的详情页面可以使用.</p>
+<h3 id="jQLite-对象"><a href="#jQLite-对象" class="headerlink" title="jQLite 对象"></a>jQLite 对象</h3><p>在angular中最主要的是对数据的处理,但是要操作一些DOM对象的时候也提供了方法就是迷你版的jquery,称之为jQLite<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.element(Dom对象)将dom对象转换为jQLite对象,可以使用一些jquery中的方法</div></pre></td></tr></table></figure></p>
+<h3 id="使用面相对象的方法创建控制器"><a href="#使用面相对象的方法创建控制器" class="headerlink" title="使用面相对象的方法创建控制器"></a>使用面相对象的方法创建控制器</h3><p>angularjs会将控制器中的回调函数当成构造函数来使用,angularjs内部会帮我们new出这个实力,我们所要做的就是讲这个实例拿到,然后使用对象的属性或者方法来暴露数据,这样$scope一样可以使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=<span class="string">"ctx as obj"</span>&gt;obj.name&lt;/div&gt;//这样obj就是那个实例了</div><div class="line">angular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .controller(<span class="string">"ctx"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line">            this.name=<span class="string">""</span>jim;</div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
+<h3 id="scope-watch方法"><a href="#scope-watch方法" class="headerlink" title="$scope.$watch方法"></a>$scope.$watch方法</h3><p>页面加载完之后会执行回调函数会执行一次<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .controller(<span class="string">"ctx"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line">            <span class="variable">$scope</span>.<span class="variable">$watch</span>(<span class="string">"监控的变量"</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                //变量变化的时候执行这里面的函数,只监控一个变量</div><div class="line">            &#125;)</div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
+<p>监控多个数据:添加一个布尔值的参数true<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .controller(<span class="string">"ctx"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line">            <span class="variable">$scope</span>.<span class="variable">$watch</span>(<span class="string">"监控的变量"</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                //变量变化的时候执行这里面的函数,加入第三个参数<span class="literal">true</span>表示深监控</div><div class="line">            &#125;,<span class="literal">true</span>)</div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
+<h3 id="scope-apply"><a href="#scope-apply" class="headerlink" title="$scope.$apply"></a>$scope.$apply</h3><p>作用:当我们使用原生js或者除了angularjs之外的第三方库的时候,angular是不会实时监控这里的数据是否发生了更改,这样在这里更改了数据之后要告诉angularjs监控这个区域的时候使用这个函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .controller(<span class="string">"ctx"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line">            setTimeout(<span class="function"><span class="title">function</span></span>()&#123;  原生js中的计时器</div><div class="line">                <span class="variable">$scope</span>.val=<span class="string">"改变"</span>;   页面中的数据不会变化</div><div class="line">                &lt;!--调用函数--&gt;</div><div class="line">                <span class="variable">$scope</span>.<span class="variable">$apply</span>();   调用之后页面的数据变化</div><div class="line">            &#125;)</div><div class="line">            &#125;)</div></pre></td></tr></table></figure></p>
+<p>angularjs只监控自己内部的方法或者属性,会实时监控数据是否发生变化,但是原生js和第三方库是不会监控的,你需要告诉angularjs来监控这个区域.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/angular-day2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-angular code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1165,19 +1314,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">tools study</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1186,6 +1335,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">APICloud基础知识</a>
               </li>
             
             <div class="clearfix"></div>
