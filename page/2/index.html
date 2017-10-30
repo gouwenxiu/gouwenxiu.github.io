@@ -155,6 +155,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/19/es6-3/">ES6(三)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/19/es6-3/" class="archive-article-date">
+  	<time datetime="2017-05-19T11:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>es6中的 promise函数的学习…</p>
+<p>使用场景:控制函数执行的顺序,一般是多次ajax的请求的时候<br>使用</p>
+<p>组成:承诺,承诺成功,承诺失败,后续,成功后续,失败后续,代码成功,resolve,then,代码失败,reject,catch,也可以通过函数传递参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMsg</span>(<span class="params">url</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> p=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> xhr=<span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        xhr.open(<span class="string">"get"</span>,url);</div><div class="line">        xhr.send(<span class="literal">null</span>);</div><div class="line">          xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">              <span class="keyword">if</span>(readystate!=<span class="number">4</span>) <span class="keyword">return</span>;</div><div class="line">              <span class="keyword">if</span>(readystatus==<span class="number">200</span>)&#123;</div><div class="line">                  <span class="built_in">console</span>.log(xhr.responseText);</div><div class="line">                  <span class="comment">//成功的时候</span></div><div class="line">                  resolve(<span class="string">"ok"</span>)</div><div class="line">              &#125;</div><div class="line">              <span class="comment">//失败的时候</span></div><div class="line">              reject(<span class="string">"error"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> p;<span class="comment">//返回这个promise对象,用于链式编程</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line">getMsg(<span class="string">"./1.json"</span>)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;<span class="comment">//成功的调用</span></div><div class="line">    <span class="keyword">return</span> getMsg(<span class="string">"./2.json"</span>);<span class="comment">//返回promise对象</span></div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> getMsg(<span class="string">"./3.json"</span>);<span class="comment">//返回对象</span></div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err)</div><div class="line">&#125;);<span class="comment">//失败的时候调用</span></div></pre></td></tr></table></figure></p>
+<p> <strong>promise面试题</strong></p>
+<ul>
+<li>在promise中有三种状态,状态已经个诶变无法回退,无法暂停</li>
+<li>resolved(fullfilled)以满足,已解决,该状态咋调用resolve函数的时候改变</li>
+<li>rejected以拒绝,该状态在调用reject函数的时候改变</li>
+<li><p>在没有调用resolve或者reject的时候的状态,叫做pending代发状态</p>
+<p>作用:</p>
+<ul>
+<li>保障顺序执行:需要多次用then,并且每次在then的回调函数中return一个promise对象</li>
+<li>不保障顺序,保证全体都成功,<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Promise</span>.all([<span class="built_in">Promise</span>对象<span class="number">1</span>,<span class="built_in">Promise</span>对象<span class="number">2</span>])</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ECMAScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/19/es6-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-es6-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1752,204 +1841,6 @@
 
 
   
-    <article id="post-angularday3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/angularday3/">angular学习之旅第三天</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/26/angularday3/" class="archive-article-date">
-  	<time datetime="2017-03-26T15:50:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在前面的两天我们学习了很多的angular中的指令,在angular中有很多的内置的指令,但是我们还是可以自己来编写指令的代码,我们在今天主要来学习一下如何自己编写自定义的指令,内置的过滤器,自定义的过滤器和自定义的服务的编写,课程量有一些大,但是我要坚持,angularjs这座大山我一定要爬上去 (^o^)/~</p>
-<h3 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h3><p>作用:</p>
-<ul>
-<li>提供操作DOM的方式</li>
-<li>封装一些可以复用的UI组件,也就是界面html<br>语法:<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">"myapp"</span>,[])</div><div class="line">        .directive(<span class="string">"指令名称"</span>,[<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            <span class="built_in">return</span> &#123;&#125;</div><div class="line">        &#125;])</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意:<br>指令在html中使用的时候是带-的,在js中将-去掉,-后面的字母写为大写的,例如my-app为myApp.</p>
-<h3 id="return对象的时候对象中的属性和方法的"><a href="#return对象的时候对象中的属性和方法的" class="headerlink" title="return对象的时候对象中的属性和方法的:"></a>return对象的时候对象中的属性和方法的:</h3><p>方法:</p>
-<h4 id="link方法"><a href="#link方法" class="headerlink" title="link方法"></a>link方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">link:<span class="keyword">function</span>(scope,element,attributes)&#123;</div><div class="line"></div><div class="line">参数的作用:</div><div class="line">scope:默认的时候和自定义指令所在的作用域中的<span class="variable">$scope</span>是一样的.但是这个值是可以变化的</div><div class="line">element:是添加了这个自定义属性的元素,是jQLite类型的对象</div><div class="line">attributes:添加了这个自定义属性的元素的属性的值的对象,可以获取到有这个指令的元素中的属性值,取值和设置值都可以.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>注意:</strong><br>scope在默认的情况下继承了$scope的值,自己没有独立的作用域</p>
-<p>属性:</p>
-<h4 id="scope属性"><a href="#scope属性" class="headerlink" title="scope属性"></a>scope属性</h4><p>属性的值有一下三个:</p>
-<ul>
-<li><p>true:表示有自己的独立作用域,但是也继承父级作用域.</p>
-</li>
-<li><p>false:表示没有自己的独立作用域,继承父级作用域.在使用相同的变量的时候,多次使用这个自定义属性的时候会产生覆盖的问题.</p>
-</li>
-<li><p>对象{}:表示有自己的独立作用域,不继承父级的作用域.</p>
-</li>
-</ul>
-<p><strong>true的深入探究:</strong></p>
-<p>在将scope设置为true的时候,也就代表调用一次这个指令的时候就创建一个独立的作用域,每个作用域中保存中的值都是自己的,不会和别的一样,在查找一个变量的时候先找自己,在找别人</p>
-<p><strong>{}的深入探究</strong></p>
-<p>在将scope设置为一个对象的时候,表水有自己的独立作用域,但是并不会继承父级作用域中的数据,但是在想用父级作用域中的部分数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">html:</div><div class="line">&lt;div change-Color change-color name=<span class="string">"name"</span>&gt;&lt;/div&gt;</div><div class="line">js:</div><div class="line">angular.modue(<span class="string">"myapp"</span>,[])</div><div class="line">        .directive(<span class="string">"changeColor"</span>,[<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">            <span class="built_in">return</span> &#123;</div><div class="line">                scope:&#123;</div><div class="line">                    name:<span class="string">"="</span></div><div class="line">                &#125;,</div><div class="line">                template:<span class="string">"&lt;button&gt;&#123;&#123;name&#125;&#125;&lt;/button&gt;"</span>,</div><div class="line">                link:<span class="keyword">function</span>(scope,element,attributes)&#123;</div><div class="line">                    //这里的scope是封闭的,不能继承父级作用域</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;])</div><div class="line">        .controller(<span class="string">"ctx"</span>,[<span class="string">"<span class="variable">$scope</span>"</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>)&#123;</div><div class="line">            <span class="variable">$scope</span>.name=<span class="string">"jim"</span></div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
-<p>注意事项:</p>
-<p> <strong>=和@的区别</strong></p>
-<p>=号的时候在写指令中的属性值的时候<strong>不用写双大括号,直接写name=”name”,</strong>就可以了,这个属性也是自己自定义的.<strong>@取的时候要用上大括号包裹</strong>,这样取到的任何值<strong>都是字符串</strong>,但是有的时候传入的值不是字符串而是对象等复杂数据类型,这种时候需要用=号,然后将数据给模板来暴露数据</p>
-<p>具体步骤:</p>
-<ul>
-<li><p>先将数据传在自定义指令所在的元素上</p>
-</li>
-<li><p>在scope属性中取到具体的属性值<br>  @:取到的是字符串<br>  =:取到的是真实的数据类型</p>
-</li>
-<li><p>给模板,模板在将数据暴露</p>
-<h3 id="html的模板的书写位置"><a href="#html的模板的书写位置" class="headerlink" title="html的模板的书写位置"></a>html的模板的书写位置</h3><ul>
-<li>template: html字符串</li>
-<li>templateUrl:模板的地址,需要开启服务器,请求数据</li>
-<li>templateUrl:ngID</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/ng-template"</span> id&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h3 id="transclude"><a href="#transclude" class="headerlink" title="transclude"></a>transclude</h3><p>作用:在使用template和templateUrl的时候会将指令所在元素里面的<strong>内容覆盖掉</strong>,为了不覆盖掉里面的内容,可以使用transclude这个属性</p>
-<p>属性值:</p>
-<ul>
-<li><p>true 保留指令所在元素里面的内容</p>
-</li>
-<li><p>false: 覆盖掉指令所在元素中的内容</p>
-</li>
-</ul>
-<p>步骤:</p>
-<ul>
-<li>设置transclude属性为true</li>
-<li>告诉angularjs这里面的数据要保留并且显示,在template中书写指令<code>&lt;p ng-transclude&gt;&lt;/p&gt;</code>表示内容书写在这个p标签中</li>
-</ul>
-<p><strong>注意:</strong>在template中,即模板中保存了要保存的数据,但是不是在页面上保存,还是删除了页面中的数据,需要再洗显示才能看到指令中保存的数据.</p>
-<h3 id="replace属性"><a href="#replace属性" class="headerlink" title="replace属性"></a>replace属性</h3></li>
-</ul>
-<p>属性值:</p>
-<ul>
-<li>true:删除指令所在的元素,只要模板,然后将指令放于模板的最外面的元素上,模板中最外面的元素上右兄弟元素的时候报错.link中element元素指向也自动替换.</li>
-<li>false:默认值,不删除指令所在的元素</li>
-</ul>
-<h3 id="指令的写法"><a href="#指令的写法" class="headerlink" title="指令的写法"></a>指令的写法</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">简写</th>
-<th style="text-align:center">代表单词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">属性指令</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">attribute</td>
-</tr>
-<tr>
-<td style="text-align:center">元素指令</td>
-<td style="text-align:center">E</td>
-<td style="text-align:center">element</td>
-</tr>
-<tr>
-<td style="text-align:center">类名指令</td>
-<td style="text-align:center">C</td>
-<td style="text-align:center">class</td>
-</tr>
-<tr>
-<td style="text-align:center">注释指令</td>
-<td style="text-align:center">M</td>
-<td style="text-align:center">comment</td>
-</tr>
-</tbody>
-</table>
-<h3 id="restrict"><a href="#restrict" class="headerlink" title="restrict"></a>restrict</h3><p>作用:修改指令的写法</p>
-<p>默认值:”AE” </p>
-<p><strong>注意:</strong><br>注释指令需要配合replace为true来使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- directive 指令名 --&gt;</div><div class="line"></div><div class="line">书写restrict属性的时候会将原来的值覆盖,需要重新书写新的样式</div></pre></td></tr></table></figure></p>
-<h3 id="ng-repeat的特殊"><a href="#ng-repeat的特殊" class="headerlink" title="ng-repeat的特殊"></a>ng-repeat的特殊</h3><p>ng-repeat在每次循环的时候都会产生一个局部作用域.</p>
-<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p>内置过滤器的使用格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; 数据 | 过滤器名字:参数1:参数2 &#125;&#125;</div></pre></td></tr></table></figure></p>
-<p>主要的内置过滤器以及作用:</p>
-<p><strong>currency</strong>货币过滤器 , 默认是英文货币符号,后面传入什么参数就是什么货币符号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; money | currency:&quot;$&quot;&#125;&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>date</strong> 日期过滤器, 表示样式是 2017-12-11 16:40:32 杠和点可以用别的替换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; time | date:&quot;yyyy-MM-dd H:m:s&quot;&#125;&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>filter</strong> 条件过滤器,根据过滤条件过滤出符合条件的数据,回去每条数据中,每一个字段中取查找有没有包含过滤的条件的数据,若果有,留下,这是<strong>模糊匹配</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng-repeat=&quot;item in persons | filter : &apos;age&apos;&quot; 根据年级匹配</div></pre></td></tr></table></figure></p>
-<p><strong>精确匹配</strong>:回去数据中指定字段中去查找有没有包含制定查找的字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ng-repeat=&quot;item in persons | filter : &#123;name:&apos;孙&apos;&#125;&quot;  制定属性字段</div></pre></td></tr></table></figure></p>
-<p><strong>limitTo</strong>限制</p>
-<ul>
-<li>参数1:限制数量,负数的时候是从后面到前面开始限制,其实是显示元素的个数</li>
-<li>参数2:从第一个开始显示    也就是说主要的含义是从第几个开始显示,显示几个,也可以在数组中截取</li>
-</ul>
-<p><strong>orderBy</strong> 排序,可以根据某个字段开始排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">item in persons | orderBy:&apos;age&apos;</div><div class="line">默认是升序,在前面加负号的时候是降序</div></pre></td></tr></table></figure></p>
-<p><strong>json</strong> 调试使用,可以将数据已良好的格式展现在页面上,但是要配合<code>&lt;pre&gt;&lt;/pre&gt;</code>标签一起使用,pre标签是按照原样输出,也就是空格和换行都会输出</p>
-<p><strong>其他:</strong><br>lowercase和uppercase是转小写和转大写<br>number 每三位用逗号隔开,传入参数是小数掉保留的位数.</p>
-<h3 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h3><p>格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">angular.module(&quot;myapp&quot;,[])</div><div class="line">        .filter(&quot;过滤器名字&quot;,[function()&#123;</div><div class="line">            return function(数据,参数1,参数2)&#123;</div><div class="line">                处理数据的过程</div><div class="line">                return 返回处理之后的数据,返回什么页面中显示什么</div><div class="line">            &#125;</div><div class="line">        &#125;]);</div></pre></td></tr></table></figure></p>
-<h3 id="angularjs中的自定义服务"><a href="#angularjs中的自定义服务" class="headerlink" title="angularjs中的自定义服务"></a>angularjs中的自定义服务</h3><p>作用:在多个控制器中传输数据.</p>
-<p>语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(&quot;myapp&quot;,[])</div><div class="line">        .service(&quot;服务名&quot;,[function()&#123;</div><div class="line">        使用this来添加属性和方法,也就是说明在这里这个函数被当做构造函授来使用,我们只要拿到new出来的对象就可以了</div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
-<p>在这里new出来的对象,只需要将服务的名字添加在构造器函数的形参中,这个就是我们new出来的实例了,controller中的参数中的形参都是服务,有内置的和自定义的,术语称之为依赖注入.</p>
-<p>在一个controller中修改自定义属性中的内容的时候其他使用了这个服务中的数据也发生了变化,主要是修改的是同一个对象,这是angularjs在内部进行了处理,称之为单利模式</p>
-<h3 id="MVC思想"><a href="#MVC思想" class="headerlink" title="MVC思想"></a>MVC思想</h3><ul>
-<li><p>M:model 模型,只有模型才有操作数据的权限,与数据相关的属性和方法</p>
-</li>
-<li><p>V:view 视口 html界面</p>
-</li>
-<li><p>C:controller 控制器 主要用来书写业务逻辑和调度的</p>
-</li>
-</ul>
-<p><strong>核心思想:</strong> 根据代码的功能来来对代码进行分类,好处是易于维护.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/26/angularday3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -2075,11 +1966,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">

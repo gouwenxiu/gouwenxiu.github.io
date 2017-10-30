@@ -155,6 +155,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-我们自己的未来" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/我们自己的未来/">我们自己的未来</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/30/我们自己的未来/" class="archive-article-date">
+  	<time datetime="2017-10-30T06:29:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>清晨,沐浴在阳光下,享受寒冷的烈风吹拂面颊.再次不经感叹生命的可贵,我一直在追求一种不止所谓的成功.不懂得生命贵在当下.不懂得生来”享受”,这种享受不是简简单单的享受幸福,还在于享受痛苦,享受一切我所遇到的,想到的内容.在享受快乐的时候享受快乐,在承受痛苦的时候也能够承受痛苦,并且能享受痛苦,这是必然的.没有人是一直都是快乐的.也没有人一直都吃痛苦的.这是一种相互存在的.有的时候快乐和痛苦是彼此相互存在的.一件事对你而言是痛苦的所在,但是对于他人而言却是快乐之源.对于你而言是快乐之源的,对于他人而言未必是快乐之事.我们需要包容.需要勤奋的看待这些事情.有意义的事情是时刻知道自己干的事情是什么事情.不关乎他的结果,只是我们当时是否快乐,是否享受,这就足够了.</p>
+<p>致亲爱的自己.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/30/我们自己的未来/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-APICloud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -3445,95 +3520,6 @@
 
 
   
-    <article id="post-es6-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/19/es6-3/">ES6(三)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/19/es6-3/" class="archive-article-date">
-  	<time datetime="2017-05-19T11:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>es6中的 promise函数的学习…</p>
-<p>使用场景:控制函数执行的顺序,一般是多次ajax的请求的时候<br>使用</p>
-<p>组成:承诺,承诺成功,承诺失败,后续,成功后续,失败后续,代码成功,resolve,then,代码失败,reject,catch,也可以通过函数传递参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMsg</span>(<span class="params">url</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> p=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> xhr=<span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        xhr.open(<span class="string">"get"</span>,url);</div><div class="line">        xhr.send(<span class="literal">null</span>);</div><div class="line">          xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">              <span class="keyword">if</span>(readystate!=<span class="number">4</span>) <span class="keyword">return</span>;</div><div class="line">              <span class="keyword">if</span>(readystatus==<span class="number">200</span>)&#123;</div><div class="line">                  <span class="built_in">console</span>.log(xhr.responseText);</div><div class="line">                  <span class="comment">//成功的时候</span></div><div class="line">                  resolve(<span class="string">"ok"</span>)</div><div class="line">              &#125;</div><div class="line">              <span class="comment">//失败的时候</span></div><div class="line">              reject(<span class="string">"error"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> p;<span class="comment">//返回这个promise对象,用于链式编程</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line">getMsg(<span class="string">"./1.json"</span>)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;<span class="comment">//成功的调用</span></div><div class="line">    <span class="keyword">return</span> getMsg(<span class="string">"./2.json"</span>);<span class="comment">//返回promise对象</span></div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> getMsg(<span class="string">"./3.json"</span>);<span class="comment">//返回对象</span></div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err)</div><div class="line">&#125;);<span class="comment">//失败的时候调用</span></div></pre></td></tr></table></figure></p>
-<p> <strong>promise面试题</strong></p>
-<ul>
-<li>在promise中有三种状态,状态已经个诶变无法回退,无法暂停</li>
-<li>resolved(fullfilled)以满足,已解决,该状态咋调用resolve函数的时候改变</li>
-<li>rejected以拒绝,该状态在调用reject函数的时候改变</li>
-<li><p>在没有调用resolve或者reject的时候的状态,叫做pending代发状态</p>
-<p>作用:</p>
-<ul>
-<li>保障顺序执行:需要多次用then,并且每次在then的回调函数中return一个promise对象</li>
-<li>不保障顺序,保证全体都成功,<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Promise</span>.all([<span class="built_in">Promise</span>对象<span class="number">1</span>,<span class="built_in">Promise</span>对象<span class="number">2</span>])</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ECMAScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/19/es6-3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -3659,11 +3645,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
