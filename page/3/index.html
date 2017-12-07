@@ -155,6 +155,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-angular-day4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/angular-day4/">angular学习之旅第四天</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/28/angular-day4/" class="archive-article-date">
+  	<time datetime="2017-03-28T02:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们在第一天的时候学习了angularjs官方自带的ngrouter路由,但是这款路由的功能不是很强悍,今天我们来学习一下功能交ngRouter而言强悍百倍的ui-router.</p>
+<p>首先是ui-router的在网上的网址是(<a href="https://github.com/angular-ui/ui-router).我们可以在这里看到它的源码" target="_blank" rel="external">https://github.com/angular-ui/ui-router).我们可以在这里看到它的源码</a>.</p>
+<h3 id="ui-router的基本用法"><a href="#ui-router的基本用法" class="headerlink" title="ui-router的基本用法"></a>ui-router的基本用法</h3><p>ui-router的基本使用方法和ng-router有很大的相同点.我们在学习的过程中要注意这些相同的点,并且区分不同的地方,下面来一一讲解:</p>
+<p>使用步骤:</p>
+<ul>
+<li>引入angularjs文件</li>
+<li>引入ui-router文件</li>
+<li>创建模块,用ui-router作为依赖注入</li>
+<li>创建路由<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"./angularjs.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"./angular/ui-router.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module(<span class="string">"myapp"</span>,[<span class="string">"ui.router"</span>])</div><div class="line">            .config([<span class="string">"<span class="variable">$stateProvider</span>"</span>,<span class="keyword">function</span>(<span class="variable">$stateProvider</span>)&#123;</div><div class="line">                <span class="variable">$stateProvider</span></div><div class="line">                .state(&#123;</div><div class="line">                    url:<span class="string">'/index'</span>,</div><div class="line">                    name:<span class="string">'index'</span>,</div><div class="line">                    template:<span class="string">'&lt;div&gt;首页&lt;/div&gt;'</span></div><div class="line">                &#125;)</div><div class="line">            &#125;])</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解析:</p>
+<ul>
+<li>创建模块,用ui.router作为依赖注入</li>
+<li>在模块对象下,用config方法来的调用来创建路由,参数是一个数组,前面的参数是后面自调用函数的形参,这样写是防止压缩的时候参数名被压缩而导致赋值找不到名字,angularjs是根据形参名来赋值的.</li>
+<li>在这个自调用函数中有一个参数$stateProvider对象,用对象中的属性和方法来配置路由的具体参数.</li>
+<li>$stateProvider对象下面有一个方法state来配置路由的的具体参数<ul>
+<li>url:路由的锚点</li>
+<li>name:路由的名字</li>
+<li>template:路由的模板 也可以是templateUrl:模板id</li>
+</ul>
+</li>
+<li>在html中不在是用a标签的href来跳转了,而是用ui-sref命令来跳转,后面是可以是<strong>#!/锚点</strong> ,也可以是路由的名字,一般是路由的名字,原理是会根据路由的名字来自动生成锚点的路径也就是<strong>#!/锚点</strong>,这样在维护上面比较方便.</li>
+</ul>
+<h3 id="ui-router与ngRouter不同的地方"><a href="#ui-router与ngRouter不同的地方" class="headerlink" title="ui-router与ngRouter不同的地方"></a>ui-router与ngRouter不同的地方</h3><h5 id="多view方法"><a href="#多view方法" class="headerlink" title="多view方法"></a>多view方法</h5><p>在ui.router中支持多view的方法,我们知道在ngRouter中这个功能是不支持的.</p>
+<p>方法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">html:</div><div class="line"></div><div class="line">&lt;div ui-view=<span class="string">"view-a"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div ui-view=<span class="string">"view-b"</span>&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">js:</div><div class="line"></div><div class="line">angular.module(<span class="string">"myApp"</span>,[<span class="string">"ui.router"</span>])</div><div class="line">        .config([<span class="string">"<span class="variable">$stateProvider</span>"</span>,<span class="keyword">function</span>(<span class="variable">$stateProvider</span>)&#123;</div><div class="line">            <span class="variable">$stateProvider</span></div><div class="line">            .state(&#123;</div><div class="line">                name:<span class="string">"index"</span>,</div><div class="line">                url:<span class="string">"/index"</span>,</div><div class="line">                views:&#123;</div><div class="line">                    <span class="string">"view-a"</span>:&#123;</div><div class="line">                        template:<span class="string">'&lt;div&gt;1&lt;/div'</span></div><div class="line">                    &#125;,</div><div class="line">                    <span class="string">"view-b"</span>:&#123;</div><div class="line">                        template:<span class="string">'&lt;div&gt;2&lt;/div&gt;'</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;])</div></pre></td></tr></table></figure></p>
+<p>代码具体解析:</p>
+<ul>
+<li>给要填入具体的模板的html元素中设置ui-view值,这个值就是视口的名字.</li>
+<li>在state函数中,参数的对象中添加配置项views,值是一个对象,对象中内容的格式是:视口名:对象,对象中是模板的样式template字符串或者是templateUrl模板的路径或者id,也就是当前view的具体配置,还可以有controller等.</li>
+<li>没有配置具体的视口名的时候都会找没有视口名的元素中展现内容.</li>
+</ul>
+<p>这样就实现了在不同的视口中显示不同的内容.</p>
+<h5 id="ui-router路由的嵌套"><a href="#ui-router路由的嵌套" class="headerlink" title="ui-router路由的嵌套"></a>ui-router路由的嵌套</h5><p>在ui-router中还支持路由的嵌套,也就是在一个路由中还可以有子路由,这样可以无限的嵌套下去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    angular.module(<span class="string">'myApp'</span>,[<span class="string">'ui.router'</span>])</div><div class="line">        .config([<span class="string">'$stateProvider'</span>,<span class="keyword">function</span>(<span class="variable">$stateProvider</span>)&#123;</div><div class="line"></div><div class="line">            <span class="variable">$stateProvider</span></div><div class="line">                .state(&#123;</div><div class="line">                    url:<span class="string">'/tab'</span>,</div><div class="line">                    name:<span class="string">'tab'</span>,</div><div class="line">                     // 此参数代表当前路由需要和其他路由配合使用</div><div class="line">                     // 不能单独使用</div><div class="line">                     // 当前模板会被插入到html入口文件中的ui-view指令所在标签</div><div class="line">                    abstract:<span class="literal">true</span>,</div><div class="line">                    template:<span class="string">'&lt;a ui-sref="tab.index"&gt;首页&lt;/a&gt;\</span></div><div class="line"><span class="string">                              &lt;a ui-sref="tab.list"&gt;列表页&lt;/a&gt;\</span></div><div class="line"><span class="string">                              &lt;a ui-sref="article"&gt;文章页&lt;/a&gt;\</span></div><div class="line"><span class="string">                              &lt;div ui-view&gt;&lt;/div&gt;'</span> // tab模板中的ui-view 和当前路由配合使用的路由模板被插入到这里</div><div class="line">                &#125;)</div><div class="line">                .state(&#123;</div><div class="line">                    url:<span class="string">'/index'</span>,</div><div class="line">                     // tab.index表示当前路由需要和tab路由配合使用</div><div class="line">                     // 当前路由的模板被插入到tab模板中的ui-view指令所在标签</div><div class="line">                    name:<span class="string">'tab.index'</span>,</div><div class="line">                    template:<span class="string">'&lt;div&gt;首页&lt;/div&gt;'</span></div><div class="line">                &#125;)</div><div class="line">                .state(&#123;</div><div class="line">                    url:<span class="string">'/list'</span>,</div><div class="line">                    // tab.list表示当前路由需要和tab路由配合使用</div><div class="line">                    // 当前路由的模板被插入到tab模板中的ui-view指令所在标签</div><div class="line">                    name:<span class="string">'tab.list'</span>,</div><div class="line">                    template:<span class="string">'&lt;div&gt;列表页&lt;/div&gt;'</span></div><div class="line">                &#125;)</div><div class="line">                .state(&#123;</div><div class="line">                    url:<span class="string">'/article'</span>,</div><div class="line">                    // 当前路由可以独立使用</div><div class="line">                    // 模板被插入到html入口文件中的ui-view指令所在标签</div><div class="line">                    name:<span class="string">'article'</span>,</div><div class="line">                    template:<span class="string">'&lt;div&gt;列表页&lt;/div&gt;'</span></div><div class="line">                &#125;)</div><div class="line"></div><div class="line">        &#125;])</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>代码解析:</p>
+<ul>
+<li>要用那个路由的内容的时候直接在用路由名.路由名,例子中list要用tab,直接就用tab.list即可</li>
+<li>模板中的ui-sref中的name名也需要修改.不然生成的路径是不正确的.</li>
+</ul>
+<h5 id="ui-router中默认的跳转路径的设置"><a href="#ui-router中默认的跳转路径的设置" class="headerlink" title="$ui-router中默认的跳转路径的设置"></a>$ui-router中默认的跳转路径的设置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[<span class="string">'ui.router'</span>])</div><div class="line"></div><div class="line">            .config([<span class="string">'$stateProvider'</span>,<span class="string">'$urlRouterProvider'</span>,<span class="keyword">function</span>(<span class="variable">$stateProvider</span>,<span class="variable">$urlRouterProvider</span>)&#123;</div><div class="line"></div><div class="line">                <span class="variable">$stateProvider</span></div><div class="line">                    .state(&#123;</div><div class="line">                        name:<span class="string">'index'</span>,</div><div class="line">                        url:<span class="string">'/index'</span>,</div><div class="line">                        template:<span class="string">'&lt;div&gt;首页&lt;/div&gt;'</span></div><div class="line">                    &#125;)</div><div class="line">                    .state(&#123;</div><div class="line">                        name:<span class="string">'list'</span>,</div><div class="line">                        url:<span class="string">'/list'</span>,</div><div class="line">                        template:<span class="string">'&lt;div&gt;列表页&lt;/div&gt;'</span></div><div class="line">                    &#125;)</div><div class="line"></div><div class="line">                // 当以上路由都不能匹配的时候 跳转到index页面</div><div class="line">                <span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">'index'</span>);</div><div class="line"></div><div class="line">            &#125;])</div></pre></td></tr></table></figure>
+<p>在锚点路径都不匹配的时候使用$urlRouterProvider属性的otherwise方法,参数是默认页面的name名字.别忘了在config中配置参数.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">angular tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/28/angular-day4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-angularday3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1294,114 +1408,9 @@
 
 
   
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/10/my-first-blog/">javascript基础知识之简单数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/10/my-first-blog/" class="archive-article-date">
-  	<time datetime="2016-07-10T13:13:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在javascript中数据类型主要分为简单数据类型和复杂数据类型.简单数据类型主要有number,string,boolean,null,undefined.复杂数据类型主要是object,除此之外还有几本包装类型和数组.</p>
-<p>今天我们先来聊聊简单数据类型和简单数据类型之间的相互转换.</p>
-<h2 id="数据的检测方式-typeof"><a href="#数据的检测方式-typeof" class="headerlink" title="数据的检测方式  typeof"></a>数据的检测方式  typeof</h2><p>有时候我们需要知道我们的使用的数据是什么类型,这种时候就需要来检测数据的类型,基本类型主要使用typeof来检测.但是对于null的检测不准确,我们在之后的复杂数据类型中会讨论null的检测方式,在这里我们只讨论typeof能够检测的数据类型.</p>
-<h4 id="检测语法"><a href="#检测语法" class="headerlink" title="检测语法"></a>检测语法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">typeof 数据</div><div class="line">typeof (数据)</div></pre></td></tr></table></figure>
-<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>返回值是字符串<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">typeof <span class="string">"1"</span>      //<span class="string">"string"</span></div><div class="line">typeof (<span class="string">"1"</span>)    //<span class="string">"string"</span></div><div class="line">typeof  1       //<span class="string">"number"</span></div><div class="line">typeof <span class="literal">true</span>     //<span class="string">"boolean"</span></div></pre></td></tr></table></figure></p>
-<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p> 字符串必须用成对的单双引号包裹,解析过程中是从左向右依次解析,匹配第一个离它最近的单双引号.</p>
-<h4 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h4><h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><p>数据.toString()和String(数据)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var  num = 123;</div><div class="line">num.toString();     //<span class="string">"123"</span></div><div class="line">String(num);        //<span class="string">"123"</span></div></pre></td></tr></table></figure></p>
-<p>注意:string(数据)方法可以转换任何类型的数据为字符串,但是数据.toString()方法不能转换null和undefined,会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = undefined;</div><div class="line">a.toString();   //Cannot read property toString of undefined</div><div class="line">String(a);      //&quot;undefined&quot;</div></pre></td></tr></table></figure></p>
-<h4 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h4><p>用任意数据类型加任意字符串变为一个新的字符串,通常为了不改变原来的字符串而添加空字符串<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var num = 123;</div><div class="line">num = num+<span class="string">""</span>;</div><div class="line">console.log(typeof num);  //<span class="string">"string"</span></div></pre></td></tr></table></figure></p>
-<h2 id="number"><a href="#number" class="headerlink" title="number"></a>number</h2><p> number是数值类型,主要分为整数和浮点数,浮点数又称之为小数和NaN(not a number )</p>
-<h4 id="强制转换-1"><a href="#强制转换-1" class="headerlink" title="强制转换"></a>强制转换</h4><h5 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h5><ol>
-<li>Number(数据):只要有字母表示转换失败,返回NaN;</li>
-<li>parseInt(数据):从左到右取出数字并且是整数,直到遇见不是数字为止,也就是数值在前面,取出数值,第一个不是数值,则返回NaN</li>
-<li>parseFloat(数据):和parseInt一样,但是可以取出小数<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var num = <span class="string">"123.56ad"</span>;</div><div class="line">Number(num);    //NaN</div><div class="line">parseInt(num);  //123</div><div class="line">parseFloat(num);//123.56</div><div class="line">var num2 = <span class="string">"a12"</span>;</div><div class="line">parseInt(num2);  //NaN</div><div class="line">parseFloat(num2);//NaN</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意:特殊转换<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Number()</div><div class="line">    Number(<span class="literal">true</span>); //1</div><div class="line">    Number(<span class="literal">false</span>);//0</div><div class="line">    Number(undefined);//NaN</div><div class="line">    Number(null);//0</div><div class="line">parseInt()和parseFloat()</div><div class="line">    parseInt(<span class="literal">true</span>);//NaN</div><div class="line">    parseInt(<span class="literal">false</span>);//NaN</div><div class="line">    parseInt(undefined);//NaN</div><div class="line">    parseInt(null);//NaN</div></pre></td></tr></table></figure></p>
-<h4 id="隐式转换-1"><a href="#隐式转换-1" class="headerlink" title="隐式转换"></a>隐式转换</h4><p>使用+,-,*,%,/可以将只是数值的字符串转换为数值类型.不能含有字母,否则会返回NaN.<br>+号操作符又叫一元正号操作符;<br>使用加号操作符的时候前面不能添加其他的操作数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = <span class="string">"4"</span>;</div><div class="line">console.log(+str);//4</div><div class="line">console.log(str-0);//4</div></pre></td></tr></table></figure></p>
-<h2 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h2><p>boolean 布尔类型,只有两个值,true和false</p>
-<h4 id="强制转换-2"><a href="#强制转换-2" class="headerlink" title="强制转换"></a>强制转换</h4><h5 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h5><p>Boolean(数值)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = <span class="string">"abc"</span></div><div class="line">Boolean(str);//<span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<h4 id="隐式转换-2"><a href="#隐式转换-2" class="headerlink" title="隐式转换"></a>隐式转换</h4><p>!!数据  代表两次取反<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = <span class="string">"abc"</span>;</div><div class="line">console.log(!!str)  //<span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<p>注意:<br>除false,null,NaN,0,””,undefined转换为false外,其他的都转换为false.</p>
-<h2 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h2><p> undefined是变量声明了但是没有赋值的时候回undefined,也就是变量的值默认是undefined.<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a;</div><div class="line">console.log(a); //undefined</div></pre></td></tr></table></figure></p>
-<h4 id="undefined出现的几种场景"><a href="#undefined出现的几种场景" class="headerlink" title="undefined出现的几种场景"></a>undefined出现的几种场景</h4><ol>
-<li>变量声明未赋值;</li>
-<li>语句没有返回值的时候返回的是undefined;</li>
-<li>访问数组中不存在的元素;</li>
-<li>访问对象中没有的属性;</li>
-<li>函数中没有复制的形式参数.<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> 变量:</div><div class="line">    var a; </div><div class="line">    console.log(a);          //undefined</div><div class="line">语句: </div><div class="line">    var a;                    //语句没有返回值 </div><div class="line">数组:</div><div class="line">    var arr = [1,2,3];</div><div class="line">    arr[3];</div><div class="line">对象:                   //undefined</div><div class="line">    var person = &#123;</div><div class="line">    name:<span class="string">"wenxiu"</span>,</div><div class="line">    age:27,</div><div class="line">    gender:<span class="string">"woman"</span></div><div class="line">    &#125;</div><div class="line">    person.tel;               //undefined</div><div class="line">函数:</div><div class="line">    <span class="keyword">function</span> fn(a,b)&#123;</div><div class="line">        console.log(a);        //1</div><div class="line">        console.log(b);       //undefined</div><div class="line">    &#125;</div><div class="line">    fn(1);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="null"><a href="#null" class="headerlink" title="null"></a>null</h2><p> 空类型,使用typeof来检测是不准确的,检测结果是”object”.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">javascript基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/10/my-first-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1520,6 +1529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -1528,11 +1541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
               </li>
              
               <li class="article-tag-list-item">
