@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入文件</span></div><div class="line">&lt;script src=<span class="string">"vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line"><span class="comment">//创建Vue的实例对象,并对对象进行配置</span></div><div class="line"> <span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">"模板样式"</span>,</div><div class="line">     data:&#123;</div><div class="line"> <span class="comment">//暴露数据</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
+        <p>vue的使用:引入文件,创建一个vue对象的实例,对vue创建出来的对象的实例进行配置.在一个项目中只有这一个,其他的就是对这个组件进行配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入文件</span></div><div class="line">&lt;script src=<span class="string">"vue.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line"><span class="comment">//创建Vue的实例对象,并对对象进行配置</span></div><div class="line"> <span class="keyword">new</span> Vue(&#123;</div><div class="line">     template:<span class="string">"模板样式"</span>,</div><div class="line">     data:&#123;</div><div class="line"> <span class="comment">//暴露数据</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
 <h3 id="vue-js主要作用"><a href="#vue-js主要作用" class="headerlink" title="vue.js主要作用"></a>vue.js主要作用</h3><p>响应式编程,声明式渲染,组件化开发,虚拟DOM,跨平台支持… 更适合小型团队或者个人上手</p>
 <p>声明式渲染—&gt;组件系统—&gt;客户端路由—&gt;大规模状态管理—&gt;构建工具</p>
 <p>vuejs以js为入口,html只是提供一个渲染的锚点,有利于vuejs迁移到浏览器之外的其他平台,比如移动设备或者服务器.</p>
@@ -185,7 +185,7 @@
 <li>渲染vue实例</li>
 </ol>
 <h4 id="引入vue库"><a href="#引入vue库" class="headerlink" title="引入vue库:"></a>引入vue库:</h4><p>目的: 暴露出一个全局类—Vue,可以用它来创建一个Vue的实例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"vue.js"</span>&gt;&lt;script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"vue.js"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></div></pre></td></tr></table></figure>
 <p>创建Vue实例: Vue是一个封装了响应式开发.模板编译等诸多特性的基础类,可以通过提供一些配置来创建一个实例:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;各种配置&#125;)</div></pre></td></tr></table></figure>
 <p>常见的配置项:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">template 以类似html的语法来编制视图的结构</div><div class="line"></div><div class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</div><div class="line"></div><div class="line">template:<span class="string">"&lt;h1&gt;Hello,Vue.js&lt;/h1&gt;"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
@@ -531,15 +531,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tools study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +539,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">

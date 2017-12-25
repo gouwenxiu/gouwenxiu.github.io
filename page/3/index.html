@@ -155,6 +155,301 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-H5formElements" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/H5formElements/">HTML5和CSS3(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/10/H5formElements/" class="archive-article-date">
+  	<time datetime="2017-04-10T15:30:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天开始我们来学习一下H5和CSS3中的属性和方法.都是干货,不啰嗦(^o^)/~</p>
+<h3 id="H5中的语义标签"><a href="#H5中的语义标签" class="headerlink" title="H5中的语义标签"></a>H5中的语义标签</h3><p><strong>语义标签:</strong>让普通的标签具有一定的与语义性</p>
+<p><strong>作用:</strong></p>
+<ul>
+<li>网页结构更合理</li>
+<li>搜索引擎捕捉到页面信息</li>
+</ul>
+<p><strong>H5中新出现的语义标签:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nav ,header, footer,asider,section,article</div></pre></td></tr></table></figure></p>
+<p><strong>新标签的兼容性:</strong></p>
+<p>在低版本的浏览器中不支持H5标签,需要将h5标签作为自定义标签使用才能兼容,主要有一下两种解决方法:</p>
+<ul>
+<li><p>第一种解决方式:</p>
+<p>通过js创建元素的方式可以将h5标签作为自定义标签让ie低版本认识,这样创建的自定义标签是行内标签.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.createElement(<span class="string">"H5标签"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二种解决方式:通过H5插件可以将解决标签兼容性的问题</p>
+</li>
+</ul>
+<p>html5shiv.js插件,元素是块级元素,在插件中对元素的样式进行了设置</p>
+<p>cc:ie6 该命令只有ie浏览器才认识,也就是在这个区域中的代码只有ie浏览器才下载这个插件,避免所有的浏览器都下载.</p>
+<h3 id="H5中的表单元素"><a href="#H5中的表单元素" class="headerlink" title="H5中的表单元素"></a>H5中的表单元素</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">名</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">网站地址</td>
+</tr>
+<tr>
+<td style="text-align:center">color</td>
+<td style="text-align:center">拾色器</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期</td>
+</tr>
+<tr>
+<td style="text-align:center">datetime</td>
+<td style="text-align:center">时间日期</td>
+</tr>
+<tr>
+<td style="text-align:center">month</td>
+<td style="text-align:center">月</td>
+</tr>
+<tr>
+<td style="text-align:center">week</td>
+<td style="text-align:center">周</td>
+</tr>
+<tr>
+<td style="text-align:center">range</td>
+<td style="text-align:center">滑块</td>
+</tr>
+<tr>
+<td style="text-align:center">number</td>
+<td style="text-align:center">设置数值</td>
+</tr>
+<tr>
+<td style="text-align:center">email</td>
+<td style="text-align:center">设置邮箱</td>
+</tr>
+</tbody>
+</table>
+<p>注意:</p>
+<p>number 设置数值  step表示每次步数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;number&quot;  step=&quot;5&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="H5中新的表单元素"><a href="#H5中新的表单元素" class="headerlink" title="H5中新的表单元素"></a>H5中新的表单元素</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> list=<span class="string">"test"</span> &gt;</div><div class="line">&lt;datalist id=<span class="string">"test"</span>&gt;</div><div class="line">  &lt;option id=<span class="string">"b"</span>&gt;北京&lt;/option&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
+<p><strong>注意:</strong>将datalist中的id值和input中的list属性绑定起来</p>
+<h3 id="H5中表单属性"><a href="#H5中表单属性" class="headerlink" title="H5中表单属性"></a>H5中表单属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性名</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">placeholder</td>
+<td style="text-align:center">提示信息占位符 , 用input::-webkkit-input-placeholder{要设置的样式}</td>
+</tr>
+<tr>
+<td style="text-align:center">autofocus</td>
+<td style="text-align:center">自动获取焦点</td>
+</tr>
+<tr>
+<td style="text-align:center">required</td>
+<td style="text-align:center">设置必填项</td>
+</tr>
+<tr>
+<td style="text-align:center">autocomplete</td>
+<td style="text-align:center">on或off 自动完成</td>
+</tr>
+<tr>
+<td style="text-align:center">pattern</td>
+<td style="text-align:center">设置正则表达式进行验证</td>
+</tr>
+<tr>
+<td style="text-align:center">multiple</td>
+<td style="text-align:center">多选效果      input type=file</td>
+</tr>
+<tr>
+<td style="text-align:center">novalidate</td>
+<td style="text-align:center">设置给form表单,表示关闭验证</td>
+</tr>
+</tbody>
+</table>
+<h3 id="H5中的表单事件"><a href="#H5中的表单事件" class="headerlink" title="H5中的表单事件"></a>H5中的表单事件</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">事件名称</th>
+<th style="text-align:center">含义:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">oninput</td>
+<td style="text-align:center">用户输入内容的时候触发事件</td>
+</tr>
+<tr>
+<td style="text-align:center">oninvalid</td>
+<td style="text-align:center">输入信息无法通过验证的时候触发事件</td>
+</tr>
+<tr>
+<td style="text-align:center">setCustomValidity(提示的信息)</td>
+<td style="text-align:center">通过该方法设置自定义提示信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="H5中的多媒体"><a href="#H5中的多媒体" class="headerlink" title="H5中的多媒体"></a>H5中的多媒体</h3><h5 id="音频标签"><a href="#音频标签" class="headerlink" title="音频标签"></a>音频标签</h5><p><strong>语法:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;audio&gt;&lt;/audio&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>属性:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">设置文件的路径</td>
+</tr>
+<tr>
+<td style="text-align:center">controls</td>
+<td style="text-align:center">显示控制栏</td>
+</tr>
+<tr>
+<td style="text-align:center">loop</td>
+<td style="text-align:center">设置循环播放</td>
+</tr>
+</tbody>
+</table>
+<p><strong>多种格式的音频设置:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;audio controls&gt;</div><div class="line">  &lt;<span class="built_in">source</span> src=<span class="string">"./see you again.ogg"</span>&gt;</div><div class="line">  &lt;<span class="built_in">source</span> src=<span class="string">"./see you again.mp3"</span></div><div class="line">&lt;/audio&gt;</div></pre></td></tr></table></figure></p>
+<h5 id="H5中的视频标签"><a href="#H5中的视频标签" class="headerlink" title="H5中的视频标签"></a>H5中的视频标签</h5><p><strong>语法:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;video&gt;&lt;/video&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>属性:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">设置文件的路径</td>
+</tr>
+<tr>
+<td style="text-align:center">controls</td>
+<td style="text-align:center">显示控制栏</td>
+</tr>
+<tr>
+<td style="text-align:center">loop</td>
+<td style="text-align:center">设置循环播放</td>
+</tr>
+</tbody>
+</table>
+<p><strong>多种类型的播放模式</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;video controls&gt;</div><div class="line">    &lt;source src=&quot;./ds.mp4&quot;&gt;</div><div class="line">    &lt;source src=&quot;./ds.wmp&quot;&gt;</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="H5中多媒体方法和属性"><a href="#H5中多媒体方法和属性" class="headerlink" title="H5中多媒体方法和属性"></a>H5中多媒体方法和属性</h3><p><strong>方法:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">play()</td>
+<td style="text-align:center">播放</td>
+</tr>
+<tr>
+<td style="text-align:center">pause()</td>
+<td style="text-align:center">暂停</td>
+</tr>
+</tbody>
+</table>
+<p><strong>属性:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">paused</td>
+<td style="text-align:center">返回当前audio或者video的播放状态.true暂停,false播放</td>
+</tr>
+<tr>
+<td style="text-align:center">volume</td>
+<td style="text-align:center">设置当前audio或者video的音量 0-1</td>
+</tr>
+<tr>
+<td style="text-align:center">muted</td>
+<td style="text-align:center">当前是否是静音 true静音 ,false打开</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5 CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/10/H5formElements/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-angular-day4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1335,79 +1630,6 @@
 
 
   
-    <article id="post-my-second-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/11/my-second-blog/">随性而为</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/11/my-second-blog/" class="archive-article-date">
-  	<time datetime="2016-07-11T05:59:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/11/my-second-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1521,15 +1743,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tools study</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1537,7 +1751,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">javascript基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
